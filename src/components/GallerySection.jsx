@@ -40,7 +40,7 @@ export default function GallerySection({
             onImageClick={onImageClick}
             category="Stand d'Exposition"
             title="Stands Institutionnels"
-            description="Salons et foires professionnelles sur tout le territoire national : conception architecturale sur mesure, structures bois, éclairage LED intégré et mobilier dédié."
+            description="Conception architecturale sur mesure pour salons professionnels (DJAZAGRO, FPA, FIA). Structures bois, éclairage LED intégré, mobilier dédié et finitions haut de gamme pour valoriser votre marque auprès des visiteurs."
           />
 
           {/* 2. SUPPORT PUBLICITAIRE */}
@@ -82,7 +82,7 @@ export default function GallerySection({
             onImageClick={onImageClick}
             category="Événements Wilayas"
             title="Salons Régionaux"
-            description="Déploiement et installation de stands à travers les 58 wilayas. Logistique intégrée, montage rapide et respect absolu des délais pour tous vos événements professionnels."
+            description="Déploiement et installation de stands à travers les 69 wilayas. Logistique intégrée, montage rapide et respect absolu des délais pour tous vos événements professionnels."
           />
         </div>
       </div>
