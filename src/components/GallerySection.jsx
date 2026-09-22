@@ -38,7 +38,7 @@ export default function GallerySection({
             setIsPaused={setIsPaused}
             enableAutoPause={true}
             onImageClick={onImageClick}
-            category="Salons SAFEX & VIP"
+            category="Stand d'Exposition"
             title="Stands Institutionnels"
             description="Conception architecturale sur mesure pour salons professionnels (DJAZAGRO, FPA, FIA). Structures bois, éclairage LED intégré, mobilier dédié et finitions haut de gamme pour valoriser votre marque auprès des visiteurs."
           />
