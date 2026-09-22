@@ -32,41 +32,50 @@ export default function App() {
 
   useSmoothScroll();
 
- // Auto-slide : STANDS (93 images)
-useEffect(() => {
-  if (isPaused || !standsImages.length) return;
-  const interval = setInterval(() => {
-    setStandSlide((prev) => (prev + 1) % standsImages.length);
-  }, 5000);
-  return () => clearInterval(interval);
-}, [isPaused, standsImages.length]);
+  // ========== AUTO-SLIDE HERO (6 images, toutes les 4 secondes) ==========
+  useEffect(() => {
+    if (!heroImages.length) return;
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
 
-// Auto-slide : ENSEIGNES (19 images)
-useEffect(() => {
-  if (isPaused || !enseignesImages.length) return;
-  const interval = setInterval(() => {
-    setEnseigneSlide((prev) => (prev + 1) % enseignesImages.length);
-  }, 5000);
-  return () => clearInterval(interval);
-}, [isPaused, enseignesImages.length]);
+  // ========== AUTO-SLIDE STANDS (93 images, toutes les 5 secondes) ==========
+  useEffect(() => {
+    if (isPaused || !standsImages.length) return;
+    const interval = setInterval(() => {
+      setStandSlide((prev) => (prev + 1) % standsImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isPaused, standsImages.length]);
 
-// Auto-slide : SHOWROOMS (28 images)
-useEffect(() => {
-  if (isPaused || !showroomImages.length) return;
-  const interval = setInterval(() => {
-    setShowroomSlide((prev) => (prev + 1) % showroomImages.length);
-  }, 5000);
-  return () => clearInterval(interval);
-}, [isPaused, showroomImages.length]);
+  // ========== AUTO-SLIDE ENSEIGNES (19 images, toutes les 5 secondes) ==========
+  useEffect(() => {
+    if (isPaused || !enseignesImages.length) return;
+    const interval = setInterval(() => {
+      setEnseigneSlide((prev) => (prev + 1) % enseignesImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isPaused, enseignesImages.length]);
 
-// Auto-slide : SALONS RÉGIONAUX (22 images)
-useEffect(() => {
-  if (isPaused || !salonsImages.length) return;
-  const interval = setInterval(() => {
-    setSalonSlide((prev) => (prev + 1) % salonsImages.length);
-  }, 5000);
-  return () => clearInterval(interval);
-}, [isPaused, salonsImages.length]);
+  // ========== AUTO-SLIDE SHOWROOMS (28 images, toutes les 5 secondes) ==========
+  useEffect(() => {
+    if (isPaused || !showroomImages.length) return;
+    const interval = setInterval(() => {
+      setShowroomSlide((prev) => (prev + 1) % showroomImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isPaused, showroomImages.length]);
+
+  // ========== AUTO-SLIDE SALONS RÉGIONAUX (22 images, toutes les 5 secondes) ==========
+  useEffect(() => {
+    if (isPaused || !salonsImages.length) return;
+    const interval = setInterval(() => {
+      setSalonSlide((prev) => (prev + 1) % salonsImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isPaused, salonsImages.length]);
 
   return (
     <div className="bg-slate-50 text-slate-800 font-['Plus_Jakarta_Sans',sans-serif] antialiased selection:bg-[#FF6B00] selection:text-white min-h-screen">
