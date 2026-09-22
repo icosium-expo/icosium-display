@@ -12,7 +12,8 @@ export const foires = [
     dateSort: '2026-09-28',
     duree: '3 jours',
     periodicite: 'Annuel',
-    description: "Salon algérien international de l'Industrie et du Commerce Agroalimentaire."
+    description: "Salon algérien international de l'Industrie et du Commerce Agroalimentaire.",
+    descriptionLongue: "Salon algérien international de l'Industrie et du Commerce Agroalimentaire. Alimentario rassemble les acteurs clés de l'industrie alimentaire, couvrant l'ensemble de la chaîne de production, de la matière première au produit fini."
   },
   {
     nom: 'NAEPEC',
@@ -22,7 +23,19 @@ export const foires = [
     dateSort: '2026-10-05',
     duree: '3 jours',
     periodicite: 'Tous les 2 ans',
-    description: "Salon et conférence sur l'énergie et l'hydrogène en Afrique et en Méditerranée."
+    description: "Salon et conférence sur l'énergie et l'hydrogène en Afrique et en Méditerranée.",
+    descriptionLongue: "Salon et conférence sur l'énergie et l'hydrogène en Afrique et en Méditerranée. Accélérer la transition énergétique et parvenir à un mix énergétique efficace grâce aux partenariats, aux investissements, à l'innovation et à la technologie."
+  },
+  {
+    nom: 'NAPEC - Africa & Mediterranean Energy & Hydrogen Exhibition',
+    lieu: 'Oran Centre de Conventions Mohamed Benahmed',
+    wilaya: 'Oran',
+    date: '05/10/2026',
+    dateSort: '2026-10-05',
+    duree: '3 jours',
+    periodicite: 'Annuel',
+    description: "Salon et conférence sur l'énergie et l'hydrogène en Afrique du Nord.",
+    descriptionLongue: "NAPEC est le plus grand événement international en Afrique qui rassemble les professionnels de l'industrie des hydrocarbures et de l'énergie."
   },
   {
     nom: 'IMLABOP',
@@ -32,7 +45,8 @@ export const foires = [
     dateSort: '2026-10-21',
     duree: '4 jours',
     periodicite: 'Annuel',
-    description: "Salon international du laboratoire, de l'imagerie médicale et du bloc opératoire."
+    description: "Salon international du laboratoire, de l'imagerie médicale et du bloc opératoire.",
+    descriptionLongue: "ImLabOp rassemble les leaders de l'imagerie médicale, du laboratoire et du bloc opératoire, aux côtés des professionnels de santé, décideurs et experts du secteur."
   },
   {
     nom: 'SIOL ALGER',
@@ -42,7 +56,8 @@ export const foires = [
     dateSort: '2026-11-01',
     duree: '',
     periodicite: 'Annuel',
-    description: "Salon international de l'Optique et de la Lunetterie d'Alger."
+    description: "Salon international de l'Optique et de la Lunetterie d'Alger.",
+    descriptionLongue: "SIOL ALGER rassemble les innovateurs, les experts et les passionnés de l'optique pour une célébration de la technologie et de la mode."
   },
   {
     nom: 'ADEX - Algerian Dental Expo',
@@ -52,7 +67,8 @@ export const foires = [
     dateSort: '2026-11-11',
     duree: '4 jours',
     periodicite: 'Annuel',
-    description: "Le rendez-vous des professionnels du secteur dentaire en Algérie."
+    description: "Le rendez-vous des professionnels du secteur dentaire en Algérie.",
+    descriptionLongue: "ADEX - Algerian Dental Expo est le rendez-vous des professionnels du secteur dentaire en Algérie. Venez découvrir les dernières avancées technologiques, échanger avec des experts et assister aux différentes conférences et ateliers dans le domaine dentaire."
   },
   {
     nom: 'BEST5 ALGERIA',
@@ -62,7 +78,19 @@ export const foires = [
     dateSort: '2026-11-16',
     duree: '4 jours',
     periodicite: 'Annuel',
-    description: "Salon international de la construction, des matériaux et des technologies de construction."
+    description: "Salon international de la construction, des matériaux et des technologies de construction.",
+    descriptionLongue: "L'événement est dédié aux secteurs du bâtiment et de la construction, du génie climatique, de la fenêtre-porte, du revêtement de sol-aluminium-verre et de la décoration."
+  },
+  {
+    nom: 'BEST5 ALGERIA ELECTRICITY EXPO',
+    lieu: "Palais des Expositions d'Alger - Safex",
+    wilaya: 'Alger',
+    date: '16/11/2026',
+    dateSort: '2026-11-16',
+    duree: '4 jours',
+    periodicite: 'Annuel',
+    description: "Salon international de l'électricité, de la production d'énergie et de l'informatique.",
+    descriptionLongue: "Les participants sont au contact d'entreprises électriques, de fabricants et de fournisseurs d'équipements de premier plan."
   },
   {
     nom: 'BEST5 MEGA CLIMA ALGERIA',
@@ -72,7 +100,30 @@ export const foires = [
     dateSort: '2026-11-16',
     duree: '4 jours',
     periodicite: 'Annuel',
-    description: "Salon international algérien de la climatisation et du froid (HVAC+R)."
+    description: "Salon international algérien de la climatisation et du froid (HVAC+R).",
+    descriptionLongue: "L'exposition pour HVAC+R fournira des réseaux d'ingénieurs, d'entrepreneurs et de professionnels de l'industrie HVAC+R."
+  },
+  {
+    nom: 'ELECTRICITY EXPO',
+    lieu: "Palais des Expositions d'Alger - Safex",
+    wilaya: 'Alger',
+    date: '16/11/2026',
+    dateSort: '2026-11-16',
+    duree: '4 jours',
+    periodicite: 'Annuel',
+    description: "Salon international de l'électricité et de la production d'énergie.",
+    descriptionLongue: "En présence d'importantes entreprises électriques, fabricants et fournisseurs d'équipements, le salon offre la possibilité de réseauter, de découvrir les nouvelles technologies et techniques, d'échanger des idées, de discuter des tendances de l'industrie."
+  },
+  {
+    nom: 'MEGA CLIMA EXPO - ALGERIA',
+    lieu: "Palais des Expositions d'Alger - Safex",
+    wilaya: 'Alger',
+    date: '16/11/2026',
+    dateSort: '2026-11-16',
+    duree: '4 jours',
+    periodicite: 'Annuel',
+    description: "Salon international de la climatisation et de la réfrigération.",
+    descriptionLongue: "HVAC+R offre des réseaux avec des ingénieurs, des entrepreneurs et des professionnels de l'industrie HVAC+R. Des opportunités pour faire des affaires et découvrir de nouvelles technologies."
   },
   {
     nom: 'ALGERIA WOODTECH',
@@ -82,7 +133,8 @@ export const foires = [
     dateSort: '2026-11-21',
     duree: '4 jours',
     periodicite: 'Annuel',
-    description: "Salon international du bois, du travail du bois, du meuble, des équipements et technologies."
+    description: "Salon international du bois, du travail du bois, du meuble, des équipements et technologies.",
+    descriptionLongue: "Salon international du bois, du travail du bois, du meuble, des équipements et technologies à Alger."
   },
   {
     nom: 'ALGEST',
@@ -92,7 +144,8 @@ export const foires = [
     dateSort: '2026-11-23',
     duree: '4 jours',
     periodicite: 'Annuel',
-    description: "Salon international de la sous-traitance."
+    description: "Salon international de la sous-traitance.",
+    descriptionLongue: "ALGEST offre un point de rencontre exceptionnel entre donneurs d'ordres et sous-traitants et industriels algériens à la recherche de partenaires et fournisseurs pour capter les immenses opportunités du marché."
   },
   {
     nom: 'HOSTEX EXPO',
@@ -102,7 +155,8 @@ export const foires = [
     dateSort: '2026-11-25',
     duree: '4 jours',
     periodicite: 'Annuel',
-    description: "Événement dédié aux professionnels de l'hôtellerie, de la restauration, du bien-être et de la gastronomie."
+    description: "Événement dédié aux professionnels de l'hôtellerie, de la restauration, du bien-être et de la gastronomie.",
+    descriptionLongue: "HOSTEX EXPO est un événement de référence en Algérie, dédié aux professionnels de l'hôtellerie, de la restauration, du bien-être et de la gastronomie. Equipements et services."
   },
   {
     nom: 'SECURA NORTH AFRICA',
@@ -112,7 +166,8 @@ export const foires = [
     dateSort: '2026-12-01',
     duree: '3 jours',
     periodicite: 'Annuel',
-    description: "Le plus grand événement de sûreté et de sécurité en Afrique du Nord."
+    description: "Le plus grand événement de sûreté et de sécurité en Afrique du Nord.",
+    descriptionLongue: "Sécurité industrielle, commerciale et intérieure, sécurité au travail, lutte contre les incendies, cybersécurité et urgence."
   },
   {
     nom: 'SINAA EXPO INDUSTRIES',
@@ -122,7 +177,8 @@ export const foires = [
     dateSort: '2026-12-01',
     duree: '3 jours',
     periodicite: 'Annuel',
-    description: "Le grand rassemblement des fournisseurs d'équipements et services pour l'industrie."
+    description: "Le grand rassemblement des fournisseurs d'équipements et services pour l'industrie.",
+    descriptionLongue: "Le grand rassemblement des fournisseurs d'équipements et services pour l'industrie et la productivité des usines en Algérie."
   },
   {
     nom: 'HEALTHCARE EXPO',
@@ -132,7 +188,8 @@ export const foires = [
     dateSort: '2026-12-03',
     duree: '3 jours',
     periodicite: 'Annuel',
-    description: "Salon international de la Santé, dédié aux professionnels de la santé en Algérie."
+    description: "Salon international de la Santé, dédié aux professionnels de la santé en Algérie.",
+    descriptionLongue: "HealthcareXpo, salon international de la Santé, est dédié aux professionnels de la santé en Algérie. Un programme scientifique de haut niveau, les dernières innovations, l'échange avec des experts, l'opportunité de partenariats stratégiques."
   },
   {
     nom: 'INDUSTRY GRAND EXPO',
@@ -142,7 +199,8 @@ export const foires = [
     dateSort: '2026-12-14',
     duree: '4 jours',
     periodicite: 'Annuel',
-    description: "Le grand salon des fournisseurs de l'Industrie en Algérie."
+    description: "Le grand salon des fournisseurs de l'Industrie en Algérie.",
+    descriptionLongue: "Un espace qui réunit les acteurs de l'industrie pour vous accompagner à créer votre nouvelle usine ou développer vos installations. Machines et équipements, Experts en construction/aménagement..."
   },
   {
     nom: 'COSMETICA NORTH AFRICA',
@@ -152,7 +210,8 @@ export const foires = [
     dateSort: '2027-01-13',
     duree: '4 jours',
     periodicite: 'Annuel',
-    description: "Le plus grand salon professionnel des cosmétiques, de la beauté et des parfums."
+    description: "Le plus grand salon professionnel des cosmétiques, de la beauté et des parfums.",
+    descriptionLongue: "Le plus grand salon professionnel des cosmétiques, de la beauté, des produits capillaires, des parfums et fragrances, des ingrédients, des équipements et machines et des industries de l'emballage en Algérie."
   },
   {
     nom: 'AGRO PACK EXPO',
@@ -162,7 +221,8 @@ export const foires = [
     dateSort: '2027-01-25',
     duree: '4 jours',
     periodicite: 'Tous les 2 ans',
-    description: "Salon international de l'industrie agroalimentaire et de l'emballage en Algérie."
+    description: "Salon international de l'industrie agroalimentaire et de l'emballage en Algérie.",
+    descriptionLongue: "AGRO PACK EXPO est le point de rencontre entre les professionnels et les acteurs de l'industrie agroalimentaire et de l'emballage nationaux et internationaux."
   },
   {
     nom: 'SIPHAL',
@@ -172,7 +232,8 @@ export const foires = [
     dateSort: '2027-01-27',
     duree: '4 jours',
     periodicite: 'Annuel',
-    description: "Salon international de la pharmacie, de la parapharmacie et de l'industrie pharmaceutique."
+    description: "Salon international de la pharmacie, de la parapharmacie et de l'industrie pharmaceutique.",
+    descriptionLongue: "Siphal couvre tous les secteurs de l'excellence pharmaceutique, de l'industrie à l'officine."
   },
   {
     nom: 'ERA',
@@ -182,7 +243,8 @@ export const foires = [
     dateSort: '2027-02-01',
     duree: '3 jours',
     periodicite: 'Annuel',
-    description: "Salon international des énergies renouvelables et du développement durable."
+    description: "Salon international des énergies renouvelables et du développement durable.",
+    descriptionLongue: "Le rendez-vous algérien de la transition énergétique et des énergies du futur."
   },
   {
     nom: 'CTO FORUM ALGERIA',
@@ -192,7 +254,8 @@ export const foires = [
     dateSort: '2027-03-01',
     duree: '',
     periodicite: 'Annuel',
-    description: "Rendez-vous dédié aux Technologies de l'Information et de la Communication."
+    description: "Rendez-vous dédié aux Technologies de l'Information et de la Communication.",
+    descriptionLongue: "Une vitrine des technologies innovantes à disposition des entreprises et des professionnels du secteur dont l'objectif est de privilégier le B2B entre top décideurs et exposants."
   },
   {
     nom: 'HORECA EXPO ALGÉRIE',
@@ -202,7 +265,8 @@ export const foires = [
     dateSort: '2027-03-16',
     duree: '4 jours',
     periodicite: 'Annuel',
-    description: "Salon international des équipements et services pour l'hôtellerie et la restauration."
+    description: "Salon international des équipements et services pour l'hôtellerie et la restauration.",
+    descriptionLongue: "HORECA Expo Algérie est le principal événement algérien dédié aux secteurs de la restauration et de l'hôtellerie."
   },
   {
     nom: 'BATIMEX',
@@ -212,7 +276,8 @@ export const foires = [
     dateSort: '2027-03-24',
     duree: '4 jours',
     periodicite: 'Annuel',
-    description: "Salon algérien du bâtiment et de l'aménagement."
+    description: "Salon algérien du bâtiment et de l'aménagement.",
+    descriptionLongue: "BATIMEX est une porte ouverte sur les dernières avancées et les nouvelles technologies dans le domaine du bâtiment. Un large éventail de conférences."
   },
   {
     nom: 'EQUIP AUTO ALGERIA',
@@ -222,7 +287,8 @@ export const foires = [
     dateSort: '2027-03-29',
     duree: '4 jours',
     periodicite: 'Annuel',
-    description: "Salon professionnel international des pièces, équipements, service et maintenance pour véhicules."
+    description: "Salon professionnel international des pièces, équipements, service et maintenance pour véhicules.",
+    descriptionLongue: "Salon professionnel international des pièces, équipements, service et maintenance pour les véhicules de loisir et utilitaires."
   },
   {
     nom: 'SIEE-POLLUTEC ALGÉRIE',
@@ -232,7 +298,8 @@ export const foires = [
     dateSort: '2027-03-29',
     duree: '4 jours',
     periodicite: 'Annuel',
-    description: "Le rendez-vous pour les professionnels de l'eau et de l'environnement."
+    description: "Le rendez-vous pour les professionnels de l'eau et de l'environnement.",
+    descriptionLongue: "Le rendez-vous incontournable en Algérie pour tous les professionnels de l'eau et de l'environnement. Découvrez une offre diversifiée d'équipements, de technologies et de services."
   },
   {
     nom: 'DIGITAL AFRICAN SUMMIT - ALGERIA',
@@ -242,7 +309,8 @@ export const foires = [
     dateSort: '2027-04-01',
     duree: '',
     periodicite: 'Annuel',
-    description: "Événement dédié à l'innovation numérique en Afrique."
+    description: "Événement dédié à l'innovation numérique en Afrique.",
+    descriptionLongue: "Le Digital African Summit est un événement dédié à l'innovation numérique en Afrique. Rejoignez les innovateurs les plus brillants d'Afrique et explorez l'avenir de la technologie africaine lors de notre sommet."
   },
   {
     nom: 'SIAHA – International Tourism, Travel and Transport Show',
@@ -252,7 +320,8 @@ export const foires = [
     dateSort: '2027-04-01',
     duree: '',
     periodicite: 'Annuel',
-    description: "Salon algérien international du tourisme, voyages & transports."
+    description: "Salon algérien international du tourisme, voyages & transports.",
+    descriptionLongue: "SIAHA Tourisme offre les dernières innovations technologiques, nouvelles destinations émergentes, solutions de gestion et de promotion touristique, services spécialisés."
   },
   {
     nom: 'SIMEM - International Health Exhibition',
@@ -262,7 +331,8 @@ export const foires = [
     dateSort: '2027-04-07',
     duree: '4 jours',
     periodicite: 'Annuel',
-    description: "Salon international du mobilier hospitalier et de l'équipement médical."
+    description: "Salon international du mobilier hospitalier et de l'équipement médical.",
+    descriptionLongue: "Le SIMEM se consacre à la modernisation globale de toutes les structures pour répondre à la demande croissante du secteur de la santé en Algérie."
   },
   {
     nom: 'DJAZAGRO',
@@ -272,7 +342,8 @@ export const foires = [
     dateSort: '2027-04-12',
     duree: '4 jours',
     periodicite: 'Annuel',
-    description: "Salon international de l'industrie agroalimentaire en Algérie."
+    description: "Salon international de l'industrie agroalimentaire en Algérie.",
+    descriptionLongue: "Boulangerie-Pâtisserie, Hôtellerie-Restauration, Ingrédients et arômes, Produits alimentaires et boissons, emballage, hygiène et sécurité, Services..."
   },
   {
     nom: 'METAL STEEL & MINING ALGERIA EXPO',
@@ -282,7 +353,8 @@ export const foires = [
     dateSort: '2027-04-12',
     duree: '3 jours',
     periodicite: 'Annuel',
-    description: "Plateforme d'affaires dédiée au fer, à l'acier, à la métallurgie et aux mines."
+    description: "Plateforme d'affaires dédiée au fer, à l'acier, à la métallurgie et aux mines.",
+    descriptionLongue: "METAL STEEL & MINING ALGERIA EXPO est l'une des principales plateformes d'affaires en Afrique du Nord dédiées aux secteurs du fer, de l'acier, de la métallurgie, de la fonderie, des mines, des carrières et des produits minéraux."
   },
   {
     nom: 'ICT AFRICA SUMMIT',
@@ -292,7 +364,8 @@ export const foires = [
     dateSort: '2027-04-26',
     duree: '3 jours',
     periodicite: 'Annuel',
-    description: "Explorer les grands enjeux stratégiques du numérique et de l'innovation."
+    description: "Explorer les grands enjeux stratégiques du numérique et de l'innovation.",
+    descriptionLongue: "L'ICT Africa Summit vous invite à explorer les grands enjeux stratégiques du numérique et de l'innovation à travers divers forums thématiques. Services publics et collaboration public-privé, Pétrole et gaz, Santé et pharmacie, Transport..."
   },
   {
     nom: 'TEXSTYLE EXPO',
@@ -302,7 +375,8 @@ export const foires = [
     dateSort: '2027-04-26',
     duree: '3 jours',
     periodicite: 'Annuel',
-    description: "Salon international du textile, habillement, cuir & équipements."
+    description: "Salon international du textile, habillement, cuir & équipements.",
+    descriptionLongue: "L'événement incontournable pour créer et renforcer vos relations commerciales et pour investir dans le textile et le cuir en Algérie."
   },
   {
     nom: 'MAGHREB PHARMA EXPO',
@@ -312,7 +386,8 @@ export const foires = [
     dateSort: '2027-04-27',
     duree: '3 jours',
     periodicite: 'Annuel',
-    description: "Salon professionnel international des fournisseurs de l'industrie pharmaceutique."
+    description: "Salon professionnel international des fournisseurs de l'industrie pharmaceutique.",
+    descriptionLongue: "L'événement le plus important de l'industrie pharmaceutique au Maghreb où l'industrie pharmaceutique rencontre ses fournisseurs (ingrédients, packaging, machines, équipements, etc.)."
   },
   {
     nom: 'PLAST ALGER',
@@ -322,7 +397,8 @@ export const foires = [
     dateSort: '2027-04-27',
     duree: '3 jours',
     periodicite: 'Tous les 2 ans',
-    description: "Salon international de l'industrie des plastiques et du caoutchouc."
+    description: "Salon international de l'industrie des plastiques et du caoutchouc.",
+    descriptionLongue: "Salon international de l'industrie des plastiques et du caoutchouc pour l'Algérie et l'Afrique du Nord."
   },
   {
     nom: 'PRINTPACK ALGER',
@@ -332,7 +408,8 @@ export const foires = [
     dateSort: '2027-04-27',
     duree: '3 jours',
     periodicite: 'Tous les 2 ans',
-    description: "Salon international des technologies d'impression et d'emballage."
+    description: "Salon international des technologies d'impression et d'emballage.",
+    descriptionLongue: "Salon international des technologies d'impression et d'emballage, présentant le dynamisme des marchés algériens de l'impression et de l'emballage."
   },
   {
     nom: 'BATIMATEC',
@@ -342,7 +419,8 @@ export const foires = [
     dateSort: '2027-05-01',
     duree: '',
     periodicite: 'Annuel',
-    description: "Salon algérien international du bâtiment, des matériaux de construction et des travaux publics."
+    description: "Salon algérien international du bâtiment, des matériaux de construction et des travaux publics.",
+    descriptionLongue: "Salon algérien international du bâtiment, des matériaux de construction et des travaux publics."
   },
   {
     nom: 'QHSE EXPO',
@@ -352,7 +430,8 @@ export const foires = [
     dateSort: '2027-05-01',
     duree: '',
     periodicite: 'Annuel',
-    description: "Rendez-vous dédié à la Qualité, l'Hygiène, la Sécurité et l'Environnement."
+    description: "Rendez-vous dédié à la Qualité, l'Hygiène, la Sécurité et l'Environnement.",
+    descriptionLongue: "QHSE EXPO est le rendez-vous professionnel majeur en Algérie dédié à la Qualité, l'Hygiène, la Sécurité et l'Environnement. Il réunit les experts, institutions et entreprises engagés dans l'amélioration des standards QHSE."
   },
   {
     nom: 'SIMA-SIPSA ALGÉRIE',
@@ -362,7 +441,8 @@ export const foires = [
     dateSort: '2027-05-31',
     duree: '4 jours',
     periodicite: 'Annuel',
-    description: "Le plus grand salon professionnel d'Afrique dédié à l'agriculture et l'élevage."
+    description: "Le plus grand salon professionnel d'Afrique dédié à l'agriculture et l'élevage.",
+    descriptionLongue: "Le plus grand salon professionnel d'Afrique dédié à l'agriculture, l'élevage et à l'agroéquipement."
   },
   {
     nom: 'ALPHARMA',
@@ -372,7 +452,8 @@ export const foires = [
     dateSort: '2027-06-01',
     duree: '',
     periodicite: 'Annuel',
-    description: "Salon international de la Pharmacie en Algérie."
+    description: "Salon international de la Pharmacie en Algérie.",
+    descriptionLongue: "Alpharma, destiné aux pharmaciens, est un lieu d'échange entre les laboratoires, les distributeurs, les grossistes et les différents acteurs de l'industrie pharmaceutique en Algérie."
   },
   {
     nom: "FIA - Foire Internationale d'Alger",
@@ -382,7 +463,8 @@ export const foires = [
     dateSort: '2027-06-01',
     duree: '',
     periodicite: 'Annuel',
-    description: "Foire internationale d'Alger. Exposition multisectorielle."
+    description: "Foire internationale d'Alger. Exposition multisectorielle.",
+    descriptionLongue: "Foire internationale d'Alger. Exposition multisectorielle, tous les segments de l'industrie sont présents."
   },
   {
     nom: 'DENTEX ALGERIA',
@@ -392,7 +474,8 @@ export const foires = [
     dateSort: '2027-06-09',
     duree: '4 jours',
     periodicite: 'Annuel',
-    description: "Le salon n°1 dédié au secteur dentaire en Algérie."
+    description: "Le salon n°1 dédié au secteur dentaire en Algérie.",
+    descriptionLongue: "Plus de 35 conférenciers couvrant de multiples sujets tels que : l'Implantologie orale, l'Orthopédie dento-faciale, la Prosthodontie, Le sourire : Esthétique dentaire et bien plus encore."
   },
   {
     nom: 'INNOV BUILD EXPO',
@@ -402,7 +485,8 @@ export const foires = [
     dateSort: '2027-10-01',
     duree: '',
     periodicite: 'Tous les 2 ans',
-    description: "Dernières tendances et innovations dans l'architecture et la construction."
+    description: "Dernières tendances et innovations dans l'architecture et la construction.",
+    descriptionLongue: "Innov Build Expo Algeria offre les dernières tendances et innovations dans le secteur de l'architecture et de la construction. Pratiques durables, percées technologiques, matériaux de construction futuristes, techniques de construction inédites..."
   },
   {
     nom: 'INTERNATIONAL EXHIBITION OF MINES AND QUARRIES',
@@ -412,7 +496,19 @@ export const foires = [
     dateSort: '2027-10-01',
     duree: '',
     periodicite: 'Tous les 2 ans',
-    description: "Événement professionnel pour les entreprises et institutions minières."
+    description: "Événement professionnel pour les entreprises et institutions minières.",
+    descriptionLongue: "Cet événement professionnel est destiné à toutes les entreprises et institutions minières. Il représente le point de rencontre des décideurs, industriels et prestataires du secteur minier."
+  },
+  {
+    nom: 'MICA',
+    lieu: 'Hotel Sheraton - Club des Pins',
+    wilaya: 'Alger',
+    date: 'Oct. 2027',
+    dateSort: '2027-10-01',
+    duree: '',
+    periodicite: 'Tous les 2 ans',
+    description: "Conférence et Exposition internationales sur les Mines et Carrières.",
+    descriptionLongue: "MICA rassemble les institutions, les experts, les entreprises et les acteurs clés du secteur pour échanger sur les défis, innovations et opportunités dans l'industrie des mines/carrière."
   },
   {
     nom: 'SIAG',
@@ -422,7 +518,8 @@ export const foires = [
     dateSort: '2028-05-01',
     duree: '',
     periodicite: 'Tous les 2 ans',
-    description: "Salon international de l'industrie agro-alimentaire."
+    description: "Salon international de l'industrie agro-alimentaire.",
+    descriptionLongue: "Le salon SIAG réunit producteurs, industriels et autres parties prenantes du secteur, afin de présenter des solutions innovantes pour la croissance de l'industrie agroalimentaire en Algérie."
   }
 ];
 
@@ -431,10 +528,8 @@ export const foires = [
 // Fonction : calcule la date de fin d'une foire (date de début + durée)
 const calculerDateFin = (dateSort, duree) => {
   const dateDebut = new Date(dateSort);
-  // Extraire le nombre de jours (ex: "4 jours" → 4)
   const match = duree.match(/(\d+)/);
   const nbJours = match ? parseInt(match[1]) : 1;
-  // Date de fin = date de début + nbJours
   const dateFin = new Date(dateDebut);
   dateFin.setDate(dateFin.getDate() + nbJours);
   return dateFin;

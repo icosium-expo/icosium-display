@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { foiresFutures, foiresPassees, wilayasStats, formatCompteARebours } from '../data/foires';
+import FoireDetail from './FoireDetail';
 
 // ========== ICÔNES SVG PROFESSIONNELLES ==========
 const IconCalendar = () => (
@@ -56,10 +57,17 @@ const IconClose = () => (
 export default function FoiresModal({ onClose }) {
   const [filtreWilaya, setFiltreWilaya] = useState('Toutes');
   const [onglet, setOnglet] = useState('futures');
+  const [foireSelectionnee, setFoireSelectionnee] = useState(null);  // ← 3.2 AJOUTÉ
 
   useEffect(() => {
     const handleKey = (e) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') {
+        if (foireSelectionnee) {
+          setFoireSelectionnee(null);
+        } else {
+          onClose();
+        }
+      }
     };
     document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', handleKey);
@@ -67,7 +75,7 @@ export default function FoiresModal({ onClose }) {
       document.body.style.overflow = '';
       window.removeEventListener('keydown', handleKey);
     };
-  }, [onClose]);
+  }, [onClose, foireSelectionnee]);
 
   const listeSource = onglet === 'futures' ? foiresFutures : foiresPassees;
   const wilayas = Object.entries(wilayasStats).sort((a, b) => b[1] - a[1]);
@@ -223,7 +231,8 @@ export default function FoiresModal({ onClose }) {
               return (
                 <div
                   key={i}
-                  className={`group bg-white border-2 rounded-2xl p-6 transition-all duration-200 hover:shadow-xl hover:-translate-y-1 ${
+                  onClick={() => setFoireSelectionnee(foire)}  // ← 3.3 AJOUTÉ
+                  className={`group bg-white border-2 rounded-2xl p-6 transition-all duration-200 hover:shadow-xl hover:-translate-y-1 cursor-pointer ${
                     estPassee
                       ? 'border-slate-200 opacity-80 hover:opacity-100'
                       : 'border-slate-100 hover:border-[#FF6B00] hover:bg-gradient-to-r hover:from-orange-50 hover:to-white'
@@ -304,6 +313,14 @@ export default function FoiresModal({ onClose }) {
           Source : <a href="https://www.eventseye.com/fairs/c0_salons_algerie.html" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#FF6B00] font-semibold">eventseye.com</a> · Mise à jour : 22/09/2026
         </div>
       </div>
+
+      {/* ===== MODALE DE DÉTAIL (3.4 AJOUTÉ) ===== */}
+      {foireSelectionnee && (
+        <FoireDetail
+          foire={foireSelectionnee}
+          onClose={() => setFoireSelectionnee(null)}
+        />
+      )}
     </div>
   );
 }
