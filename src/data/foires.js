@@ -8,8 +8,8 @@ export const foires = [
     nom: 'ALIMENTARIO',
     lieu: 'Mostaganem Centre commercial Uno',
     wilaya: 'Mostaganem',
-    date: '10/09/2026',
-    dateSort: '2026-09-10',
+    date: '28/09/2026',
+    dateSort: '2026-09-28',
     duree: '3 jours',
     periodicite: 'Annuel',
     description: "Salon algérien international de l'Industrie et du Commerce Agroalimentaire."
@@ -426,23 +426,37 @@ export const foires = [
   }
 ];
 
+// ========== FONCTIONS UTILITAIRES ==========
+
+// Fonction : calcule la date de fin d'une foire (date de début + durée)
+const calculerDateFin = (dateSort, duree) => {
+  const dateDebut = new Date(dateSort);
+  // Extraire le nombre de jours (ex: "4 jours" → 4)
+  const match = duree.match(/(\d+)/);
+  const nbJours = match ? parseInt(match[1]) : 1;
+  // Date de fin = date de début + nbJours
+  const dateFin = new Date(dateDebut);
+  dateFin.setDate(dateFin.getDate() + nbJours);
+  return dateFin;
+};
+
+// Filtrer les foires futures (tant que la foire n'est pas terminée)
+export const foiresFutures = foires
+  .filter((f) => calculerDateFin(f.dateSort, f.duree) >= new Date())
+  .sort((a, b) => new Date(a.dateSort) - new Date(b.dateSort));
+
+// Filtrer les foires passées (terminées)
+export const foiresPassees = foires
+  .filter((f) => calculerDateFin(f.dateSort, f.duree) < new Date())
+  .sort((a, b) => new Date(b.dateSort) - new Date(a.dateSort));
+
 // Statistiques par wilaya
 export const wilayasStats = foires.reduce((acc, f) => {
   acc[f.wilaya] = (acc[f.wilaya] || 0) + 1;
   return acc;
 }, {});
 
-// Filtrer les foires futures (à partir d'aujourd'hui)
-export const foiresFutures = foires
-  .filter((f) => new Date(f.dateSort) >= new Date())
-  .sort((a, b) => new Date(a.dateSort) - new Date(b.dateSort));
-
-// Filtrer les foires passées (avant aujourd'hui)
-export const foiresPassees = foires
-  .filter((f) => new Date(f.dateSort) < new Date())
-  .sort((a, b) => new Date(b.dateSort) - new Date(a.dateSort));  // Plus récentes en premier
-
-  // Fonction : nombre de jours restants jusqu'à une date
+// Fonction : nombre de jours restants jusqu'à une date
 export const joursRestants = (dateStr) => {
   const aujourdhui = new Date();
   aujourdhui.setHours(0, 0, 0, 0);
@@ -455,7 +469,6 @@ export const joursRestants = (dateStr) => {
   
   return diffJours;
 };
-
 
 // Fonction : texte lisible du compte à rebours
 export const formatCompteARebours = (dateStr) => {

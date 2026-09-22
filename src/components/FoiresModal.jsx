@@ -1,9 +1,61 @@
 import React, { useState, useEffect } from 'react';
 import { foiresFutures, foiresPassees, wilayasStats, formatCompteARebours } from '../data/foires';
 
+// ========== ICÔNES SVG PROFESSIONNELLES ==========
+const IconCalendar = () => (
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+  </svg>
+);
+
+const IconCheck = () => (
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+);
+
+const IconFolder = () => (
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+  </svg>
+);
+
+const IconMapPin = () => (
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+  </svg>
+);
+
+const IconClock = () => (
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+);
+
+const IconRepeat = () => (
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+  </svg>
+);
+
+const IconCalendarDays = () => (
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01" />
+  </svg>
+);
+
+const IconClose = () => (
+  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+  </svg>
+);
+
+// ========== COMPOSANT ==========
 export default function FoiresModal({ onClose }) {
   const [filtreWilaya, setFiltreWilaya] = useState('Toutes');
-  const [onglet, setOnglet] = useState('futures'); // 'futures' ou 'passees'
+  const [onglet, setOnglet] = useState('futures');
 
   useEffect(() => {
     const handleKey = (e) => {
@@ -17,9 +69,7 @@ export default function FoiresModal({ onClose }) {
     };
   }, [onClose]);
 
-  // Choisir la liste selon l'onglet
   const listeSource = onglet === 'futures' ? foiresFutures : foiresPassees;
-  
   const wilayas = Object.entries(wilayasStats).sort((a, b) => b[1] - a[1]);
   const foiresFiltrees = filtreWilaya === 'Toutes'
     ? listeSource
@@ -44,27 +94,32 @@ export default function FoiresModal({ onClose }) {
       >
         {/* ===== EN-TÊTE ===== */}
         <div className="bg-gradient-to-r from-[#0B132B] to-[#16223d] text-white px-8 py-6 flex items-center justify-between shrink-0 border-b-4 border-[#FF6B00]">
-          <div>
-            <h2 className="text-2xl font-black tracking-tight">
-              📅 Calendrier des Salons & Foires
-            </h2>
-            <p className="text-sm text-slate-400 mt-1">
-              <span className="text-[#FF6B00] font-bold">{foiresFutures.length}</span> événements à venir
-              {foiresPassees.length > 0 && (
-                <> · <span className="text-slate-500">{foiresPassees.length} passés</span></>
-              )}
-            </p>
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-[#FF6B00]/20 border-2 border-[#FF6B00]/30 rounded-xl flex items-center justify-center">
+              <IconCalendarDays />
+            </div>
+            <div>
+              <h2 className="text-2xl font-black tracking-tight">
+                Calendrier des Salons & Foires
+              </h2>
+              <p className="text-sm text-slate-400 mt-1">
+                <span className="text-[#FF6B00] font-bold">{foiresFutures.length}</span> événements à venir
+                {foiresPassees.length > 0 && (
+                  <> · <span className="text-slate-500">{foiresPassees.length} passés</span></>
+                )}
+              </p>
+            </div>
           </div>
           <button
             onClick={onClose}
-            className="bg-slate-800 hover:bg-[#FF6B00] text-white w-11 h-11 rounded-full flex items-center justify-center text-xl transition-all duration-200 hover:scale-110 shadow-lg"
+            className="bg-slate-800 hover:bg-[#FF6B00] text-white w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-lg"
             aria-label="Fermer"
           >
-            ✕
+            <IconClose />
           </button>
         </div>
 
-        {/* ===== ONGLETS FUTURES / PASSÉES ===== */}
+        {/* ===== ONGLETS ===== */}
         <div className="bg-white px-8 pt-4 pb-2 border-b border-slate-200 shrink-0">
           <div className="flex gap-2">
             <button
@@ -75,7 +130,7 @@ export default function FoiresModal({ onClose }) {
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
-              <span>📅</span>
+              <IconCalendar />
               <span>Foires à venir</span>
               <span className={`text-xs px-2 py-0.5 rounded-full ${
                 onglet === 'futures' ? 'bg-[#FF6B00] text-white' : 'bg-white text-slate-600'
@@ -92,7 +147,7 @@ export default function FoiresModal({ onClose }) {
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
-              <span>✅</span>
+              <IconCheck />
               <span>Foires passées</span>
               <span className={`text-xs px-2 py-0.5 rounded-full ${
                 onglet === 'passees' ? 'bg-[#FF6B00] text-white' : 'bg-white text-slate-600'
@@ -114,7 +169,7 @@ export default function FoiresModal({ onClose }) {
                   : 'bg-white text-slate-700 border-2 border-slate-200 hover:border-[#FF6B00] hover:text-[#FF6B00]'
               }`}
             >
-              <span>🗂️</span>
+              <IconFolder />
               <span>Toutes</span>
               <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${
                 filtreWilaya === 'Toutes' ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600'
@@ -123,7 +178,7 @@ export default function FoiresModal({ onClose }) {
               </span>
             </button>
 
-            {wilayas.map(([wilaya, count]) => {
+            {wilayas.map(([wilaya]) => {
               const isActive = filtreWilaya === wilaya;
               const countInList = listeSource.filter((f) => f.wilaya === wilaya).length;
               if (countInList === 0) return null;
@@ -137,7 +192,7 @@ export default function FoiresModal({ onClose }) {
                       : 'bg-white text-slate-700 border-2 border-slate-200 hover:border-[#FF6B00] hover:text-[#FF6B00]'
                   }`}
                 >
-                  <span>📍</span>
+                  <IconMapPin />
                   <span>{wilaya}</span>
                   <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${
                     isActive ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600'
@@ -154,8 +209,10 @@ export default function FoiresModal({ onClose }) {
         <div className="flex-1 overflow-y-auto p-8 space-y-4 bg-slate-50">
           {foiresFiltrees.length === 0 ? (
             <div className="text-center py-20">
-              <span className="text-5xl">🔍</span>
-              <p className="text-slate-500 mt-4 font-semibold">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-slate-100 rounded-full mb-4">
+                <IconCalendar />
+              </div>
+              <p className="text-slate-500 font-semibold">
                 Aucune foire pour cette wilaya.
               </p>
             </div>
@@ -188,28 +245,27 @@ export default function FoiresModal({ onClose }) {
                         {foire.description}
                       </p>
                       <div className="flex flex-wrap gap-4 text-xs">
-                        <span className="flex items-center gap-1 text-slate-600">
-                          <span className="text-[#FF6B00]">📍</span>
+                        <span className="flex items-center gap-1.5 text-slate-600">
+                          <span className="text-[#FF6B00]"><IconMapPin /></span>
                           <span className="font-medium">{foire.lieu}</span>
                         </span>
-                        <span className="flex items-center gap-1 text-slate-600">
-                          <span className="text-[#FF6B00]">🗓</span>
+                        <span className="flex items-center gap-1.5 text-slate-600">
+                          <span className="text-[#FF6B00]"><IconCalendar /></span>
                           <span className="font-medium">{foire.duree || 'À confirmer'}</span>
                         </span>
-                        <span className="flex items-center gap-1 text-slate-600">
-                          <span className="text-[#FF6B00]">🔁</span>
+                        <span className="flex items-center gap-1.5 text-slate-600">
+                          <span className="text-[#FF6B00]"><IconRepeat /></span>
                           <span className="font-medium">{foire.periodicite}</span>
                         </span>
                       </div>
                     </div>
                     <div className="text-right shrink-0 space-y-3">
-                      {/* Badge compte à rebours (uniquement pour futures) */}
                       {!estPassee && (
-                        <div className={`${couleursBadge[compte.couleur]} text-xs font-black px-3 py-1.5 rounded-full shadow-md whitespace-nowrap`}>
-                          ⏱ {compte.texte}
+                        <div className={`${couleursBadge[compte.couleur]} text-xs font-black px-3 py-1.5 rounded-full shadow-md whitespace-nowrap flex items-center gap-1.5 justify-end`}>
+                          <IconClock />
+                          <span>{compte.texte}</span>
                         </div>
                       )}
-                      {/* Date */}
                       <div className={`text-sm font-black px-4 py-2 rounded-xl shadow-lg whitespace-nowrap ${
                         estPassee
                           ? 'bg-slate-300 text-slate-600 shadow-none'
@@ -217,7 +273,6 @@ export default function FoiresModal({ onClose }) {
                       }`}>
                         {foire.date}
                       </div>
-                      {/* Wilaya */}
                       <div className="text-xs text-slate-500 font-bold uppercase tracking-wider">
                         {foire.wilaya}
                       </div>
