@@ -8,7 +8,7 @@ export const foires = [
     nom: 'ALIMENTARIO',
     lieu: 'Mostaganem Centre commercial Uno',
     wilaya: 'Mostaganem',
-    date: '28/09/2026',
+    date: '10/09/2026',
     dateSort: '2026-09-10',
     duree: '3 jours',
     periodicite: 'Annuel',
