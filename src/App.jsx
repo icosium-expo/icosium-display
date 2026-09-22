@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import FoiresTicker from './components/FoiresTicker';
 import {
   heroImages,
   standsImages,
@@ -79,6 +80,7 @@ useEffect(() => {
       <Expertise />
       <AtelierProcess />
       <SalonsSection />
+      <FoiresTicker /> 
       <GallerySection
         standSlide={standSlide} setStandSlide={setStandSlide}
         enseigneSlide={enseigneSlide} setEnseigneSlide={setEnseigneSlide}
