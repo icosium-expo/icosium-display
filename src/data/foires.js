@@ -436,3 +436,32 @@ export const wilayasStats = foires.reduce((acc, f) => {
 export const foiresFutures = foires
   .filter((f) => new Date(f.dateSort) >= new Date())
   .sort((a, b) => new Date(a.dateSort) - new Date(b.dateSort));
+
+  // Fonction : nombre de jours restants jusqu'à une date
+export const joursRestants = (dateStr) => {
+  const aujourdhui = new Date();
+  aujourdhui.setHours(0, 0, 0, 0);
+  
+  const dateEvent = new Date(dateStr);
+  dateEvent.setHours(0, 0, 0, 0);
+  
+  const diffMs = dateEvent - aujourdhui;
+  const diffJours = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+  
+  return diffJours;
+};
+
+// Fonction : texte lisible du compte à rebours
+// Fonction : texte lisible du compte à rebours
+export const formatCompteARebours = (dateStr) => {
+  const jours = joursRestants(dateStr);
+  
+  if (jours < 0) return { texte: 'Terminé', texteCourt: 'Terminé', couleur: 'gray' };
+  if (jours === 0) return { texte: "Aujourd'hui !", texteCourt: "Auj.", couleur: 'red' };
+  if (jours === 1) return { texte: 'Demain !', texteCourt: 'Demain', couleur: 'red' };
+  if (jours <= 7) return { texte: `Dans ${jours} jours`, texteCourt: `J-${jours}`, couleur: 'orange' };
+  if (jours <= 30) return { texte: `Dans ${jours} jours`, texteCourt: `J-${jours}`, couleur: 'yellow' };
+  if (jours <= 90) return { texte: `Dans ${Math.round(jours / 30)} mois`, texteCourt: `M+${Math.round(jours / 30)}`, couleur: 'blue' };
+  
+  return { texte: `Dans ${Math.round(jours / 30)} mois`, texteCourt: `M+${Math.round(jours / 30)}`, couleur: 'gray' };
+};

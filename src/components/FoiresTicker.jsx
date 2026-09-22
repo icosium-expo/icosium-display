@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
-import { foiresFutures } from '../data/foires';
+import { foiresFutures, formatCompteARebours } from '../data/foires';
 import FoiresModal from './FoiresModal';
 
 export default function FoiresTicker() {
   const [isPaused, setIsPaused] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // On duplique la liste pour un défilement infini
   const items = [...foiresFutures, ...foiresFutures];
+
+  const couleursBadge = {
+    red: 'bg-red-500 text-white',
+    orange: 'bg-[#FF6B00] text-white',
+    yellow: 'bg-yellow-400 text-yellow-900',
+    blue: 'bg-blue-500 text-white',
+    gray: 'bg-slate-200 text-slate-700'
+  };
 
   return (
     <>
@@ -44,24 +51,26 @@ export default function FoiresTicker() {
               animationPlayState: isPaused ? 'paused' : 'running',
             }}
           >
-            {items.map((foire, i) => (
-              <div
-                key={i}
-                className="inline-flex items-center space-x-3 bg-[#16223d] border border-slate-700 hover:border-[#FF6B00] rounded-xl px-4 py-3 transition"
-              >
-                <span className="text-[#FF6B00] text-xs font-bold">{foire.date}</span>
-                <span className="text-white font-bold text-sm">{foire.nom}</span>
-                <span className="text-slate-400 text-xs">• {foire.wilaya}</span>
-                {foire.duree && (
-                  <span className="text-slate-500 text-xs">{foire.duree}</span>
-                )}
-              </div>
-            ))}
+            {items.map((foire, i) => {
+              const compte = formatCompteARebours(foire.dateSort);
+              return (
+                <div
+                  key={i}
+                  className="inline-flex items-center space-x-3 bg-[#16223d] border border-slate-700 hover:border-[#FF6B00] rounded-xl px-4 py-3 transition"
+                >
+                  <span className={`${couleursBadge[compte.couleur]} text-[10px] font-black px-2 py-0.5 rounded-full whitespace-nowrap`}>
+                    ⏱ {compte.texteCourt}
+                  </span>
+                  <span className="text-[#FF6B00] text-xs font-bold">{foire.date}</span>
+                  <span className="text-white font-bold text-sm">{foire.nom}</span>
+                  <span className="text-slate-400 text-xs">• {foire.wilaya}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Modale */}
       {isModalOpen && <FoiresModal onClose={() => setIsModalOpen(false)} />}
     </>
   );
