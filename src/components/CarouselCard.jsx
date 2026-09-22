@@ -34,6 +34,7 @@ export default function CarouselCard({
         <img
           src={images[slide]}
           alt={title}
+          loading="lazy"
           className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
         />
         <span className="absolute top-3 left-3 bg-black/60 text-white text-xs px-2.5 py-1 rounded-md font-medium">
