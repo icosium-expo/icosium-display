@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { formatCompteARebours } from '../data/foires';
 
-// Icônes SVG (réutilisées)
+// Icônes
 const IconClose = () => (
   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -50,95 +50,93 @@ export default function FoireDetail({ foire, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-[60] bg-black/95 flex items-center justify-center p-4"
+      className="fixed inset-0 z-[60] bg-black/95 flex items-center justify-center p-2 sm:p-4"
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-3xl w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl"
+        className="bg-white rounded-2xl sm:rounded-3xl w-full max-w-3xl max-h-[95vh] sm:max-h-[90vh] flex flex-col overflow-hidden shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* En-tête */}
-        <div className="bg-gradient-to-r from-[#0B132B] to-[#16223d] text-white px-8 py-6 flex items-start justify-between shrink-0 border-b-4 border-[#FF6B00]">
-          <div className="flex-1">
-            <h2 className="text-2xl font-black tracking-tight mb-2">
+        <div className="bg-gradient-to-r from-[#0B132B] to-[#16223d] text-white px-4 sm:px-8 py-4 sm:py-6 flex items-start justify-between gap-3 shrink-0 border-b-4 border-[#FF6B00]">
+          <div className="flex-1 min-w-0">
+            <h2 className="text-lg sm:text-2xl font-black tracking-tight mb-2">
               {foire.nom}
             </h2>
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="bg-[#FF6B00] text-white text-xs font-bold px-3 py-1.5 rounded-full">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+              <span className="bg-[#FF6B00] text-white text-xs font-bold px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full">
                 {foire.wilaya}
               </span>
-              <span className="bg-white/10 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-white/20">
+              <span className="bg-white/10 text-white text-xs font-bold px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full border border-white/20">
                 {foire.periodicite}
               </span>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="bg-slate-800 hover:bg-[#FF6B00] text-white w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-lg ml-4"
+            className="bg-slate-800 hover:bg-[#FF6B00] text-white w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-lg shrink-0"
             aria-label="Fermer"
           >
             <IconClose />
           </button>
         </div>
 
-        {/* Contenu défilant */}
-        <div className="flex-1 overflow-y-auto p-8 space-y-6">
-          {/* Description */}
+        {/* Contenu */}
+        <div className="flex-1 overflow-y-auto p-4 sm:p-8 space-y-4 sm:space-y-6">
           <div>
-            <h3 className="text-sm font-bold text-[#FF6B00] uppercase tracking-wider mb-3">
+            <h3 className="text-xs sm:text-sm font-bold text-[#FF6B00] uppercase tracking-wider mb-2 sm:mb-3">
               À propos de ce salon
             </h3>
-            <p className="text-slate-700 leading-relaxed text-base">
+            <p className="text-slate-700 leading-relaxed text-sm sm:text-base">
               {foire.descriptionLongue || foire.description}
             </p>
           </div>
 
-          {/* Informations */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-slate-50 rounded-xl p-5 border border-slate-200">
-              <div className="flex items-center gap-2 text-[#FF6B00] mb-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <div className="bg-slate-50 rounded-xl p-4 sm:p-5 border border-slate-200">
+              <div className="flex items-center gap-2 text-[#FF6B00] mb-1.5 sm:mb-2">
                 <IconCalendar />
                 <span className="text-xs font-bold uppercase tracking-wider">Date de début</span>
               </div>
-              <p className="text-lg font-black text-[#0B132B]">{foire.date}</p>
+              <p className="text-base sm:text-lg font-black text-[#0B132B]">{foire.date}</p>
             </div>
 
-            <div className="bg-slate-50 rounded-xl p-5 border border-slate-200">
-              <div className="flex items-center gap-2 text-[#FF6B00] mb-2">
+            <div className="bg-slate-50 rounded-xl p-4 sm:p-5 border border-slate-200">
+              <div className="flex items-center gap-2 text-[#FF6B00] mb-1.5 sm:mb-2">
                 <IconClock />
                 <span className="text-xs font-bold uppercase tracking-wider">Durée</span>
               </div>
-              <p className="text-lg font-black text-[#0B132B]">{foire.duree || 'À confirmer'}</p>
+              <p className="text-base sm:text-lg font-black text-[#0B132B]">{foire.duree || 'À confirmer'}</p>
             </div>
 
-            <div className="bg-slate-50 rounded-xl p-5 border border-slate-200 md:col-span-2">
-              <div className="flex items-center gap-2 text-[#FF6B00] mb-2">
+            <div className="bg-slate-50 rounded-xl p-4 sm:p-5 border border-slate-200 sm:col-span-2">
+              <div className="flex items-center gap-2 text-[#FF6B00] mb-1.5 sm:mb-2">
                 <IconMapPin />
                 <span className="text-xs font-bold uppercase tracking-wider">Lieu</span>
               </div>
-              <p className="text-lg font-black text-[#0B132B]">{foire.lieu}</p>
+              <p className="text-base sm:text-lg font-black text-[#0B132B]">{foire.lieu}</p>
             </div>
 
-            <div className="bg-slate-50 rounded-xl p-5 border border-slate-200">
-              <div className="flex items-center gap-2 text-[#FF6B00] mb-2">
+            <div className="bg-slate-50 rounded-xl p-4 sm:p-5 border border-slate-200">
+              <div className="flex items-center gap-2 text-[#FF6B00] mb-1.5 sm:mb-2">
                 <IconRepeat />
                 <span className="text-xs font-bold uppercase tracking-wider">Périodicité</span>
               </div>
-              <p className="text-lg font-black text-[#0B132B]">{foire.periodicite}</p>
+              <p className="text-base sm:text-lg font-black text-[#0B132B]">{foire.periodicite}</p>
             </div>
 
-            <div className="bg-orange-50 rounded-xl p-5 border border-orange-200">
-              <div className="flex items-center gap-2 text-[#FF6B00] mb-2">
+            <div className="bg-orange-50 rounded-xl p-4 sm:p-5 border border-orange-200">
+              <div className="flex items-center gap-2 text-[#FF6B00] mb-1.5 sm:mb-2">
                 <IconClock />
                 <span className="text-xs font-bold uppercase tracking-wider">Compte à rebours</span>
               </div>
-              <p className="text-lg font-black text-[#FF6B00]">{compte.texte}</p>
+              <p className="text-base sm:text-lg font-black text-[#FF6B00]">{compte.texte}</p>
             </div>
           </div>
         </div>
 
         {/* Pied */}
-        <div className="bg-slate-100 px-8 py-4 text-xs text-slate-500 text-center border-t border-slate-200 shrink-0">
+        <div className="bg-slate-100 px-4 sm:px-8 py-3 sm:py-4 text-xs text-slate-500 text-center border-t border-slate-200 shrink-0">
           Source : <a href="https://www.eventseye.com/fairs/c0_salons_algerie.html" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#FF6B00] font-semibold">eventseye.com</a>
         </div>
       </div>
