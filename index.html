@@ -2,6 +2,18 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    
+    <!-- Content Security Policy (sécurité) -->
+    <meta http-equiv="Content-Security-Policy" 
+          content="default-src 'self'; 
+                   script-src 'self' 'unsafe-inline'; 
+                   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
+                   img-src 'self' data: https:; 
+                   connect-src 'self' https://api.web3forms.com; 
+                   font-src 'self' https://fonts.gstatic.com; 
+                   form-action 'self';
+                   frame-ancestors 'none';" />
+    
     <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="ICOSIUM DISPLAY - Agence publicitaire à Alger spécialisée dans les stands d'exposition, showrooms et enseignes lumineuses. Conception 3D, fabrication et installation." />
