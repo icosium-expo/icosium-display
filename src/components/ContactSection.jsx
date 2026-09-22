@@ -31,7 +31,7 @@ export default function ContactSection() {
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          access_key: 'fda9dde4-6deb-4671-b472-ff7c1c226efe',
+          access_key: 'a94dace2-e873-4be1-83c1-4fc9142df033',
           subject: `Nouvelle demande de devis - ${formData.nom}`,
           from_name: 'Site Icosium Display',
           ...formData
