@@ -40,7 +40,7 @@ export default function GallerySection({
             onImageClick={onImageClick}
             category="Stand d'Exposition"
             title="Stands Institutionnels"
-            description="Conception architecturale sur mesure pour salons professionnels (DJAZAGRO, FPA, FIA). Structures bois, éclairage LED intégré, mobilier dédié et finitions haut de gamme pour valoriser votre marque auprès des visiteurs."
+            description="Salons et foires professionnelles sur tout le territoire national : conception architecturale sur mesure, structures bois, éclairage LED intégré et mobilier dédié."
           />
 
           {/* 2. SUPPORT PUBLICITAIRE */}
