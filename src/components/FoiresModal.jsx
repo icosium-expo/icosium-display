@@ -4,7 +4,6 @@ import { foiresFutures, wilayasStats } from '../data/foires';
 export default function FoiresModal({ onClose }) {
   const [filtreWilaya, setFiltreWilaya] = useState('Toutes');
 
-  // Fermer avec Échap
   useEffect(() => {
     const handleKey = (e) => {
       if (e.key === 'Escape') onClose();
@@ -28,86 +27,122 @@ export default function FoiresModal({ onClose }) {
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-2xl w-full max-w-5xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl"
+        className="bg-white rounded-3xl w-full max-w-5xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* En-tête (fixe) */}
-        <div className="bg-[#0B132B] text-white px-6 py-5 flex items-center justify-between border-b border-slate-800 shrink-0">
+        {/* ===== EN-TÊTE ===== */}
+        <div className="bg-gradient-to-r from-[#0B132B] to-[#16223d] text-white px-8 py-6 flex items-center justify-between shrink-0 border-b-4 border-[#FF6B00]">
           <div>
-            <h2 className="text-xl font-bold">Calendrier des Salons & Foires</h2>
-            <p className="text-xs text-slate-400 mt-1">
-              {foiresFutures.length} événements à venir en Algérie
+            <h2 className="text-2xl font-black tracking-tight">
+              📅 Calendrier des Salons & Foires
+            </h2>
+            <p className="text-sm text-slate-400 mt-1">
+              <span className="text-[#FF6B00] font-bold">{foiresFutures.length}</span> événements à venir en Algérie
             </p>
           </div>
           <button
             onClick={onClose}
-            className="bg-slate-800 hover:bg-[#FF6B00] text-white w-10 h-10 rounded-xl flex items-center justify-center text-xl transition"
+            className="bg-slate-800 hover:bg-[#FF6B00] text-white w-11 h-11 rounded-full flex items-center justify-center text-xl transition-all duration-200 hover:scale-110 shadow-lg"
             aria-label="Fermer"
           >
             ✕
           </button>
         </div>
 
-        {/* Filtres (FIXES) */}
-        <div className="bg-white px-6 py-4 border-b-2 border-slate-200 shrink-0 shadow-sm">
-          <div className="flex items-center gap-2 overflow-x-auto pb-1">
+        {/* ===== FILTRES (FIXES + DESIGN PRO) ===== */}
+        <div className="bg-white px-8 py-5 border-b border-slate-200 shrink-0 shadow-md">
+          <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-thin">
+            {/* Bouton "Toutes" */}
             <button
               onClick={() => setFiltreWilaya('Toutes')}
-              className={`shrink-0 px-4 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap ${
+              className={`group shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-200 whitespace-nowrap shadow-sm hover:shadow-md ${
                 filtreWilaya === 'Toutes'
-                  ? 'bg-[#FF6B00] text-white shadow-md'
-                  : 'bg-slate-100 text-slate-700 hover:bg-orange-50 hover:text-[#FF6B00] border border-slate-200'
+                  ? 'bg-gradient-to-r from-[#FF6B00] to-[#ff8c33] text-white shadow-lg shadow-orange-500/30 scale-105'
+                  : 'bg-white text-slate-700 border-2 border-slate-200 hover:border-[#FF6B00] hover:text-[#FF6B00]'
               }`}
             >
-              Toutes ({foiresFutures.length})
+              <span>🗂️</span>
+              <span>Toutes</span>
+              <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${
+                filtreWilaya === 'Toutes'
+                  ? 'bg-white/20 text-white'
+                  : 'bg-slate-100 text-slate-600 group-hover:bg-orange-100 group-hover:text-[#FF6B00]'
+              }`}>
+                {foiresFutures.length}
+              </span>
             </button>
-            {wilayas.map(([wilaya, count]) => (
-              <button
-                key={wilaya}
-                onClick={() => setFiltreWilaya(wilaya)}
-                className={`shrink-0 px-4 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap ${
-                  filtreWilaya === wilaya
-                    ? 'bg-[#FF6B00] text-white shadow-md'
-                    : 'bg-slate-100 text-slate-700 hover:bg-orange-50 hover:text-[#FF6B00] border border-slate-200'
-                }`}
-              >
-                {wilaya} ({count})
-              </button>
-            ))}
+
+            {/* Boutons par wilaya */}
+            {wilayas.map(([wilaya, count]) => {
+              const isActive = filtreWilaya === wilaya;
+              return (
+                <button
+                  key={wilaya}
+                  onClick={() => setFiltreWilaya(wilaya)}
+                  className={`group shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-200 whitespace-nowrap shadow-sm hover:shadow-md ${
+                    isActive
+                      ? 'bg-gradient-to-r from-[#FF6B00] to-[#ff8c33] text-white shadow-lg shadow-orange-500/30 scale-105'
+                      : 'bg-white text-slate-700 border-2 border-slate-200 hover:border-[#FF6B00] hover:text-[#FF6B00]'
+                  }`}
+                >
+                  <span>📍</span>
+                  <span>{wilaya}</span>
+                  <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${
+                    isActive
+                      ? 'bg-white/20 text-white'
+                      : 'bg-slate-100 text-slate-600 group-hover:bg-orange-100 group-hover:text-[#FF6B00]'
+                  }`}>
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        {/* Liste (DÉFILE) */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-3 bg-slate-50">
+        {/* ===== LISTE (DÉFILE) ===== */}
+        <div className="flex-1 overflow-y-auto p-8 space-y-4 bg-slate-50">
           {foiresFiltrees.length === 0 ? (
-            <p className="text-center text-slate-500 py-12">
-              Aucune foire pour cette wilaya.
-            </p>
+            <div className="text-center py-20">
+              <span className="text-5xl">🔍</span>
+              <p className="text-slate-500 mt-4 font-semibold">
+                Aucune foire pour cette wilaya.
+              </p>
+            </div>
           ) : (
             foiresFiltrees.map((foire, i) => (
               <div
                 key={i}
-                className="bg-white hover:bg-orange-50 border border-slate-200 hover:border-[#FF6B00] rounded-xl p-5 transition"
+                className="group bg-white hover:bg-gradient-to-r hover:from-orange-50 hover:to-white border-2 border-slate-100 hover:border-[#FF6B00] rounded-2xl p-6 transition-all duration-200 hover:shadow-xl hover:-translate-y-1"
               >
-                <div className="flex items-start justify-between gap-4">
+                <div className="flex items-start justify-between gap-6">
                   <div className="flex-1">
-                    <h3 className="text-base font-bold text-[#0B132B] mb-1">
+                    <h3 className="text-lg font-black text-[#0B132B] mb-2 group-hover:text-[#FF6B00] transition">
                       {foire.nom}
                     </h3>
-                    <p className="text-xs text-slate-600 mb-2 leading-relaxed">
+                    <p className="text-sm text-slate-600 mb-4 leading-relaxed">
                       {foire.description}
                     </p>
-                    <div className="flex flex-wrap gap-3 text-xs text-slate-500">
-                      <span>📍 {foire.lieu}</span>
-                      <span>🗓 {foire.duree || 'À confirmer'}</span>
-                      <span>🔁 {foire.periodicite}</span>
+                    <div className="flex flex-wrap gap-4 text-xs">
+                      <span className="flex items-center gap-1 text-slate-600">
+                        <span className="text-[#FF6B00]">📍</span>
+                        <span className="font-medium">{foire.lieu}</span>
+                      </span>
+                      <span className="flex items-center gap-1 text-slate-600">
+                        <span className="text-[#FF6B00]">🗓</span>
+                        <span className="font-medium">{foire.duree || 'À confirmer'}</span>
+                      </span>
+                      <span className="flex items-center gap-1 text-slate-600">
+                        <span className="text-[#FF6B00]">🔁</span>
+                        <span className="font-medium">{foire.periodicite}</span>
+                      </span>
                     </div>
                   </div>
                   <div className="text-right shrink-0">
-                    <div className="bg-[#FF6B00] text-white text-xs font-bold px-3 py-1.5 rounded-lg">
+                    <div className="bg-gradient-to-br from-[#FF6B00] to-[#ff8c33] text-white text-sm font-black px-4 py-2 rounded-xl shadow-lg shadow-orange-500/30">
                       {foire.date}
                     </div>
-                    <div className="text-xs text-slate-500 mt-2 font-semibold">
+                    <div className="text-xs text-slate-500 mt-3 font-bold uppercase tracking-wider">
                       {foire.wilaya}
                     </div>
                   </div>
@@ -117,9 +152,9 @@ export default function FoiresModal({ onClose }) {
           )}
         </div>
 
-        {/* Pied (fixe) */}
-        <div className="bg-slate-100 px-6 py-3 text-xs text-slate-500 text-center border-t border-slate-200 shrink-0">
-          Source : <a href="https://www.eventseye.com/fairs/c0_salons_algerie.html" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#FF6B00]">eventseye.com</a> · Mise à jour : 22/09/2026
+        {/* ===== PIED ===== */}
+        <div className="bg-slate-100 px-8 py-4 text-xs text-slate-500 text-center border-t border-slate-200 shrink-0">
+          Source : <a href="https://www.eventseye.com/fairs/c0_salons_algerie.html" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#FF6B00] font-semibold">eventseye.com</a> · Mise à jour : 22/09/2026
         </div>
       </div>
     </div>
