@@ -5,8 +5,8 @@ export default function Expertise() {
     {
       num: '01',
       color: 'bg-orange-50 text-[#FF6B00] border-orange-100',
-      title: 'Stands & Showrooms sur Mesure',
-      desc: 'Conception architecturale pour salons professionnels (DJAZAGRO, FPA, FIA) et aménagement permanent de vos espaces commerciaux.'
+      title: 'Salons et Foire Professionnelle',
+      desc: '"Déploiement et installation de stands à travers les 69 wilayas. Logistique intégrée, montage rapide et respect absolu des délais pour tous vos événements professionnels."'
     },
     {
       num: '02',

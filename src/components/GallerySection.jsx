@@ -40,7 +40,7 @@ export default function GallerySection({
             onImageClick={onImageClick}
             category="Stand d'Exposition"
             title="Stands Institutionnels"
-                        description="Déploiement et installation de stands à travers les 69 wilayas. Logistique intégrée, montage rapide et respect absolu des délais pour tous vos événements professionnels."
+             description="Salons et foires professionnelles sur tout le territoire national : conception architecturale sur mesure, structures bois, éclairage LED intégré et mobilier dédié."
 
           />
 
