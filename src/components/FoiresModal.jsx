@@ -31,8 +31,8 @@ export default function FoiresModal({ onClose }) {
         className="bg-white rounded-2xl w-full max-w-5xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* En-tête */}
-        <div className="bg-[#0B132B] text-white px-6 py-5 flex items-center justify-between border-b border-slate-800">
+        {/* En-tête (fixe) */}
+        <div className="bg-[#0B132B] text-white px-6 py-5 flex items-center justify-between border-b border-slate-800 shrink-0">
           <div>
             <h2 className="text-xl font-bold">Calendrier des Salons & Foires</h2>
             <p className="text-xs text-slate-400 mt-1">
@@ -48,15 +48,15 @@ export default function FoiresModal({ onClose }) {
           </button>
         </div>
 
-        {/* Filtres */}
-        <div className="bg-slate-50 px-6 py-4 border-b border-slate-200 overflow-x-auto">
-          <div className="flex space-x-2">
+        {/* Filtres (FIXES) */}
+        <div className="bg-white px-6 py-4 border-b-2 border-slate-200 shrink-0 shadow-sm">
+          <div className="flex items-center gap-2 overflow-x-auto pb-1">
             <button
               onClick={() => setFiltreWilaya('Toutes')}
-              className={`shrink-0 px-4 py-2 rounded-xl text-xs font-semibold transition ${
+              className={`shrink-0 px-4 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap ${
                 filtreWilaya === 'Toutes'
-                  ? 'bg-[#FF6B00] text-white'
-                  : 'bg-white text-slate-700 border border-slate-300 hover:border-[#FF6B00]'
+                  ? 'bg-[#FF6B00] text-white shadow-md'
+                  : 'bg-slate-100 text-slate-700 hover:bg-orange-50 hover:text-[#FF6B00] border border-slate-200'
               }`}
             >
               Toutes ({foiresFutures.length})
@@ -65,10 +65,10 @@ export default function FoiresModal({ onClose }) {
               <button
                 key={wilaya}
                 onClick={() => setFiltreWilaya(wilaya)}
-                className={`shrink-0 px-4 py-2 rounded-xl text-xs font-semibold transition ${
+                className={`shrink-0 px-4 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap ${
                   filtreWilaya === wilaya
-                    ? 'bg-[#FF6B00] text-white'
-                    : 'bg-white text-slate-700 border border-slate-300 hover:border-[#FF6B00]'
+                    ? 'bg-[#FF6B00] text-white shadow-md'
+                    : 'bg-slate-100 text-slate-700 hover:bg-orange-50 hover:text-[#FF6B00] border border-slate-200'
                 }`}
               >
                 {wilaya} ({count})
@@ -77,8 +77,8 @@ export default function FoiresModal({ onClose }) {
           </div>
         </div>
 
-        {/* Liste */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-3">
+        {/* Liste (DÉFILE) */}
+        <div className="flex-1 overflow-y-auto p-6 space-y-3 bg-slate-50">
           {foiresFiltrees.length === 0 ? (
             <p className="text-center text-slate-500 py-12">
               Aucune foire pour cette wilaya.
@@ -87,7 +87,7 @@ export default function FoiresModal({ onClose }) {
             foiresFiltrees.map((foire, i) => (
               <div
                 key={i}
-                className="bg-slate-50 hover:bg-orange-50 border border-slate-200 hover:border-[#FF6B00] rounded-xl p-5 transition"
+                className="bg-white hover:bg-orange-50 border border-slate-200 hover:border-[#FF6B00] rounded-xl p-5 transition"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
@@ -117,8 +117,8 @@ export default function FoiresModal({ onClose }) {
           )}
         </div>
 
-        {/* Pied */}
-        <div className="bg-slate-100 px-6 py-3 text-xs text-slate-500 text-center border-t border-slate-200">
+        {/* Pied (fixe) */}
+        <div className="bg-slate-100 px-6 py-3 text-xs text-slate-500 text-center border-t border-slate-200 shrink-0">
           Source : <a href="https://www.eventseye.com/fairs/c0_salons_algerie.html" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#FF6B00]">eventseye.com</a> · Mise à jour : 22/09/2026
         </div>
       </div>

@@ -60,3 +60,49 @@ section[id] {
 .overflow-y-auto::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+
+/* Scrollbar personnalisée avec flèches */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 12px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 6px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 6px;
+  border: 2px solid #f1f5f9;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #FF6B00;
+}
+
+/* Flèches ↑ ↓ en haut et en bas */
+.overflow-y-auto::-webkit-scrollbar-button:start {
+  display: block;
+  height: 16px;
+  background-color: #cbd5e1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2364748b'%3E%3Cpath d='M12 4l-8 8h6v8h4v-8h6z'/%3E%3C/svg%3E");
+  background-size: 12px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-button:end {
+  display: block;
+  height: 16px;
+  background-color: #cbd5e1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2364748b'%3E%3Cpath d='M12 20l8-8h-6V4h-4v8H4z'/%3E%3C/svg%3E");
+  background-size: 12px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-button:hover {
+  background-color: #FF6B00;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 4l-8 8h6v8h4v-8h6z'/%3E%3C/svg%3E");
+}
