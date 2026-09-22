@@ -25,7 +25,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }) {
         },
         {
             href: '#salons',
-            label: 'Salons SAFEX',
+            label: 'Salons et Foires',
             icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
         },
         {
@@ -64,6 +64,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }) {
                         <p className="font-semibold text-white">Atelier & Showroom :</p>
                         <p>Bachdjerah, Alger</p>
                         <p className="text-[#FF6B00] font-medium mt-0.5">+213 (0) 550 88 66 40</p>
+                        <p className="text-[#FF6B00] font-medium mt-0.5">info@icosium-expo.com</p>
                     </div>
                     <a href="#contact" className="bg-[#FF6B00] text-white px-6 py-3.5 rounded-xl font-bold hover:bg-orange-600 transition shadow-lg shadow-orange-500/25 inline-flex items-center space-x-2 text-sm">
                         <span>Demander un Devis</span>
