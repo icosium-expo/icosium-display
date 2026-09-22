@@ -9,7 +9,7 @@ export const foires = [
     lieu: 'Mostaganem Centre commercial Uno',
     wilaya: 'Mostaganem',
     date: '28/09/2026',
-    dateSort: '2026-09-28',
+    dateSort: '2026-09-10',
     duree: '3 jours',
     periodicite: 'Annuel',
     description: "Salon algérien international de l'Industrie et du Commerce Agroalimentaire."
