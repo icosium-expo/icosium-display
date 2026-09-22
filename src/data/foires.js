@@ -451,7 +451,7 @@ export const joursRestants = (dateStr) => {
   return diffJours;
 };
 
-// Fonction : texte lisible du compte à rebours
+
 // Fonction : texte lisible du compte à rebours
 export const formatCompteARebours = (dateStr) => {
   const jours = joursRestants(dateStr);
@@ -464,4 +464,11 @@ export const formatCompteARebours = (dateStr) => {
   if (jours <= 90) return { texte: `Dans ${Math.round(jours / 30)} mois`, texteCourt: `M+${Math.round(jours / 30)}`, couleur: 'blue' };
   
   return { texte: `Dans ${Math.round(jours / 30)} mois`, texteCourt: `M+${Math.round(jours / 30)}`, couleur: 'gray' };
+};
+
+// Fonction : formater une date en français
+export const formatDate = (dateStr) => {
+  const date = new Date(dateStr);
+  const options = { day: 'numeric', month: 'long', year: 'numeric' };
+  return date.toLocaleDateString('fr-FR', options);
 };

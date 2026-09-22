@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { foiresFutures, wilayasStats, formatCompteARebours, formatDate } from '../data/foires';
+import { foiresFutures, wilayasStats, formatCompteARebours } from '../data/foires';
 
 export default function FoiresModal({ onClose }) {
   const [filtreWilaya, setFiltreWilaya] = useState('Toutes');
