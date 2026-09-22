@@ -437,6 +437,11 @@ export const foiresFutures = foires
   .filter((f) => new Date(f.dateSort) >= new Date())
   .sort((a, b) => new Date(a.dateSort) - new Date(b.dateSort));
 
+// Filtrer les foires passées (avant aujourd'hui)
+export const foiresPassees = foires
+  .filter((f) => new Date(f.dateSort) < new Date())
+  .sort((a, b) => new Date(b.dateSort) - new Date(a.dateSort));  // Plus récentes en premier
+
   // Fonction : nombre de jours restants jusqu'à une date
 export const joursRestants = (dateStr) => {
   const aujourdhui = new Date();

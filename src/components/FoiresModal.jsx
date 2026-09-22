@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { foiresFutures, wilayasStats, formatCompteARebours } from '../data/foires';
+import { foiresFutures, foiresPassees, wilayasStats, formatCompteARebours } from '../data/foires';
 
 export default function FoiresModal({ onClose }) {
   const [filtreWilaya, setFiltreWilaya] = useState('Toutes');
+  const [onglet, setOnglet] = useState('futures'); // 'futures' ou 'passees'
 
   useEffect(() => {
     const handleKey = (e) => {
@@ -16,12 +17,14 @@ export default function FoiresModal({ onClose }) {
     };
   }, [onClose]);
 
+  // Choisir la liste selon l'onglet
+  const listeSource = onglet === 'futures' ? foiresFutures : foiresPassees;
+  
   const wilayas = Object.entries(wilayasStats).sort((a, b) => b[1] - a[1]);
   const foiresFiltrees = filtreWilaya === 'Toutes'
-    ? foiresFutures
-    : foiresFutures.filter((f) => f.wilaya === filtreWilaya);
+    ? listeSource
+    : listeSource.filter((f) => f.wilaya === filtreWilaya);
 
-  // Couleurs pour le badge de compte à rebours
   const couleursBadge = {
     red: 'bg-red-500 text-white',
     orange: 'bg-[#FF6B00] text-white',
@@ -46,7 +49,10 @@ export default function FoiresModal({ onClose }) {
               📅 Calendrier des Salons & Foires
             </h2>
             <p className="text-sm text-slate-400 mt-1">
-              <span className="text-[#FF6B00] font-bold">{foiresFutures.length}</span> événements à venir en Algérie
+              <span className="text-[#FF6B00] font-bold">{foiresFutures.length}</span> événements à venir
+              {foiresPassees.length > 0 && (
+                <> · <span className="text-slate-500">{foiresPassees.length} passés</span></>
+              )}
             </p>
           </div>
           <button
@@ -58,12 +64,51 @@ export default function FoiresModal({ onClose }) {
           </button>
         </div>
 
-        {/* ===== FILTRES ===== */}
-        <div className="bg-white px-8 py-5 border-b border-slate-200 shrink-0 shadow-md">
+        {/* ===== ONGLETS FUTURES / PASSÉES ===== */}
+        <div className="bg-white px-8 pt-4 pb-2 border-b border-slate-200 shrink-0">
+          <div className="flex gap-2">
+            <button
+              onClick={() => { setOnglet('futures'); setFiltreWilaya('Toutes'); }}
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 ${
+                onglet === 'futures'
+                  ? 'bg-[#0B132B] text-white shadow-lg'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+              }`}
+            >
+              <span>📅</span>
+              <span>Foires à venir</span>
+              <span className={`text-xs px-2 py-0.5 rounded-full ${
+                onglet === 'futures' ? 'bg-[#FF6B00] text-white' : 'bg-white text-slate-600'
+              }`}>
+                {foiresFutures.length}
+              </span>
+            </button>
+
+            <button
+              onClick={() => { setOnglet('passees'); setFiltreWilaya('Toutes'); }}
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 ${
+                onglet === 'passees'
+                  ? 'bg-[#0B132B] text-white shadow-lg'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+              }`}
+            >
+              <span>✅</span>
+              <span>Foires passées</span>
+              <span className={`text-xs px-2 py-0.5 rounded-full ${
+                onglet === 'passees' ? 'bg-[#FF6B00] text-white' : 'bg-white text-slate-600'
+              }`}>
+                {foiresPassees.length}
+              </span>
+            </button>
+          </div>
+        </div>
+
+        {/* ===== FILTRES WILAYA ===== */}
+        <div className="bg-white px-8 py-4 border-b border-slate-200 shrink-0 shadow-sm">
           <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-thin">
             <button
               onClick={() => setFiltreWilaya('Toutes')}
-              className={`group shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-200 whitespace-nowrap shadow-sm hover:shadow-md ${
+              className={`shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-200 whitespace-nowrap shadow-sm hover:shadow-md ${
                 filtreWilaya === 'Toutes'
                   ? 'bg-gradient-to-r from-[#FF6B00] to-[#ff8c33] text-white shadow-lg shadow-orange-500/30 scale-105'
                   : 'bg-white text-slate-700 border-2 border-slate-200 hover:border-[#FF6B00] hover:text-[#FF6B00]'
@@ -74,17 +119,19 @@ export default function FoiresModal({ onClose }) {
               <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${
                 filtreWilaya === 'Toutes' ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600'
               }`}>
-                {foiresFutures.length}
+                {listeSource.length}
               </span>
             </button>
 
             {wilayas.map(([wilaya, count]) => {
               const isActive = filtreWilaya === wilaya;
+              const countInList = listeSource.filter((f) => f.wilaya === wilaya).length;
+              if (countInList === 0) return null;
               return (
                 <button
                   key={wilaya}
                   onClick={() => setFiltreWilaya(wilaya)}
-                  className={`group shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-200 whitespace-nowrap shadow-sm hover:shadow-md ${
+                  className={`shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-200 whitespace-nowrap shadow-sm hover:shadow-md ${
                     isActive
                       ? 'bg-gradient-to-r from-[#FF6B00] to-[#ff8c33] text-white shadow-lg shadow-orange-500/30 scale-105'
                       : 'bg-white text-slate-700 border-2 border-slate-200 hover:border-[#FF6B00] hover:text-[#FF6B00]'
@@ -95,7 +142,7 @@ export default function FoiresModal({ onClose }) {
                   <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${
                     isActive ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600'
                   }`}>
-                    {count}
+                    {countInList}
                   </span>
                 </button>
               );
@@ -115,15 +162,27 @@ export default function FoiresModal({ onClose }) {
           ) : (
             foiresFiltrees.map((foire, i) => {
               const compte = formatCompteARebours(foire.dateSort);
+              const estPassee = onglet === 'passees';
               return (
                 <div
                   key={i}
-                  className="group bg-white hover:bg-gradient-to-r hover:from-orange-50 hover:to-white border-2 border-slate-100 hover:border-[#FF6B00] rounded-2xl p-6 transition-all duration-200 hover:shadow-xl hover:-translate-y-1"
+                  className={`group bg-white border-2 rounded-2xl p-6 transition-all duration-200 hover:shadow-xl hover:-translate-y-1 ${
+                    estPassee
+                      ? 'border-slate-200 opacity-80 hover:opacity-100'
+                      : 'border-slate-100 hover:border-[#FF6B00] hover:bg-gradient-to-r hover:from-orange-50 hover:to-white'
+                  }`}
                 >
                   <div className="flex items-start justify-between gap-6">
                     <div className="flex-1">
-                      <h3 className="text-lg font-black text-[#0B132B] mb-2 group-hover:text-[#FF6B00] transition">
+                      <h3 className={`text-lg font-black mb-2 transition ${
+                        estPassee ? 'text-slate-500' : 'text-[#0B132B] group-hover:text-[#FF6B00]'
+                      }`}>
                         {foire.nom}
+                        {estPassee && (
+                          <span className="ml-2 text-xs bg-slate-200 text-slate-600 px-2 py-0.5 rounded-full font-bold">
+                            Terminé
+                          </span>
+                        )}
                       </h3>
                       <p className="text-sm text-slate-600 mb-4 leading-relaxed">
                         {foire.description}
@@ -144,12 +203,18 @@ export default function FoiresModal({ onClose }) {
                       </div>
                     </div>
                     <div className="text-right shrink-0 space-y-3">
-                      {/* Compte à rebours */}
-                      <div className={`${couleursBadge[compte.couleur]} text-xs font-black px-3 py-1.5 rounded-full shadow-md whitespace-nowrap`}>
-                        ⏱ {compte.texte}
-                      </div>
+                      {/* Badge compte à rebours (uniquement pour futures) */}
+                      {!estPassee && (
+                        <div className={`${couleursBadge[compte.couleur]} text-xs font-black px-3 py-1.5 rounded-full shadow-md whitespace-nowrap`}>
+                          ⏱ {compte.texte}
+                        </div>
+                      )}
                       {/* Date */}
-                      <div className="bg-gradient-to-br from-[#FF6B00] to-[#ff8c33] text-white text-sm font-black px-4 py-2 rounded-xl shadow-lg shadow-orange-500/30">
+                      <div className={`text-sm font-black px-4 py-2 rounded-xl shadow-lg whitespace-nowrap ${
+                        estPassee
+                          ? 'bg-slate-300 text-slate-600 shadow-none'
+                          : 'bg-gradient-to-br from-[#FF6B00] to-[#ff8c33] text-white shadow-orange-500/30'
+                      }`}>
                         {foire.date}
                       </div>
                       {/* Wilaya */}
