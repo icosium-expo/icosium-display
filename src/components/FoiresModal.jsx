@@ -93,24 +93,25 @@ export default function FoiresModal({ onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-2 sm:p-4"
+      className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-2 sm:p-4 overflow-hidden"
       onClick={onClose}
     >
       <div
         className="bg-white rounded-2xl sm:rounded-3xl w-full max-w-5xl max-h-[95vh] sm:max-h-[90vh] flex flex-col overflow-hidden shadow-2xl"
+        style={{ maxWidth: 'min(100%, 64rem)' }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* ===== EN-TÊTE ===== */}
-        <div className="bg-gradient-to-r from-[#0B132B] to-[#16223d] text-white px-4 sm:px-8 py-4 sm:py-6 flex items-center justify-between shrink-0 border-b-4 border-[#FF6B00]">
-          <div className="flex items-center gap-3 sm:gap-4 min-w-0">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#FF6B00]/20 border-2 border-[#FF6B00]/30 rounded-xl flex items-center justify-center text-[#FF6B00] shrink-0">
+        <div className="bg-gradient-to-r from-[#0B132B] to-[#16223d] text-white px-3 sm:px-8 py-3 sm:py-6 flex items-center justify-between shrink-0 border-b-4 border-[#FF6B00]">
+          <div className="flex items-center gap-2 sm:gap-4 min-w-0">
+            <div className="w-9 h-9 sm:w-12 sm:h-12 bg-[#FF6B00]/20 border-2 border-[#FF6B00]/30 rounded-xl flex items-center justify-center text-[#FF6B00] shrink-0">
               <IconCalendarDays />
             </div>
             <div className="min-w-0">
-              <h2 className="text-base sm:text-xl lg:text-2xl font-black tracking-tight truncate">
+              <h2 className="text-sm sm:text-xl lg:text-2xl font-black tracking-tight truncate">
                 Calendrier des Salons & Foires
               </h2>
-              <p className="text-xs sm:text-sm text-slate-400 mt-0.5 sm:mt-1">
+              <p className="text-[11px] sm:text-sm text-slate-400 mt-0.5 sm:mt-1">
                 <span className="text-[#FF6B00] font-bold">{foiresFutures.length}</span> à venir
                 {foiresPassees.length > 0 && (
                   <> · <span className="text-slate-500">{foiresPassees.length} passés</span></>
@@ -120,7 +121,7 @@ export default function FoiresModal({ onClose }) {
           </div>
           <button
             onClick={onClose}
-            className="bg-slate-800 hover:bg-[#FF6B00] text-white w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-lg shrink-0"
+            className="bg-slate-800 hover:bg-[#FF6B00] text-white w-8 h-8 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-lg shrink-0"
             aria-label="Fermer"
           >
             <IconClose />
@@ -128,11 +129,11 @@ export default function FoiresModal({ onClose }) {
         </div>
 
         {/* ===== ONGLETS ===== */}
-        <div className="bg-white px-4 sm:px-8 pt-3 sm:pt-4 pb-2 border-b border-slate-200 shrink-0 overflow-x-auto">
-          <div className="flex gap-2 min-w-max">
+        <div className="bg-white px-3 sm:px-8 pt-2 sm:pt-4 pb-2 border-b border-slate-200 shrink-0">
+          <div className="flex gap-2 overflow-x-auto scrollbar-thin" style={{ maxWidth: '100%' }}>
             <button
               onClick={() => { setOnglet('futures'); setFiltreWilaya('Toutes'); }}
-              className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 ${
+              className={`shrink-0 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 whitespace-nowrap ${
                 onglet === 'futures'
                   ? 'bg-[#0B132B] text-white shadow-lg'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -149,7 +150,7 @@ export default function FoiresModal({ onClose }) {
 
             <button
               onClick={() => { setOnglet('passees'); setFiltreWilaya('Toutes'); }}
-              className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 ${
+              className={`shrink-0 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 whitespace-nowrap ${
                 onglet === 'passees'
                   ? 'bg-[#0B132B] text-white shadow-lg'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -167,8 +168,8 @@ export default function FoiresModal({ onClose }) {
         </div>
 
         {/* ===== FILTRES WILAYA ===== */}
-        <div className="bg-white px-4 sm:px-8 py-3 sm:py-4 border-b border-slate-200 shrink-0 shadow-sm">
-          <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-2 scrollbar-thin">
+        <div className="bg-white px-3 sm:px-8 py-2 sm:py-4 border-b border-slate-200 shrink-0 shadow-sm">
+          <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-2 scrollbar-thin" style={{ maxWidth: '100%' }}>
             <button
               onClick={() => setFiltreWilaya('Toutes')}
               className={`shrink-0 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 whitespace-nowrap shadow-sm hover:shadow-md ${
@@ -214,7 +215,7 @@ export default function FoiresModal({ onClose }) {
         </div>
 
         {/* ===== LISTE ===== */}
-        <div className="flex-1 overflow-y-auto p-3 sm:p-6 lg:p-8 space-y-3 sm:space-y-4 bg-slate-50">
+        <div className="flex-1 overflow-y-auto overflow-x-hidden p-3 sm:p-6 lg:p-8 space-y-3 sm:space-y-4 bg-slate-50">
           {foiresFiltrees.length === 0 ? (
             <div className="text-center py-12 sm:py-20">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-slate-100 rounded-full mb-4 text-slate-400">
@@ -232,7 +233,7 @@ export default function FoiresModal({ onClose }) {
                 <div
                   key={i}
                   onClick={() => setFoireSelectionnee(foire)}
-                  className={`group bg-white border-2 rounded-xl sm:rounded-2xl p-3 sm:p-5 lg:p-6 transition-all duration-200 hover:shadow-xl hover:-translate-y-1 cursor-pointer ${
+                  className={`group bg-white border-2 rounded-xl sm:rounded-2xl p-3 sm:p-5 lg:p-6 transition-all duration-200 hover:shadow-xl hover:-translate-y-1 cursor-pointer overflow-hidden ${
                     estPassee
                       ? 'border-slate-200 opacity-80 hover:opacity-100'
                       : 'border-slate-100 hover:border-[#FF6B00] hover:bg-gradient-to-r hover:from-orange-50 hover:to-white'
@@ -241,7 +242,7 @@ export default function FoiresModal({ onClose }) {
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-6">
                     {/* Infos */}
                     <div className="flex-1 min-w-0">
-                      <h3 className={`text-base sm:text-lg font-black mb-1.5 sm:mb-2 transition ${
+                      <h3 className={`text-sm sm:text-lg font-black mb-1.5 sm:mb-2 transition break-words ${
                         estPassee ? 'text-slate-500' : 'text-[#0B132B] group-hover:text-[#FF6B00]'
                       }`}>
                         {foire.nom}
@@ -251,16 +252,16 @@ export default function FoiresModal({ onClose }) {
                           </span>
                         )}
                       </h3>
-                      <p className="text-xs sm:text-sm text-slate-600 mb-3 sm:mb-4 leading-relaxed">
+                      <p className="text-xs sm:text-sm text-slate-600 mb-3 sm:mb-4 leading-relaxed break-words">
                         {foire.description}
                       </p>
 
-                      <div className="flex flex-wrap gap-x-3 sm:gap-x-6 gap-y-1.5 sm:gap-y-2 text-xs">
-                        <span className="inline-flex items-center gap-1.5 text-slate-600">
-                          <span className="text-[#FF6B00] flex items-center justify-center shrink-0">
+                      <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-x-6 gap-y-1.5 sm:gap-y-2 text-xs">
+                        <span className="inline-flex items-start gap-1.5 text-slate-600">
+                          <span className="text-[#FF6B00] flex items-center justify-center shrink-0 mt-0.5">
                             <IconMapPin />
                           </span>
-                          <span className="font-medium truncate">{foire.lieu}</span>
+                          <span className="font-medium break-words">{foire.lieu}</span>
                         </span>
 
                         <span className="inline-flex items-center gap-1.5 text-slate-600">
@@ -280,23 +281,23 @@ export default function FoiresModal({ onClose }) {
                     </div>
 
                     {/* Badge + Date + Wilaya */}
-                    <div className="flex sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-2 sm:gap-3 shrink-0">
+                    <div className="flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-2 sm:gap-3 shrink-0 w-full sm:w-auto">
                       {!estPassee && (
-                        <div className={`${couleursBadge[compte.couleur]} text-xs font-black px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-md whitespace-nowrap inline-flex items-center gap-1.5`}>
+                        <div className={`${couleursBadge[compte.couleur]} text-[10px] sm:text-xs font-black px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-md whitespace-nowrap inline-flex items-center gap-1.5`}>
                           <span className="flex items-center justify-center shrink-0">
                             <IconClock />
                           </span>
                           <span>{compte.texteCourt}</span>
                         </div>
                       )}
-                      <div className={`text-xs sm:text-sm font-black px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl shadow-lg whitespace-nowrap ${
+                      <div className={`text-[11px] sm:text-sm font-black px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl shadow-lg whitespace-nowrap ${
                         estPassee
                           ? 'bg-slate-300 text-slate-600 shadow-none'
                           : 'bg-gradient-to-br from-[#FF6B00] to-[#ff8c33] text-white shadow-orange-500/30'
                       }`}>
                         {foire.date}
                       </div>
-                      <div className="text-xs text-slate-500 font-bold uppercase tracking-wider hidden sm:block">
+                      <div className="text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-wider">
                         {foire.wilaya}
                       </div>
                     </div>
@@ -308,7 +309,7 @@ export default function FoiresModal({ onClose }) {
         </div>
 
         {/* ===== PIED ===== */}
-        <div className="bg-slate-100 px-4 sm:px-8 py-3 sm:py-4 text-xs text-slate-500 text-center border-t border-slate-200 shrink-0">
+        <div className="bg-slate-100 px-3 sm:px-8 py-2 sm:py-4 text-[10px] sm:text-xs text-slate-500 text-center border-t border-slate-200 shrink-0">
           Source : <a href="https://www.eventseye.com/fairs/c0_salons_algerie.html" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#FF6B00] font-semibold">eventseye.com</a>
         </div>
       </div>

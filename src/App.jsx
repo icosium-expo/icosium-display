@@ -78,7 +78,7 @@ export default function App() {
   }, [isPaused, salonsImages.length]);
 
   return (
-    <div className="bg-slate-50 text-slate-800 font-['Plus_Jakarta_Sans',sans-serif] antialiased selection:bg-[#FF6B00] selection:text-white min-h-screen">
+    <div className="bg-slate-50 text-slate-800 font-['Plus_Jakarta_Sans',sans-serif] antialiased selection:bg-[#FF6B00] selection:text-white min-h-screen overflow-x-hidden">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
       `}</style>
