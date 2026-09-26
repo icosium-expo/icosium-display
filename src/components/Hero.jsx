@@ -39,7 +39,15 @@ export default function Hero({ currentSlide, setCurrentSlide }) {
                   key={index}
                   className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}`}
                 >
-                  <img src={img} alt={`Stand d'exposition ${index + 1}`} className="w-full h-full object-cover" />
+                  <img
+                    src={img}
+                    alt={`Réalisation de stand d'exposition ${index + 1}`}
+                    width="800"
+                    height="600"
+                    {...(index === 0 ? { fetchPriority: 'high' } : { loading: 'lazy' })}
+                    decoding="async"
+                    className="w-full h-full object-cover"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-transparent to-transparent opacity-60"></div>
                 </div>
               ))}
@@ -49,7 +57,7 @@ export default function Hero({ currentSlide, setCurrentSlide }) {
                   <button
                     key={index}
                     onClick={() => setCurrentSlide(index)}
-                    className={`h-3 rounded-full transition-all duration-300 ${index === currentSlide ? 'bg-[#FF6B00] w-8' : 'bg-white/50 hover:bg-white w-3'}`}
+                    className={`h-3 rounded-full transition duration-300 ${index === currentSlide ? 'bg-[#FF6B00] w-8' : 'bg-white/50 hover:bg-white w-3'}`}
                     aria-label={`Aller à la diapositive ${index + 1}`}
                   />
                 ))}

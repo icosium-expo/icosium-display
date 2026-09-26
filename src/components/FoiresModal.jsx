@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import useDialog from '../hooks/useDialog';
 import { foiresFutures, foiresPassees, wilayasStats, formatCompteARebours } from '../data/foires';
 import FoireDetail from './FoireDetail';
 
@@ -55,6 +56,7 @@ const IconClose = () => (
 
 // ========== COMPOSANT ==========
 export default function FoiresModal({ onClose }) {
+  const dialogRef = useDialog();
   const [filtreWilaya, setFiltreWilaya] = useState('Toutes');
   const [onglet, setOnglet] = useState('futures');
   const [foireSelectionnee, setFoireSelectionnee] = useState(null);
@@ -93,11 +95,16 @@ export default function FoiresModal({ onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-2 sm:p-4 overflow-hidden"
+      className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-2 sm:p-4 overflow-hidden overscroll-contain"
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-2xl sm:rounded-3xl w-full max-w-5xl max-h-[95vh] sm:max-h-[90vh] flex flex-col overflow-hidden shadow-2xl"
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Salons et foires en Algérie"
+        tabIndex={-1}
+        className="outline-none bg-white rounded-2xl sm:rounded-3xl w-full max-w-5xl max-h-[95vh] sm:max-h-[90vh] flex flex-col overflow-hidden shadow-2xl"
         style={{ maxWidth: 'min(100%, 64rem)' }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -121,7 +128,7 @@ export default function FoiresModal({ onClose }) {
           </div>
           <button
             onClick={onClose}
-            className="bg-slate-800 hover:bg-[#FF6B00] text-white w-8 h-8 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-lg shrink-0"
+            className="bg-slate-800 hover:bg-[#FF6B00] text-white w-8 h-8 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition duration-200 hover:scale-110 shadow-lg shrink-0"
             aria-label="Fermer"
           >
             <IconClose />
@@ -133,7 +140,7 @@ export default function FoiresModal({ onClose }) {
           <div className="flex gap-2 overflow-x-auto scrollbar-thin" style={{ maxWidth: '100%' }}>
             <button
               onClick={() => { setOnglet('futures'); setFiltreWilaya('Toutes'); }}
-              className={`shrink-0 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 whitespace-nowrap ${
+              className={`shrink-0 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition duration-200 whitespace-nowrap ${
                 onglet === 'futures'
                   ? 'bg-[#0B132B] text-white shadow-lg'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -150,7 +157,7 @@ export default function FoiresModal({ onClose }) {
 
             <button
               onClick={() => { setOnglet('passees'); setFiltreWilaya('Toutes'); }}
-              className={`shrink-0 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 whitespace-nowrap ${
+              className={`shrink-0 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition duration-200 whitespace-nowrap ${
                 onglet === 'passees'
                   ? 'bg-[#0B132B] text-white shadow-lg'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -172,7 +179,7 @@ export default function FoiresModal({ onClose }) {
           <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-2 scrollbar-thin" style={{ maxWidth: '100%' }}>
             <button
               onClick={() => setFiltreWilaya('Toutes')}
-              className={`shrink-0 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 whitespace-nowrap shadow-sm hover:shadow-md ${
+              className={`shrink-0 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition duration-200 whitespace-nowrap shadow-sm hover:shadow-md ${
                 filtreWilaya === 'Toutes'
                   ? 'bg-gradient-to-r from-[#FF6B00] to-[#ff8c33] text-white shadow-lg shadow-orange-500/30'
                   : 'bg-white text-slate-700 border-2 border-slate-200 hover:border-[#FF6B00] hover:text-[#FF6B00]'
@@ -195,7 +202,7 @@ export default function FoiresModal({ onClose }) {
                 <button
                   key={wilaya}
                   onClick={() => setFiltreWilaya(wilaya)}
-                  className={`shrink-0 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 whitespace-nowrap shadow-sm hover:shadow-md ${
+                  className={`shrink-0 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition duration-200 whitespace-nowrap shadow-sm hover:shadow-md ${
                     isActive
                       ? 'bg-gradient-to-r from-[#FF6B00] to-[#ff8c33] text-white shadow-lg shadow-orange-500/30'
                       : 'bg-white text-slate-700 border-2 border-slate-200 hover:border-[#FF6B00] hover:text-[#FF6B00]'
@@ -232,8 +239,16 @@ export default function FoiresModal({ onClose }) {
               return (
                 <div
                   key={i}
+                  role="button"
+                  tabIndex={0}
                   onClick={() => setFoireSelectionnee(foire)}
-                  className={`group bg-white border-2 rounded-xl sm:rounded-2xl p-3 sm:p-5 lg:p-6 transition-all duration-200 hover:shadow-xl hover:-translate-y-1 cursor-pointer overflow-hidden ${
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setFoireSelectionnee(foire);
+                    }
+                  }}
+                  className={`group focus-visible:ring-2 focus-visible:ring-[#FF6B00] focus-visible:outline-none bg-white border-2 rounded-xl sm:rounded-2xl p-3 sm:p-5 lg:p-6 transition duration-200 hover:shadow-xl hover:-translate-y-1 cursor-pointer overflow-hidden ${
                     estPassee
                       ? 'border-slate-200 opacity-80 hover:opacity-100'
                       : 'border-slate-100 hover:border-[#FF6B00] hover:bg-gradient-to-r hover:from-orange-50 hover:to-white'

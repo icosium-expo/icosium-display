@@ -29,12 +29,27 @@ export default function CarouselCard({
         className="h-64 bg-slate-900 overflow-hidden relative group cursor-pointer shrink-0"
         onMouseEnter={enableAutoPause ? () => setIsPaused(true) : undefined}
         onMouseLeave={enableAutoPause ? () => setIsPaused(false) : undefined}
+        role="button"
+        tabIndex={0}
+        aria-label={`Agrandir l'image : ${title}`}
+        onFocus={enableAutoPause ? () => setIsPaused(true) : undefined}
+        onBlur={enableAutoPause ? () => setIsPaused(false) : undefined}
         onClick={() => onImageClick({ list: images, index: slide })}
+        onKeyDown={(e) => {
+          if (e.target !== e.currentTarget) return;
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            onImageClick({ list: images, index: slide });
+          }
+        }}
       >
         <img
           src={images[slide]}
-          alt={title}
+          alt={`${title} – image ${slide + 1} sur ${images.length}`}
+          width="640"
+          height="480"
           loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
         />
         <span className="absolute top-3 left-3 bg-black/60 text-white text-xs px-2.5 py-1 rounded-md font-medium">
@@ -44,16 +59,16 @@ export default function CarouselCard({
           <button
             onClick={goPrev}
             aria-label="Image précédente"
-            className="w-8 h-8 bg-black/60 hover:bg-[#FF6B00] text-white rounded-full flex items-center justify-center transition"
+            className="w-8 h-8 bg-black/60 hover:bg-[#FF6B00] text-white rounded-full flex items-center justify-center transition focus-visible:ring-2 focus-visible:ring-white"
           >
-            ‹
+            <span aria-hidden="true">‹</span>
           </button>
           <button
             onClick={goNext}
             aria-label="Image suivante"
-            className="w-8 h-8 bg-black/60 hover:bg-[#FF6B00] text-white rounded-full flex items-center justify-center transition"
+            className="w-8 h-8 bg-black/60 hover:bg-[#FF6B00] text-white rounded-full flex items-center justify-center transition focus-visible:ring-2 focus-visible:ring-white"
           >
-            ›
+            <span aria-hidden="true">›</span>
           </button>
         </div>
       </div>

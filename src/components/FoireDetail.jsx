@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import useDialog from '../hooks/useDialog';
 import { formatCompteARebours } from '../data/foires';
 
 // Icônes
@@ -34,6 +35,7 @@ const IconRepeat = () => (
 );
 
 export default function FoireDetail({ foire, onClose }) {
+  const dialogRef = useDialog();
   useEffect(() => {
     const handleKey = (e) => {
       if (e.key === 'Escape') onClose();
@@ -50,11 +52,16 @@ export default function FoireDetail({ foire, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-[60] bg-black/95 flex items-center justify-center p-2 sm:p-4"
+      className="fixed inset-0 z-[60] bg-black/95 flex items-center justify-center p-2 sm:p-4 overscroll-contain"
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-2xl sm:rounded-3xl w-full max-w-3xl max-h-[95vh] sm:max-h-[90vh] flex flex-col overflow-hidden shadow-2xl"
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label={foire.nom}
+        tabIndex={-1}
+        className="outline-none bg-white rounded-2xl sm:rounded-3xl w-full max-w-3xl max-h-[95vh] sm:max-h-[90vh] flex flex-col overflow-hidden shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* En-tête */}
@@ -74,7 +81,7 @@ export default function FoireDetail({ foire, onClose }) {
           </div>
           <button
             onClick={onClose}
-            className="bg-slate-800 hover:bg-[#FF6B00] text-white w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-lg shrink-0"
+            className="bg-slate-800 hover:bg-[#FF6B00] text-white w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition duration-200 hover:scale-110 shadow-lg shrink-0"
             aria-label="Fermer"
           >
             <IconClose />

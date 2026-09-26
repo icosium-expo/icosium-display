@@ -58,17 +58,17 @@ export default function ContactSection() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <span className="text-[#FF6B00] font-bold text-sm uppercase tracking-wider">Parlons de votre projet</span>
-          <h2 className="text-3xl font-extrabold text-[#0B132B] mt-2 mb-3">Obtenez votre devis sous 24h</h2>
+          <h2 className="text-3xl font-extrabold text-[#0B132B] mt-2 mb-3">Obtenez votre devis sous 24&nbsp;h</h2>
           <p className="text-slate-600">Remplissez ce formulaire ou contactez-nous directement.</p>
           <div className="mt-4 flex flex-wrap justify-center gap-6 text-sm font-semibold text-slate-700">
-            <span>📞 +213 (0) 550 88 66 40</span>
-            <span>📞 +213 (0) 552 94 00 09</span>
-            <span>✉️ contact@icosium-expo.com</span>
+            <a href="tel:+213550886640"><span aria-hidden="true">📞</span> +213 (0) 550 88 66 40</a>
+            <a href="tel:+213552940009"><span aria-hidden="true">📞</span> +213 (0) 552 94 00 09</a>
+            <a href="mailto:contact@icosium-expo.com"><span aria-hidden="true">✉️</span> contact@icosium-expo.com</a>
           </div>
         </div>
 
         {submitted ? (
-          <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 p-8 rounded-3xl text-center space-y-3">
+          <div role="status" aria-live="polite" className="bg-emerald-50 border border-emerald-200 text-emerald-800 p-8 rounded-3xl text-center space-y-3">
             <h3 className="text-xl font-bold">Demande bien reçue !</h3>
             <p className="text-sm">Notre équipe commerciale vous contactera rapidement.</p>
             <button onClick={() => setSubmitted(false)} className="mt-4 text-xs font-semibold underline cursor-pointer">
@@ -77,35 +77,35 @@ export default function ContactSection() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6 bg-slate-50 p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-xl">
-            {error && <div className="bg-red-50 text-red-700 p-4 rounded-xl text-sm">{error}</div>}
+            {error && <div role="alert" className="bg-red-50 text-red-700 p-4 rounded-xl text-sm">{error}</div>}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">Nom / Entreprise *</label>
-                <input type="text" id="nom" required value={formData.nom} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white" placeholder="Votre nom" />
+                <label htmlFor="nom" className="block text-sm font-semibold text-slate-700 mb-2">Nom / Entreprise *</label>
+                <input type="text" id="nom" name="nom" autoComplete="name" required value={formData.nom} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B00] focus-visible:border-[#FF6B00]" placeholder="Votre nom" />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">Téléphone *</label>
-                <input type="tel" id="telephone" required value={formData.telephone} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white" placeholder="+213 ..." />
+                <label htmlFor="telephone" className="block text-sm font-semibold text-slate-700 mb-2">Téléphone *</label>
+                <input type="tel" id="telephone" name="telephone" autoComplete="tel" inputMode="tel" required value={formData.telephone} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B00] focus-visible:border-[#FF6B00]" placeholder="+213 5XX XX XX XX" />
               </div>
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">E-mail *</label>
-              <input type="email" id="email" required value={formData.email} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white" placeholder="contact@exemple.com" />
+              <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-2">E-mail *</label>
+              <input type="email" id="email" name="email" autoComplete="email" spellCheck={false} required value={formData.email} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B00] focus-visible:border-[#FF6B00]" placeholder="contact@exemple.com" />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Projet (Salon / Enseigne / Showroom)</label>
-              <input type="text" id="salon" value={formData.salon} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white" placeholder="ex: DJAZAGRO, FPA, FIA..." />
+              <label htmlFor="salon" className="block text-sm font-semibold text-slate-700 mb-2">Projet (Salon / Enseigne / Showroom)</label>
+              <input type="text" id="salon" name="salon" autoComplete="off" value={formData.salon} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B00] focus-visible:border-[#FF6B00]" placeholder="ex: DJAZAGRO, FPA, FIA…" />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Dimensions / Surface estimée</label>
-              <input type="text" id="surface" value={formData.surface} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white" placeholder="ex: Stand 36 m²" />
+              <label htmlFor="surface" className="block text-sm font-semibold text-slate-700 mb-2">Dimensions / Surface estimée</label>
+              <input type="text" id="surface" name="surface" autoComplete="off" value={formData.surface} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B00] focus-visible:border-[#FF6B00]" placeholder="ex: Stand 36 m²" />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Description de votre besoin</label>
-              <textarea id="description" rows="4" value={formData.description} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white" placeholder="Détails..."></textarea>
+              <label htmlFor="description" className="block text-sm font-semibold text-slate-700 mb-2">Description de votre besoin</label>
+              <textarea id="description" name="description" autoComplete="off" rows="4" value={formData.description} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B00] focus-visible:border-[#FF6B00]" placeholder="Détails du projet…"></textarea>
             </div>
-            <button type="submit" disabled={submitting} className="w-full bg-[#FF6B00] hover:bg-orange-600 disabled:bg-orange-300 text-white font-bold py-4 rounded-xl transition cursor-pointer">
-              {submitting ? "Envoi en cours..." : "Envoyer ma demande"}
+            <button type="submit" disabled={submitting} className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#FF6B00] w-full bg-[#FF6B00] hover:bg-orange-600 disabled:bg-orange-300 text-white font-bold py-4 rounded-xl transition cursor-pointer">
+              {submitting ? "Envoi en cours…" : "Envoyer ma demande"}
             </button>
           </form>
         )}

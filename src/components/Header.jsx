@@ -24,7 +24,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }) {
             )
         },
         {
-            href: '#salons et foires',
+            href: '#salons',
             label: 'Salons et Foires',
             icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
         },
@@ -40,7 +40,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }) {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-36 flex items-center justify-between">
                 <div className="flex items-center shrink-0 py-2">
                     <a href="#accueil" className="block transition-transform hover:scale-105" aria-label="Icosium Display Accueil">
-                        <img src={logoSvg} alt="Icosium Display Logo" className="h-32 sm:h-36 w-auto object-contain drop-shadow-lg" />
+                        <img src={logoSvg} alt="Icosium Display Logo" width="144" height="144" className="h-32 sm:h-36 w-auto object-contain drop-shadow-lg" />
                     </a>
                 </div>
 
@@ -74,8 +74,9 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }) {
                 <div className="lg:hidden flex items-center">
                     <button
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        className="text-slate-300 hover:text-white focus:outline-none p-2"
-                        aria-label="Ouvrir le menu"
+                        className="text-slate-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B00] rounded-lg p-2"
+                        aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+                        aria-expanded={mobileMenuOpen}
                     >
                         <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"} />

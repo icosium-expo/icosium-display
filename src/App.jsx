@@ -35,6 +35,7 @@ export default function App() {
   // ========== AUTO-SLIDE HERO (6 images, toutes les 4 secondes) ==========
   useEffect(() => {
     if (!heroImages.length) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroImages.length);
     }, 4000);
@@ -43,7 +44,7 @@ export default function App() {
 
   // ========== AUTO-SLIDE STANDS (93 images, toutes les 5 secondes) ==========
   useEffect(() => {
-    if (isPaused || !standsImages.length) return;
+    if (isPaused || !standsImages.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const interval = setInterval(() => {
       setStandSlide((prev) => (prev + 1) % standsImages.length);
     }, 5000);
@@ -79,10 +80,6 @@ export default function App() {
 
   return (
     <div className="bg-slate-50 text-slate-800 font-['Plus_Jakarta_Sans',sans-serif] antialiased selection:bg-[#FF6B00] selection:text-white min-h-screen overflow-x-hidden">
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-      `}</style>
-
       <Header mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
       <Hero currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} />
       <StatsSection />

@@ -23,14 +23,14 @@ export default function FoiresTicker() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-3 sm:mb-4">
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center space-x-2 sm:space-x-3 min-w-0">
-              <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FF6B00] animate-pulse shrink-0"></span>
+              <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FF6B00] animate-pulse motion-reduce:animate-none shrink-0"></span>
               <span className="text-[#FF6B00] font-bold text-xs sm:text-sm uppercase tracking-wider truncate">
                 Prochains Salons & Foires
               </span>
             </div>
             <button
               onClick={() => setIsModalOpen(true)}
-              className="text-xs text-slate-400 hover:text-[#FF6B00] transition font-semibold whitespace-nowrap shrink-0"
+              className="text-xs text-slate-400 hover:text-[#FF6B00] transition font-semibold whitespace-nowrap shrink-0 focus-visible:ring-2 focus-visible:ring-[#FF6B00] focus-visible:outline-none rounded"
             >
               Voir tout ({foiresFutures.length}) →
             </button>
@@ -40,6 +40,7 @@ export default function FoiresTicker() {
         {/* Ticker */}
         <div
           className="relative cursor-pointer"
+          aria-hidden="true"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
           onClick={() => setIsModalOpen(true)}
