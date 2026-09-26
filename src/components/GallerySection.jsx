@@ -16,11 +16,11 @@ export default function GallerySection({
   onImageClick
 }) {
   return (
-    <section id="realisations" className="py-20 sm:py-24 lg:py-32 bg-white relative">
+    <section id="realisations" className="py-20 sm:py-24 lg:py-32 bg-[#FFFDF8] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div data-reveal className="max-w-3xl mb-16">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#C2410C]">Portfolio</p>
-          <h2 className="font-display mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight text-[#0B132B] text-balance leading-[1.08]">
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#B45309]">Portfolio</p>
+          <h2 className="font-display mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight text-[#0A2A33] text-balance leading-[1.08]">
             Nos réalisations : stands, showrooms &amp; enseignes.
           </h2>
           <p className="mt-5 text-lg text-slate-600 text-pretty">

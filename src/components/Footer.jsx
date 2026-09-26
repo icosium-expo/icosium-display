@@ -1,11 +1,17 @@
 import React from 'react';
+import logoSvg from '../assets/logo.svg';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0B132B] text-slate-300 py-12 border-t border-slate-800 text-sm">
+    <footer className="bg-[#0A2A33] text-slate-300 py-12 border-t border-slate-800 text-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
-          <p translate="no" className="font-display text-white font-bold text-lg mb-1">ICOSIUM DISPLAY</p>
+          <div className="flex items-center gap-3 mb-2">
+            <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white p-1 ring-2 ring-[#FFB020]/70">
+              <img src={logoSvg} alt="" width="48" height="48" className="h-full w-full object-contain" />
+            </span>
+            <p translate="no" className="font-display text-white font-bold text-lg">ICOSIUM DISPLAY</p>
+          </div>
           <p>Atelier & Showroom : Bachdjerah, Alger · Algérie</p>
           <p className="mt-1 text-slate-300">Tél : +213 (0) 550 88 66 40 / +213 (0) 552 94 00 09</p>
         </div>

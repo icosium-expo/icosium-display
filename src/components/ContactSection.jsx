@@ -54,11 +54,11 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 sm:py-24 lg:py-32 bg-slate-50 border-t border-slate-200">
+    <section id="contact" className="py-20 sm:py-24 lg:py-32 bg-ivory border-t border-[#E8DFCE]">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div data-reveal className="text-center mb-12">
-          <span className="text-[#C2410C] font-bold text-sm uppercase tracking-[0.2em]">Parlons de votre projet</span>
-          <h2 className="font-display text-4xl font-extrabold tracking-tight text-[#0B132B] mt-3 mb-3 text-balance">Obtenez votre devis sous 24&nbsp;h</h2>
+          <span className="text-[#B45309] font-bold text-sm uppercase tracking-[0.2em]">Parlons de votre projet</span>
+          <h2 className="font-display text-4xl font-extrabold tracking-tight text-[#0A2A33] mt-3 mb-3 text-balance">Obtenez votre devis sous 24&nbsp;h</h2>
           <p className="text-lg text-slate-600 text-pretty">Remplissez ce formulaire ou contactez-nous directement.</p>
           <div className="mt-6 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm font-semibold text-slate-700">
             <a href="tel:+213550886640"><span aria-hidden="true">📞</span> +213 (0) 550 88 66 40</a>
@@ -81,30 +81,30 @@ export default function ContactSection() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="nom" className="block text-sm font-semibold text-slate-700 mb-2">Nom / Entreprise *</label>
-                <input type="text" id="nom" name="nom" autoComplete="name" required value={formData.nom} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B00] focus-visible:border-[#FF6B00]" placeholder="Votre nom" />
+                <input type="text" id="nom" name="nom" autoComplete="name" required value={formData.nom} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFB020] focus-visible:border-[#FFB020]" placeholder="Votre nom" />
               </div>
               <div>
                 <label htmlFor="telephone" className="block text-sm font-semibold text-slate-700 mb-2">Téléphone *</label>
-                <input type="tel" id="telephone" name="telephone" autoComplete="tel" inputMode="tel" required value={formData.telephone} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B00] focus-visible:border-[#FF6B00]" placeholder="+213 5XX XX XX XX" />
+                <input type="tel" id="telephone" name="telephone" autoComplete="tel" inputMode="tel" required value={formData.telephone} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFB020] focus-visible:border-[#FFB020]" placeholder="+213 5XX XX XX XX" />
               </div>
             </div>
             <div>
               <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-2">E-mail *</label>
-              <input type="email" id="email" name="email" autoComplete="email" spellCheck={false} required value={formData.email} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B00] focus-visible:border-[#FF6B00]" placeholder="contact@exemple.com" />
+              <input type="email" id="email" name="email" autoComplete="email" spellCheck={false} required value={formData.email} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFB020] focus-visible:border-[#FFB020]" placeholder="contact@exemple.com" />
             </div>
             <div>
               <label htmlFor="salon" className="block text-sm font-semibold text-slate-700 mb-2">Projet (Salon / Enseigne / Showroom)</label>
-              <input type="text" id="salon" name="salon" autoComplete="off" value={formData.salon} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B00] focus-visible:border-[#FF6B00]" placeholder="ex: DJAZAGRO, FPA, FIA…" />
+              <input type="text" id="salon" name="salon" autoComplete="off" value={formData.salon} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFB020] focus-visible:border-[#FFB020]" placeholder="ex: DJAZAGRO, FPA, FIA…" />
             </div>
             <div>
               <label htmlFor="surface" className="block text-sm font-semibold text-slate-700 mb-2">Dimensions / Surface estimée</label>
-              <input type="text" id="surface" name="surface" autoComplete="off" value={formData.surface} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B00] focus-visible:border-[#FF6B00]" placeholder="ex: Stand 36 m²" />
+              <input type="text" id="surface" name="surface" autoComplete="off" value={formData.surface} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFB020] focus-visible:border-[#FFB020]" placeholder="ex: Stand 36 m²" />
             </div>
             <div>
               <label htmlFor="description" className="block text-sm font-semibold text-slate-700 mb-2">Description de votre besoin</label>
-              <textarea id="description" name="description" autoComplete="off" rows="4" value={formData.description} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B00] focus-visible:border-[#FF6B00]" placeholder="Détails du projet…"></textarea>
+              <textarea id="description" name="description" autoComplete="off" rows="4" value={formData.description} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFB020] focus-visible:border-[#FFB020]" placeholder="Détails du projet…"></textarea>
             </div>
-            <button type="submit" disabled={submitting} className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#FF6B00] w-full bg-[#FF6B00] hover:bg-[#ff8533] disabled:bg-orange-300 text-[#0B132B] font-bold py-4 rounded-xl transition cursor-pointer">
+            <button type="submit" disabled={submitting} className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#FFB020] w-full bg-[#FFB020] hover:bg-[#FFC24D] disabled:bg-amber-200 text-[#0A2A33] font-bold py-4 rounded-xl transition cursor-pointer">
               {submitting ? "Envoi en cours…" : "Envoyer ma demande"}
             </button>
           </form>

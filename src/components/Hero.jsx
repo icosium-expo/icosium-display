@@ -2,13 +2,13 @@ import React from 'react';
 import { heroImages } from '../galerie/imagesConfig';
 
 const focusRing =
-  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B132B]';
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A2A33]';
 
 export default function Hero({ currentSlide, setCurrentSlide, heroPaused, setHeroPaused }) {
   return (
     <section
       id="accueil"
-      className="relative isolate overflow-hidden bg-[#0B132B] text-white min-h-[min(calc(100svh-6rem),52rem)] flex items-center"
+      className="relative isolate overflow-hidden bg-[#0A2A33] text-white min-h-[min(calc(100svh-6rem),52rem)] flex items-center"
     >
       {/* Diaporama plein cadre */}
       <div className="absolute inset-0 -z-10" aria-hidden="true">
@@ -26,17 +26,19 @@ export default function Hero({ currentSlide, setCurrentSlide, heroPaused, setHer
             }`}
           />
         ))}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B132B] via-[#0B132B]/85 to-[#0B132B]/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-transparent to-[#0B132B]/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A2A33] via-[#0A2A33]/85 to-[#0A2A33]/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A2A33] via-transparent to-[#0A2A33]/40" />
+        <div className="aurora aurora-a" />
+        <div className="aurora aurora-b" />
       </div>
 
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="max-w-3xl">
           <p
             data-reveal
-            className="inline-flex items-center gap-3 text-sm font-semibold tracking-[0.2em] uppercase text-[#FF8A3D] mb-8"
+            className="inline-flex items-center gap-3 text-sm font-semibold tracking-[0.2em] uppercase text-[#FFC24D] mb-8"
           >
-            <span className="h-px w-10 bg-[#FF8A3D]" aria-hidden="true" />
+            <span className="h-px w-10 bg-[#FFC24D]" aria-hidden="true" />
             Stands · Showrooms · Enseignes lumineuses
           </p>
 
@@ -45,7 +47,7 @@ export default function Hero({ currentSlide, setCurrentSlide, heroPaused, setHer
             style={{ '--d': '100ms' }}
             className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.02] text-balance"
           >
-            Donnez une envergure <span className="text-[#FF6B00]">exceptionnelle</span> à votre marque.
+            Donnez une envergure <span className="text-gradient-gold">exceptionnelle</span> à votre marque.
           </h1>
 
           <p
@@ -60,7 +62,7 @@ export default function Hero({ currentSlide, setCurrentSlide, heroPaused, setHer
           <div data-reveal style={{ '--d': '300ms' }} className="mt-10 flex flex-col sm:flex-row gap-4">
             <a
               href="#contact"
-              className={`group inline-flex items-center justify-center gap-3 bg-[#FF6B00] text-[#0B132B] font-bold px-8 py-4 rounded-full transition hover:bg-[#ff8533] hover:-translate-y-0.5 shadow-xl shadow-orange-500/25 ${focusRing}`}
+              className={`btn-shine group inline-flex items-center justify-center gap-3 bg-[#FFB020] text-[#0A2A33] font-bold px-8 py-4 rounded-full transition hover:bg-[#FFC24D] hover:-translate-y-0.5 shadow-xl shadow-amber-500/25 ${focusRing}`}
             >
               Lancer votre projet 3D
               <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
@@ -96,7 +98,7 @@ export default function Hero({ currentSlide, setCurrentSlide, heroPaused, setHer
               >
                 <span
                   className={`block h-1.5 rounded-full transition-all duration-500 ${
-                    index === currentSlide ? 'w-10 bg-[#FF6B00]' : 'w-5 bg-white/40 group-hover:bg-white/80'
+                    index === currentSlide ? 'w-10 bg-[#FFB020]' : 'w-5 bg-white/40 group-hover:bg-white/80'
                   }`}
                 />
               </button>

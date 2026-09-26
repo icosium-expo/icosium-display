@@ -15,16 +15,13 @@ function useCountUp(target, start) {
       setN(target);
       return;
     }
-    let raf;
-    let t0 = null;
-    const tick = (t) => {
-      if (t0 === null) t0 = t;
-      const p = Math.min((t - t0) / 1600, 1);
+    const t0 = Date.now();
+    const id = setInterval(() => {
+      const p = Math.min((Date.now() - t0) / 1600, 1);
       setN(Math.round((1 - Math.pow(1 - p, 3)) * target));
-      if (p < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+      if (p >= 1) clearInterval(id);
+    }, 32);
+    return () => clearInterval(id);
   }, [target, start]);
   return n;
 }
@@ -34,7 +31,7 @@ function Stat({ stat, start }) {
   const display = typeof stat.value === 'number' ? `${n}${stat.suffix || ''}` : stat.value;
   return (
     <div className="px-6 py-8 sm:py-10 text-center lg:text-left">
-      <div className="font-display text-5xl lg:text-6xl font-extrabold text-white tracking-tight tabular-nums">
+      <div className="font-display text-5xl lg:text-6xl font-extrabold text-gradient-gold tracking-tight tabular-nums">
         {display}
       </div>
       <p className="mt-3 text-sm sm:text-base text-slate-300 font-medium max-w-[16rem] mx-auto lg:mx-0 text-pretty">
@@ -64,7 +61,12 @@ export default function StatsSection() {
       { threshold: 0.3 }
     );
     io.observe(el);
-    return () => io.disconnect();
+    // Filet de sécurité : si l'observateur ne se déclenche pas, on lance quand même les compteurs
+    const fallback = setTimeout(() => setVisible(true), 3000);
+    return () => {
+      clearTimeout(fallback);
+      io.disconnect();
+    };
   }, []);
 
   return (
@@ -72,7 +74,7 @@ export default function StatsSection() {
       id="chiffres-cles"
       ref={ref}
       aria-label="Chiffres clés"
-      className="bg-[#0B132B] border-y border-white/10"
+      className="bg-[#0A2A33] border-y border-white/10"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 divide-white/10 lg:divide-x [&>*:nth-child(odd)]:border-r [&>*:nth-child(odd)]:border-white/10 lg:[&>*:nth-child(odd)]:border-r-0 [&>*:nth-child(n+3)]:border-t [&>*:nth-child(n+3)]:border-white/10 lg:[&>*:nth-child(n+3)]:border-t-0">
