@@ -19,26 +19,26 @@ export default function AtelierProcess() {
     <section id="atelier" className="py-24 bg-white border-y border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-16">
-          <div className="lg:w-1/2">
-            <span className="text-[#FF6B00] font-bold text-sm uppercase tracking-wider">Savoir-Faire Local</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B132B] mt-2 mb-6">Notre Atelier et Showroom à Bachdjerah, Alger</h2>
+          <div data-reveal className="lg:w-1/2">
+            <span className="text-[#C2410C] font-bold text-sm uppercase tracking-[0.2em]">Savoir-Faire Local</span>
+            <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-[#0B132B] mt-4 mb-6 text-balance leading-[1.08]">Notre Atelier et Showroom à Bachdjerah, Alger</h2>
             <p className="text-slate-600 mb-6 leading-relaxed">
               Contrairement aux intermédiaires, nous maîtrisons l'intégralité de la chaîne de production. De la première esquisse sur écran jusqu'à l'assemblage final en atelier et l'installation sur site.
             </p>
             <div className="space-y-4">
               {points.map((p, i) => (
                 <div key={i} className="flex items-start space-x-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-100 text-[#FF6B00] flex items-center justify-center font-bold text-sm shrink-0 mt-1">✓</div>
+                  <div className="w-8 h-8 rounded-full bg-orange-100 text-[#C2410C] flex items-center justify-center font-bold text-sm shrink-0 mt-1">✓</div>
                   <div>
                     <h4 className="font-bold text-[#0B132B]">{p.title}</h4>
-                    <p className="text-sm text-slate-500">{p.desc}</p>
+                    <p className="text-sm text-slate-600">{p.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="lg:w-1/2 bg-[#0B132B] text-white p-8 sm:p-12 rounded-3xl shadow-2xl relative overflow-hidden">
+          <div data-reveal style={{ '--d': '150ms' }} className="lg:w-1/2 bg-[#0B132B] text-white p-8 sm:p-12 rounded-3xl shadow-2xl relative overflow-hidden">
             <div className="absolute -right-10 -bottom-10 w-48 h-48 bg-[#FF6B00]/10 rounded-full blur-2xl"></div>
             <h3 className="text-2xl font-black mb-4">Notre Méthode en 4 Étapes</h3>
             <ul className="space-y-6 relative z-10">
@@ -47,7 +47,7 @@ export default function AtelierProcess() {
                   <span className="text-[#FF6B00] font-black text-xl">{s.num}</span>
                   <div>
                     <strong className="block text-white">{s.title}</strong>
-                    <span className="text-sm text-slate-400">{s.desc}</span>
+                    <span className="text-sm text-slate-300">{s.desc}</span>
                   </div>
                 </li>
               ))}

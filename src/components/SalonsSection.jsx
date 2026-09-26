@@ -34,9 +34,9 @@ export default function SalonsSection() {
 
   return (
     <section id="salons" className="py-16 sm:py-24 bg-[#0B132B] text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10 sm:mb-16">
+      <div data-reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10 sm:mb-16">
         <span className="text-[#FF6B00] font-bold text-xs sm:text-sm uppercase tracking-wider">Présence Nationale</span>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mt-2 mb-3 sm:mb-4">Au cœur des grands rendez-vous professionnels</h2>
+        <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mt-3 mb-4 text-balance">Au cœur des grands rendez-vous professionnels</h2>
         <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto">De la FPA à DJAZAGRO et la FIA, nous accompagnons les exposants avec une rigueur absolue sur les délais.</p>
       </div>
 
@@ -47,7 +47,7 @@ export default function SalonsSection() {
             className="group bg-[#16223d] rounded-2xl border-2 border-slate-700 hover:border-[#FF6B00] text-center flex flex-col justify-between relative shadow-xl overflow-hidden transition duration-300 hover:shadow-2xl hover:shadow-orange-500/20 hover:-translate-y-1 cursor-pointer"
           >
             {/* Badge */}
-            <span className="absolute top-2 left-1/2 transform -translate-x-1/2 bg-slate-700 group-hover:bg-[#FF6B00] text-white text-[10px] font-extrabold px-3 py-0.5 rounded-full uppercase tracking-widest z-10 whitespace-nowrap transition duration-300 shadow-lg">
+            <span className="absolute top-2 left-1/2 transform -translate-x-1/2 bg-slate-700 group-hover:bg-[#FF6B00] text-[#0B132B] text-xs font-extrabold px-3 py-0.5 rounded-full uppercase tracking-widest z-10 whitespace-nowrap transition duration-300 shadow-lg">
               {s.badge}
             </span>
 
@@ -79,7 +79,7 @@ export default function SalonsSection() {
             </div>
 
             {/* Pied */}
-            <div className="mx-4 sm:mx-6 mb-4 sm:mb-6 pt-3 sm:pt-4 border-t border-slate-700/60 text-xs text-slate-400 group-hover:text-slate-300 group-hover:border-[#FF6B00]/30 transition duration-300">
+            <div className="mx-4 sm:mx-6 mb-4 sm:mb-6 pt-3 sm:pt-4 border-t border-slate-700/60 text-xs text-slate-300 group-hover:text-slate-300 group-hover:border-[#FF6B00]/30 transition duration-300">
               {s.footer}
             </div>
           </div>
@@ -88,7 +88,7 @@ export default function SalonsSection() {
         {/* 4ème carte : Salons Régionaux */}
         <div className="group bg-[#1C2541] rounded-2xl border-2 border-slate-800 hover:border-[#FF6B00] text-center flex flex-col justify-between transition duration-300 hover:shadow-2xl hover:shadow-orange-500/20 hover:-translate-y-1 cursor-pointer relative overflow-hidden">
           {/* Badge */}
-          <span className="absolute top-2 left-1/2 transform -translate-x-1/2 bg-[#FF6B00] text-white text-[10px] font-extrabold px-3 py-0.5 rounded-full uppercase tracking-widest z-10 whitespace-nowrap shadow-lg">
+          <span className="absolute top-2 left-1/2 transform -translate-x-1/2 bg-[#FF6B00] text-[#0B132B] text-xs font-extrabold px-3 py-0.5 rounded-full uppercase tracking-widest z-10 whitespace-nowrap shadow-lg">
             Déploiement National
           </span>
 
@@ -121,7 +121,7 @@ export default function SalonsSection() {
             </p>
           </div>
 
-          <div className="mx-4 sm:mx-6 mb-4 sm:mb-6 pt-3 sm:pt-4 border-t border-slate-800 group-hover:border-[#FF6B00]/30 text-xs text-slate-400 group-hover:text-slate-300 transition duration-300">
+          <div className="mx-4 sm:mx-6 mb-4 sm:mb-6 pt-3 sm:pt-4 border-t border-slate-800 group-hover:border-[#FF6B00]/30 text-xs text-slate-300 group-hover:text-slate-300 transition duration-300">
             Logistique intégrée · Déploiement national
           </div>
         </div>

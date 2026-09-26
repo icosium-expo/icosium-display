@@ -16,19 +16,19 @@ export default function GallerySection({
   onImageClick
 }) {
   return (
-    <section id="realisations" className="py-24 bg-slate-50 relative">
+    <section id="realisations" className="py-24 lg:py-32 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-[#FF6B00] font-bold text-sm uppercase tracking-wider">Portfolio</span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B132B] mt-2 mb-4">
-            Nos Réalisations, Showrooms & Enseignes
+        <div data-reveal className="max-w-3xl mb-16">
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#C2410C]">Portfolio</p>
+          <h2 className="font-display mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight text-[#0B132B] text-balance leading-[1.08]">
+            Nos réalisations : stands, showrooms &amp; enseignes.
           </h2>
-          <p className="text-slate-600">
-            Cliquez sur une image pour l'agrandir en plein écran ou naviguez à travers nos conceptions.
+          <p className="mt-5 text-lg text-slate-600 text-pretty">
+            Cliquez sur une image pour l’agrandir en plein écran, ou parcourez nos conceptions avec les flèches.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
           {/* 1. STANDS */}
           <CarouselCard
             images={standsImages}

@@ -56,9 +56,9 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-24 bg-white border-t border-slate-200">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <span className="text-[#FF6B00] font-bold text-sm uppercase tracking-wider">Parlons de votre projet</span>
-          <h2 className="text-3xl font-extrabold text-[#0B132B] mt-2 mb-3">Obtenez votre devis sous 24&nbsp;h</h2>
+        <div data-reveal className="text-center mb-12">
+          <span className="text-[#C2410C] font-bold text-sm uppercase tracking-[0.2em]">Parlons de votre projet</span>
+          <h2 className="font-display text-4xl font-extrabold tracking-tight text-[#0B132B] mt-3 mb-3 text-balance">Obtenez votre devis sous 24&nbsp;h</h2>
           <p className="text-slate-600">Remplissez ce formulaire ou contactez-nous directement.</p>
           <div className="mt-4 flex flex-wrap justify-center gap-6 text-sm font-semibold text-slate-700">
             <a href="tel:+213550886640"><span aria-hidden="true">📞</span> +213 (0) 550 88 66 40</a>
@@ -104,7 +104,7 @@ export default function ContactSection() {
               <label htmlFor="description" className="block text-sm font-semibold text-slate-700 mb-2">Description de votre besoin</label>
               <textarea id="description" name="description" autoComplete="off" rows="4" value={formData.description} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B00] focus-visible:border-[#FF6B00]" placeholder="Détails du projet…"></textarea>
             </div>
-            <button type="submit" disabled={submitting} className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#FF6B00] w-full bg-[#FF6B00] hover:bg-orange-600 disabled:bg-orange-300 text-white font-bold py-4 rounded-xl transition cursor-pointer">
+            <button type="submit" disabled={submitting} className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#FF6B00] w-full bg-[#FF6B00] hover:bg-[#ff8533] disabled:bg-orange-300 text-[#0B132B] font-bold py-4 rounded-xl transition cursor-pointer">
               {submitting ? "Envoi en cours…" : "Envoyer ma demande"}
             </button>
           </form>

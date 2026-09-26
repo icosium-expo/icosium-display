@@ -118,7 +118,7 @@ export default function FoiresModal({ onClose }) {
               <h2 className="text-sm sm:text-xl lg:text-2xl font-black tracking-tight truncate">
                 Calendrier des Salons & Foires
               </h2>
-              <p className="text-[11px] sm:text-sm text-slate-400 mt-0.5 sm:mt-1">
+              <p className="text-xs sm:text-sm text-slate-400 mt-0.5 sm:mt-1">
                 <span className="text-[#FF6B00] font-bold">{foiresFutures.length}</span> à venir
                 {foiresPassees.length > 0 && (
                   <> · <span className="text-slate-500">{foiresPassees.length} passés</span></>
@@ -128,7 +128,7 @@ export default function FoiresModal({ onClose }) {
           </div>
           <button
             onClick={onClose}
-            className="bg-slate-800 hover:bg-[#FF6B00] text-white w-8 h-8 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition duration-200 hover:scale-110 shadow-lg shrink-0"
+            className="bg-slate-800 hover:bg-[#FF6B00] hover:text-[#0B132B] text-white w-8 h-8 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition duration-200 hover:scale-110 shadow-lg shrink-0"
             aria-label="Fermer"
           >
             <IconClose />
@@ -181,7 +181,7 @@ export default function FoiresModal({ onClose }) {
               onClick={() => setFiltreWilaya('Toutes')}
               className={`shrink-0 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition duration-200 whitespace-nowrap shadow-sm hover:shadow-md ${
                 filtreWilaya === 'Toutes'
-                  ? 'bg-gradient-to-r from-[#FF6B00] to-[#ff8c33] text-white shadow-lg shadow-orange-500/30'
+                  ? 'bg-gradient-to-r from-[#FF6B00] to-[#ff8c33] text-[#0B132B] shadow-lg shadow-orange-500/30'
                   : 'bg-white text-slate-700 border-2 border-slate-200 hover:border-[#FF6B00] hover:text-[#FF6B00]'
               }`}
             >
@@ -204,7 +204,7 @@ export default function FoiresModal({ onClose }) {
                   onClick={() => setFiltreWilaya(wilaya)}
                   className={`shrink-0 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition duration-200 whitespace-nowrap shadow-sm hover:shadow-md ${
                     isActive
-                      ? 'bg-gradient-to-r from-[#FF6B00] to-[#ff8c33] text-white shadow-lg shadow-orange-500/30'
+                      ? 'bg-gradient-to-r from-[#FF6B00] to-[#ff8c33] text-[#0B132B] shadow-lg shadow-orange-500/30'
                       : 'bg-white text-slate-700 border-2 border-slate-200 hover:border-[#FF6B00] hover:text-[#FF6B00]'
                   }`}
                 >
@@ -298,21 +298,21 @@ export default function FoiresModal({ onClose }) {
                     {/* Badge + Date + Wilaya */}
                     <div className="flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-2 sm:gap-3 shrink-0 w-full sm:w-auto">
                       {!estPassee && (
-                        <div className={`${couleursBadge[compte.couleur]} text-[10px] sm:text-xs font-black px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-md whitespace-nowrap inline-flex items-center gap-1.5`}>
+                        <div className={`${couleursBadge[compte.couleur]} text-xs font-black px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-md whitespace-nowrap inline-flex items-center gap-1.5`}>
                           <span className="flex items-center justify-center shrink-0">
                             <IconClock />
                           </span>
                           <span>{compte.texteCourt}</span>
                         </div>
                       )}
-                      <div className={`text-[11px] sm:text-sm font-black px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl shadow-lg whitespace-nowrap ${
+                      <div className={`text-xs sm:text-sm font-black px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl shadow-lg whitespace-nowrap ${
                         estPassee
                           ? 'bg-slate-300 text-slate-600 shadow-none'
-                          : 'bg-gradient-to-br from-[#FF6B00] to-[#ff8c33] text-white shadow-orange-500/30'
+                          : 'bg-gradient-to-br from-[#FF6B00] to-[#ff8c33] text-[#0B132B] shadow-orange-500/30'
                       }`}>
                         {foire.date}
                       </div>
-                      <div className="text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-wider">
+                      <div className="text-xs text-slate-500 font-bold uppercase tracking-wider">
                         {foire.wilaya}
                       </div>
                     </div>
@@ -324,7 +324,7 @@ export default function FoiresModal({ onClose }) {
         </div>
 
         {/* ===== PIED ===== */}
-        <div className="bg-slate-100 px-3 sm:px-8 py-2 sm:py-4 text-[10px] sm:text-xs text-slate-500 text-center border-t border-slate-200 shrink-0">
+        <div className="bg-slate-100 px-3 sm:px-8 py-2 sm:py-4 text-xs text-slate-500 text-center border-t border-slate-200 shrink-0">
           Source : <a href="https://www.eventseye.com/fairs/c0_salons_algerie.html" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#FF6B00] font-semibold">eventseye.com</a>
         </div>
       </div>

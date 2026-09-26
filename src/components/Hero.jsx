@@ -1,69 +1,110 @@
 import React from 'react';
 import { heroImages } from '../galerie/imagesConfig';
 
-export default function Hero({ currentSlide, setCurrentSlide }) {
+const focusRing =
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B132B]';
+
+export default function Hero({ currentSlide, setCurrentSlide, heroPaused, setHeroPaused }) {
   return (
-    <section id="accueil" className="relative bg-[#0B132B] text-white py-20 lg:py-28 overflow-hidden">
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#FF6B00_1px,transparent_1px)] [background-size:24px_24px]"></div>
+    <section
+      id="accueil"
+      className="relative isolate overflow-hidden bg-[#0B132B] text-white min-h-[min(calc(100svh-6rem),52rem)] flex items-center"
+    >
+      {/* Diaporama plein cadre */}
+      <div className="absolute inset-0 -z-10" aria-hidden="true">
+        {heroImages.map((img, index) => (
+          <img
+            key={index}
+            src={img}
+            alt=""
+            width="1600"
+            height="900"
+            {...(index === 0 ? { fetchPriority: 'high' } : { loading: 'lazy' })}
+            decoding="async"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1400ms] ease-out ${
+              index === currentSlide ? 'opacity-100 hero-zoom' : 'opacity-0'
+            }`}
+          />
+        ))}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B132B] via-[#0B132B]/85 to-[#0B132B]/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-transparent to-[#0B132B]/40" />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7">
-            <span className="inline-flex items-center space-x-2 bg-[#FF6B00]/10 text-[#FF6B00] text-sm font-semibold px-4 py-2 rounded-full mb-6 border border-[#FF6B00]/20">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#FF6B00] animate-pulse"></span>
-              <span>Agence Publicitaire Spécialisée dans les Stands, Showrooms et Enseignes Lumineuses</span>
-            </span>
-            <h1 className="text-4xl sm:text-6xl font-black tracking-tight leading-tight mb-6">
-              Donnez une envergure <span className="text-[#FF6B00]">Exceptionnelle</span> à Votre Marque.
-            </h1>
-            <p className="text-lg sm:text-xl text-slate-300 mb-8 leading-relaxed font-normal">
-              De la Conception 3D Jusqu'à la Fabrication de Vos Stands, Showrooms et Enseignes Lumineuses Dans Notre Atelier à Alger.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#contact" className="bg-[#FF6B00] hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl text-center transition shadow-xl shadow-orange-500/30 flex items-center justify-center space-x-2">
-                <span>Lancer votre projet 3D</span>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </a>
-              <a href="#expertise" className="bg-[#1C2541] hover:bg-slate-800 text-white font-semibold px-8 py-4 rounded-xl text-center transition border border-slate-700 flex items-center justify-center">
-                Explorer nos services
-              </a>
-            </div>
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div className="max-w-3xl">
+          <p
+            data-reveal
+            className="inline-flex items-center gap-3 text-sm font-semibold tracking-[0.2em] uppercase text-[#FF8A3D] mb-8"
+          >
+            <span className="h-px w-10 bg-[#FF8A3D]" aria-hidden="true" />
+            Stands · Showrooms · Enseignes lumineuses
+          </p>
+
+          <h1
+            data-reveal
+            style={{ '--d': '100ms' }}
+            className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.02] text-balance"
+          >
+            Donnez une envergure <span className="text-[#FF6B00]">exceptionnelle</span> à votre marque.
+          </h1>
+
+          <p
+            data-reveal
+            style={{ '--d': '200ms' }}
+            className="mt-8 text-lg sm:text-xl text-slate-200 leading-relaxed max-w-2xl text-pretty"
+          >
+            De la conception 3D à la fabrication, nous réalisons vos stands, showrooms et enseignes
+            lumineuses dans notre atelier d’Alger.
+          </p>
+
+          <div data-reveal style={{ '--d': '300ms' }} className="mt-10 flex flex-col sm:flex-row gap-4">
+            <a
+              href="#contact"
+              className={`group inline-flex items-center justify-center gap-3 bg-[#FF6B00] text-[#0B132B] font-bold px-8 py-4 rounded-full transition hover:bg-[#ff8533] hover:-translate-y-0.5 shadow-xl shadow-orange-500/25 ${focusRing}`}
+            >
+              Lancer votre projet 3D
+              <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
+            </a>
+            <a
+              href="#realisations"
+              className={`inline-flex items-center justify-center gap-2 border border-white/30 bg-white/5 backdrop-blur text-white font-semibold px-8 py-4 rounded-full transition hover:bg-white/15 ${focusRing}`}
+            >
+              Voir nos réalisations
+            </a>
           </div>
+        </div>
+      </div>
 
-          <div className="lg:col-span-5">
-            <div className="relative w-full h-[380px] sm:h-[420px] rounded-3xl overflow-hidden border-2 border-[#FF6B00]/30 shadow-2xl bg-slate-900">
-              {heroImages.map((img, index) => (
-                <div
-                  key={index}
-                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}`}
-                >
-                  <img
-                    src={img}
-                    alt={`Réalisation de stand d'exposition ${index + 1}`}
-                    width="800"
-                    height="600"
-                    {...(index === 0 ? { fetchPriority: 'high' } : { loading: 'lazy' })}
-                    decoding="async"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-transparent to-transparent opacity-60"></div>
-                </div>
-              ))}
-
-              <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-20">
-                {heroImages.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentSlide(index)}
-                    className={`h-3 rounded-full transition duration-300 ${index === currentSlide ? 'bg-[#FF6B00] w-8' : 'bg-white/50 hover:bg-white w-3'}`}
-                    aria-label={`Aller à la diapositive ${index + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
+      {/* Contrôles du diaporama */}
+      <div className="absolute bottom-6 left-0 right-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-4">
+          <button
+            onClick={() => setHeroPaused(!heroPaused)}
+            aria-label={heroPaused ? 'Reprendre le diaporama' : 'Mettre le diaporama en pause'}
+            className={`w-11 h-11 rounded-full border border-white/30 bg-black/30 backdrop-blur flex items-center justify-center hover:bg-white/20 transition-colors ${focusRing}`}
+          >
+            <span aria-hidden="true" className="text-sm leading-none">{heroPaused ? '▶' : '❚❚'}</span>
+          </button>
+          <div className="flex items-center" role="group" aria-label="Choisir une diapositive">
+            {heroImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                aria-label={`Diapositive ${index + 1} sur ${heroImages.length}`}
+                aria-current={index === currentSlide ? 'true' : undefined}
+                className={`h-11 px-1.5 flex items-center group rounded-full ${focusRing}`}
+              >
+                <span
+                  className={`block h-1.5 rounded-full transition-all duration-500 ${
+                    index === currentSlide ? 'w-10 bg-[#FF6B00]' : 'w-5 bg-white/40 group-hover:bg-white/80'
+                  }`}
+                />
+              </button>
+            ))}
           </div>
+          <span className="ml-auto text-sm font-semibold text-slate-200 tabular-nums" aria-hidden="true">
+            {String(currentSlide + 1).padStart(2, '0')} / {String(heroImages.length).padStart(2, '0')}
+          </span>
         </div>
       </div>
     </section>

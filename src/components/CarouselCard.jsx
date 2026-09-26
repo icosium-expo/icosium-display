@@ -1,10 +1,12 @@
 import React from 'react';
 
+const ring =
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black';
+
 export default function CarouselCard({
   images,
   slide,
   setSlide,
-  isPaused,
   setIsPaused,
   enableAutoPause = false,
   onImageClick,
@@ -22,69 +24,75 @@ export default function CarouselCard({
     setSlide((prev) => (prev + 1) % images.length);
   };
 
+  const open = () => onImageClick({ list: images, index: slide });
+
   return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-xl transition duration-300 flex flex-col h-full">
-      {/* IMAGE - hauteur fixe */}
+    <article className="group/card flex flex-col bg-white rounded-3xl overflow-hidden border border-slate-200 transition duration-500 hover:shadow-2xl hover:shadow-slate-900/10 hover:-translate-y-1">
       <div
-        className="h-64 bg-slate-900 overflow-hidden relative group cursor-pointer shrink-0"
-        onMouseEnter={enableAutoPause ? () => setIsPaused(true) : undefined}
-        onMouseLeave={enableAutoPause ? () => setIsPaused(false) : undefined}
+        className="relative aspect-[4/3] bg-slate-900 overflow-hidden cursor-zoom-in group"
         role="button"
         tabIndex={0}
         aria-label={`Agrandir l'image : ${title}`}
+        onMouseEnter={enableAutoPause ? () => setIsPaused(true) : undefined}
+        onMouseLeave={enableAutoPause ? () => setIsPaused(false) : undefined}
         onFocus={enableAutoPause ? () => setIsPaused(true) : undefined}
         onBlur={enableAutoPause ? () => setIsPaused(false) : undefined}
-        onClick={() => onImageClick({ list: images, index: slide })}
+        onClick={open}
         onKeyDown={(e) => {
           if (e.target !== e.currentTarget) return;
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            onImageClick({ list: images, index: slide });
+            open();
           }
         }}
       >
         <img
           src={images[slide]}
           alt={`${title} – image ${slide + 1} sur ${images.length}`}
-          width="640"
-          height="480"
+          width="800"
+          height="600"
           loading="lazy"
           decoding="async"
-          className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+          className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
         />
-        <span className="absolute top-3 left-3 bg-black/60 text-white text-xs px-2.5 py-1 rounded-md font-medium">
+        <div
+          className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/20 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+          aria-hidden="true"
+        />
+
+        <span className="absolute top-4 left-4 bg-black/60 backdrop-blur text-white text-xs font-semibold px-3 py-1.5 rounded-full tabular-nums">
           {slide + 1} / {images.length}
         </span>
-        <div className="absolute bottom-3 right-3 flex space-x-1 z-10">
+        <span
+          aria-hidden="true"
+          className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 text-[#0B132B] flex items-center justify-center text-base opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300"
+        >
+          ⤢
+        </span>
+
+        <div className="absolute bottom-4 right-4 flex gap-2 z-10">
           <button
             onClick={goPrev}
             aria-label="Image précédente"
-            className="w-8 h-8 bg-black/60 hover:bg-[#FF6B00] text-white rounded-full flex items-center justify-center transition focus-visible:ring-2 focus-visible:ring-white"
+            className={`w-11 h-11 bg-black/60 backdrop-blur hover:bg-[#FF6B00] hover:text-[#0B132B] text-white rounded-full flex items-center justify-center text-xl transition-colors ${ring}`}
           >
             <span aria-hidden="true">‹</span>
           </button>
           <button
             onClick={goNext}
             aria-label="Image suivante"
-            className="w-8 h-8 bg-black/60 hover:bg-[#FF6B00] text-white rounded-full flex items-center justify-center transition focus-visible:ring-2 focus-visible:ring-white"
+            className={`w-11 h-11 bg-black/60 backdrop-blur hover:bg-[#FF6B00] hover:text-[#0B132B] text-white rounded-full flex items-center justify-center text-xl transition-colors ${ring}`}
           >
             <span aria-hidden="true">›</span>
           </button>
         </div>
       </div>
 
-      {/* TEXTE - titre réduit + description enrichie */}
-      <div className="p-6 flex flex-col flex-1">
-        <span className="text-xs font-semibold text-[#FF6B00] uppercase tracking-wider">
-          {category}
-        </span>
-        <h3 className="text-base font-bold text-[#0B132B] mt-1 mb-3 leading-snug">
-          {title}
-        </h3>
-        <p className="text-sm text-slate-600 leading-relaxed">
-          {description}
-        </p>
+      <div className="p-7 lg:p-8 flex flex-col flex-1">
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#C2410C]">{category}</p>
+        <h3 className="font-display mt-2 text-2xl font-bold text-[#0B132B] leading-snug">{title}</h3>
+        <p className="mt-3 text-slate-600 leading-relaxed text-pretty">{description}</p>
       </div>
-    </div>
+    </article>
   );
 }
