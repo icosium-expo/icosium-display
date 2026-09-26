@@ -65,7 +65,7 @@ export default function CarouselCard({
         </span>
         <span
           aria-hidden="true"
-          className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 text-[#0A2A33] flex items-center justify-center text-base opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300"
+          className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 text-[#1F2430] flex items-center justify-center text-base opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300"
         >
           ⤢
         </span>
@@ -74,14 +74,14 @@ export default function CarouselCard({
           <button
             onClick={goPrev}
             aria-label="Image précédente"
-            className={`w-11 h-11 bg-black/60 backdrop-blur hover:bg-[#FFB020] hover:text-[#0A2A33] text-white rounded-full flex items-center justify-center text-xl transition-colors ${ring}`}
+            className={`w-11 h-11 bg-black/60 backdrop-blur hover:bg-[#DF7D23] hover:text-[#1F2430] text-white rounded-full flex items-center justify-center text-xl transition-colors ${ring}`}
           >
             <span aria-hidden="true">‹</span>
           </button>
           <button
             onClick={goNext}
             aria-label="Image suivante"
-            className={`w-11 h-11 bg-black/60 backdrop-blur hover:bg-[#FFB020] hover:text-[#0A2A33] text-white rounded-full flex items-center justify-center text-xl transition-colors ${ring}`}
+            className={`w-11 h-11 bg-black/60 backdrop-blur hover:bg-[#DF7D23] hover:text-[#1F2430] text-white rounded-full flex items-center justify-center text-xl transition-colors ${ring}`}
           >
             <span aria-hidden="true">›</span>
           </button>
@@ -89,8 +89,8 @@ export default function CarouselCard({
       </div>
 
       <div className="p-7 lg:p-8 flex flex-col flex-1">
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#B45309]">{category}</p>
-        <h3 className="font-display mt-2 text-2xl font-bold text-[#0A2A33] leading-snug">{title}</h3>
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#A94F14]">{category}</p>
+        <h3 className="font-display mt-2 text-2xl font-bold text-[#1F2430] leading-snug">{title}</h3>
         <p className="mt-3 text-slate-600 leading-relaxed text-pretty">{description}</p>
       </div>
     </article>

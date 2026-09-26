@@ -2,13 +2,13 @@ import React from 'react';
 import { heroImages } from '../galerie/imagesConfig';
 
 const focusRing =
-  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A2A33]';
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#142850]';
 
 export default function Hero({ currentSlide, setCurrentSlide, heroPaused, setHeroPaused }) {
   return (
     <section
       id="accueil"
-      className="relative isolate overflow-hidden bg-[#0A2A33] text-white min-h-[min(calc(100svh-6rem),52rem)] flex items-center"
+      className="relative isolate overflow-hidden bg-[#142850] text-white min-h-[min(calc(100svh-6rem),52rem)] flex items-center"
     >
       {/* Diaporama plein cadre */}
       <div className="absolute inset-0 -z-10" aria-hidden="true">
@@ -26,8 +26,8 @@ export default function Hero({ currentSlide, setCurrentSlide, heroPaused, setHer
             }`}
           />
         ))}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A2A33] via-[#0A2A33]/85 to-[#0A2A33]/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A2A33] via-transparent to-[#0A2A33]/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#142850] via-[#142850]/85 to-[#142850]/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#142850] via-transparent to-[#142850]/40" />
         <div className="aurora aurora-a" />
         <div className="aurora aurora-b" />
       </div>
@@ -36,9 +36,9 @@ export default function Hero({ currentSlide, setCurrentSlide, heroPaused, setHer
         <div className="max-w-3xl">
           <p
             data-reveal
-            className="inline-flex items-center gap-3 text-sm font-semibold tracking-[0.2em] uppercase text-[#FFC24D] mb-8"
+            className="inline-flex items-center gap-3 text-sm font-semibold tracking-[0.2em] uppercase text-[#F2A03A] mb-8"
           >
-            <span className="h-px w-10 bg-[#FFC24D]" aria-hidden="true" />
+            <span className="h-px w-10 bg-[#F2A03A]" aria-hidden="true" />
             Stands · Showrooms · Enseignes lumineuses
           </p>
 
@@ -62,7 +62,7 @@ export default function Hero({ currentSlide, setCurrentSlide, heroPaused, setHer
           <div data-reveal style={{ '--d': '300ms' }} className="mt-10 flex flex-col sm:flex-row gap-4">
             <a
               href="#contact"
-              className={`btn-shine group inline-flex items-center justify-center gap-3 bg-[#FFB020] text-[#0A2A33] font-bold px-8 py-4 rounded-full transition hover:bg-[#FFC24D] hover:-translate-y-0.5 shadow-xl shadow-amber-500/25 ${focusRing}`}
+              className={`btn-shine group inline-flex items-center justify-center gap-3 bg-[#DF7D23] text-[#1F2430] font-bold px-8 py-4 rounded-full transition hover:bg-[#F2A03A] hover:-translate-y-0.5 shadow-xl shadow-amber-500/25 ${focusRing}`}
             >
               Lancer votre projet 3D
               <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
@@ -98,7 +98,7 @@ export default function Hero({ currentSlide, setCurrentSlide, heroPaused, setHer
               >
                 <span
                   className={`block h-1.5 rounded-full transition-all duration-500 ${
-                    index === currentSlide ? 'w-10 bg-[#FFB020]' : 'w-5 bg-white/40 group-hover:bg-white/80'
+                    index === currentSlide ? 'w-10 bg-[#DF7D23]' : 'w-5 bg-white/40 group-hover:bg-white/80'
                   }`}
                 />
               </button>

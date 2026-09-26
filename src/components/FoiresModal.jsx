@@ -87,7 +87,7 @@ export default function FoiresModal({ onClose }) {
 
   const couleursBadge = {
     red: 'bg-red-500 text-white',
-    orange: 'bg-[#FFB020] text-[#0A2A33]',
+    orange: 'bg-[#DF7D23] text-[#1F2430]',
     yellow: 'bg-yellow-400 text-yellow-900',
     blue: 'bg-blue-500 text-white',
     gray: 'bg-slate-200 text-slate-700'
@@ -109,9 +109,9 @@ export default function FoiresModal({ onClose }) {
         onClick={(e) => e.stopPropagation()}
       >
         {/* ===== EN-TÊTE ===== */}
-        <div className="bg-gradient-to-r from-[#0A2A33] to-[#0F3540] text-white px-3 sm:px-8 py-3 sm:py-6 flex items-center justify-between shrink-0 border-b-4 border-[#FFB020]">
+        <div className="bg-gradient-to-r from-[#142850] to-[#1B3567] text-white px-3 sm:px-8 py-3 sm:py-6 flex items-center justify-between shrink-0 border-b-4 border-[#DF7D23]">
           <div className="flex items-center gap-2 sm:gap-4 min-w-0">
-            <div className="w-9 h-9 sm:w-12 sm:h-12 bg-[#FFB020]/20 border-2 border-[#FFB020]/30 rounded-xl flex items-center justify-center text-[#FFB020] shrink-0">
+            <div className="w-9 h-9 sm:w-12 sm:h-12 bg-[#DF7D23]/20 border-2 border-[#DF7D23]/30 rounded-xl flex items-center justify-center text-[#F2A03A] shrink-0">
               <IconCalendarDays />
             </div>
             <div className="min-w-0">
@@ -119,7 +119,7 @@ export default function FoiresModal({ onClose }) {
                 Calendrier des Salons & Foires
               </h2>
               <p className="text-xs sm:text-sm text-slate-400 mt-0.5 sm:mt-1">
-                <span className="text-[#FFB020] font-bold">{foiresFutures.length}</span> à venir
+                <span className="text-[#F2A03A] font-bold">{foiresFutures.length}</span> à venir
                 {foiresPassees.length > 0 && (
                   <> · <span className="text-slate-500">{foiresPassees.length} passés</span></>
                 )}
@@ -128,7 +128,7 @@ export default function FoiresModal({ onClose }) {
           </div>
           <button
             onClick={onClose}
-            className="bg-slate-800 hover:bg-[#FFB020] hover:text-[#0A2A33] text-white w-8 h-8 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition duration-200 hover:scale-110 shadow-lg shrink-0"
+            className="bg-slate-800 hover:bg-[#DF7D23] hover:text-[#1F2430] text-white w-8 h-8 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition duration-200 hover:scale-110 shadow-lg shrink-0"
             aria-label="Fermer"
           >
             <IconClose />
@@ -142,14 +142,14 @@ export default function FoiresModal({ onClose }) {
               onClick={() => { setOnglet('futures'); setFiltreWilaya('Toutes'); }}
               className={`shrink-0 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition duration-200 whitespace-nowrap ${
                 onglet === 'futures'
-                  ? 'bg-[#0A2A33] text-white shadow-lg'
+                  ? 'bg-[#142850] text-white shadow-lg'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
               <IconCalendar />
               <span>À venir</span>
               <span className={`text-xs px-1.5 sm:px-2 py-0.5 rounded-full ${
-                onglet === 'futures' ? 'bg-[#FFB020] text-[#0A2A33]' : 'bg-white text-slate-600'
+                onglet === 'futures' ? 'bg-[#DF7D23] text-[#1F2430]' : 'bg-white text-slate-600'
               }`}>
                 {foiresFutures.length}
               </span>
@@ -159,14 +159,14 @@ export default function FoiresModal({ onClose }) {
               onClick={() => { setOnglet('passees'); setFiltreWilaya('Toutes'); }}
               className={`shrink-0 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition duration-200 whitespace-nowrap ${
                 onglet === 'passees'
-                  ? 'bg-[#0A2A33] text-white shadow-lg'
+                  ? 'bg-[#142850] text-white shadow-lg'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
               <IconCheck />
               <span>Passées</span>
               <span className={`text-xs px-1.5 sm:px-2 py-0.5 rounded-full ${
-                onglet === 'passees' ? 'bg-[#FFB020] text-[#0A2A33]' : 'bg-white text-slate-600'
+                onglet === 'passees' ? 'bg-[#DF7D23] text-[#1F2430]' : 'bg-white text-slate-600'
               }`}>
                 {foiresPassees.length}
               </span>
@@ -181,8 +181,8 @@ export default function FoiresModal({ onClose }) {
               onClick={() => setFiltreWilaya('Toutes')}
               className={`shrink-0 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition duration-200 whitespace-nowrap shadow-sm hover:shadow-md ${
                 filtreWilaya === 'Toutes'
-                  ? 'bg-gradient-to-r from-[#FFB020] to-[#FFC24D] text-[#0A2A33] shadow-lg shadow-amber-500/30'
-                  : 'bg-white text-slate-700 border-2 border-slate-200 hover:border-[#FFB020] hover:text-[#FFB020]'
+                  ? 'bg-gradient-to-r from-[#DF7D23] to-[#F2A03A] text-[#1F2430] shadow-lg shadow-amber-500/30'
+                  : 'bg-white text-slate-700 border-2 border-slate-200 hover:border-[#DF7D23] hover:text-[#A94F14]'
               }`}
             >
               <IconFolder />
@@ -204,8 +204,8 @@ export default function FoiresModal({ onClose }) {
                   onClick={() => setFiltreWilaya(wilaya)}
                   className={`shrink-0 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition duration-200 whitespace-nowrap shadow-sm hover:shadow-md ${
                     isActive
-                      ? 'bg-gradient-to-r from-[#FFB020] to-[#FFC24D] text-[#0A2A33] shadow-lg shadow-amber-500/30'
-                      : 'bg-white text-slate-700 border-2 border-slate-200 hover:border-[#FFB020] hover:text-[#FFB020]'
+                      ? 'bg-gradient-to-r from-[#DF7D23] to-[#F2A03A] text-[#1F2430] shadow-lg shadow-amber-500/30'
+                      : 'bg-white text-slate-700 border-2 border-slate-200 hover:border-[#DF7D23] hover:text-[#A94F14]'
                   }`}
                 >
                   <IconMapPin />
@@ -248,17 +248,17 @@ export default function FoiresModal({ onClose }) {
                       setFoireSelectionnee(foire);
                     }
                   }}
-                  className={`group focus-visible:ring-2 focus-visible:ring-[#FFB020] focus-visible:outline-none bg-white border-2 rounded-xl sm:rounded-2xl p-3 sm:p-5 lg:p-6 transition duration-200 hover:shadow-xl hover:-translate-y-1 cursor-pointer overflow-hidden ${
+                  className={`group focus-visible:ring-2 focus-visible:ring-[#DF7D23] focus-visible:outline-none bg-white border-2 rounded-xl sm:rounded-2xl p-3 sm:p-5 lg:p-6 transition duration-200 hover:shadow-xl hover:-translate-y-1 cursor-pointer overflow-hidden ${
                     estPassee
                       ? 'border-slate-200 opacity-80 hover:opacity-100'
-                      : 'border-slate-100 hover:border-[#FFB020] hover:bg-gradient-to-r hover:from-amber-50 hover:to-white'
+                      : 'border-slate-100 hover:border-[#DF7D23] hover:bg-gradient-to-r hover:from-amber-50 hover:to-white'
                   }`}
                 >
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-6">
                     {/* Infos */}
                     <div className="flex-1 min-w-0">
                       <h3 className={`text-sm sm:text-lg font-black mb-1.5 sm:mb-2 transition break-words ${
-                        estPassee ? 'text-slate-500' : 'text-[#0A2A33] group-hover:text-[#FFB020]'
+                        estPassee ? 'text-slate-500' : 'text-[#1F2430] group-hover:text-[#A94F14]'
                       }`}>
                         {foire.nom}
                         {estPassee && (
@@ -273,21 +273,21 @@ export default function FoiresModal({ onClose }) {
 
                       <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-x-6 gap-y-1.5 sm:gap-y-2 text-xs">
                         <span className="inline-flex items-start gap-1.5 text-slate-600">
-                          <span className="text-[#FFB020] flex items-center justify-center shrink-0 mt-0.5">
+                          <span className="text-[#A94F14] flex items-center justify-center shrink-0 mt-0.5">
                             <IconMapPin />
                           </span>
                           <span className="font-medium break-words">{foire.lieu}</span>
                         </span>
 
                         <span className="inline-flex items-center gap-1.5 text-slate-600">
-                          <span className="text-[#FFB020] flex items-center justify-center shrink-0">
+                          <span className="text-[#A94F14] flex items-center justify-center shrink-0">
                             <IconCalendar />
                           </span>
                           <span className="font-medium">{foire.duree || 'À confirmer'}</span>
                         </span>
 
                         <span className="inline-flex items-center gap-1.5 text-slate-600">
-                          <span className="text-[#FFB020] flex items-center justify-center shrink-0">
+                          <span className="text-[#A94F14] flex items-center justify-center shrink-0">
                             <IconRepeat />
                           </span>
                           <span className="font-medium">{foire.periodicite}</span>
@@ -308,7 +308,7 @@ export default function FoiresModal({ onClose }) {
                       <div className={`text-xs sm:text-sm font-black px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl shadow-lg whitespace-nowrap ${
                         estPassee
                           ? 'bg-slate-300 text-slate-600 shadow-none'
-                          : 'bg-gradient-to-br from-[#FFB020] to-[#FFC24D] text-[#0A2A33] shadow-amber-500/30'
+                          : 'bg-gradient-to-br from-[#DF7D23] to-[#F2A03A] text-[#1F2430] shadow-amber-500/30'
                       }`}>
                         {foire.date}
                       </div>
@@ -325,7 +325,7 @@ export default function FoiresModal({ onClose }) {
 
         {/* ===== PIED ===== */}
         <div className="bg-slate-100 px-3 sm:px-8 py-2 sm:py-4 text-xs text-slate-500 text-center border-t border-slate-200 shrink-0">
-          Source : <a href="https://www.eventseye.com/fairs/c0_salons_algerie.html" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#FFB020] font-semibold">eventseye.com</a>
+          Source : <a href="https://www.eventseye.com/fairs/c0_salons_algerie.html" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#A94F14] font-semibold">eventseye.com</a>
         </div>
       </div>
 

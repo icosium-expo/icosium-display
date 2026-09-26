@@ -10,11 +10,11 @@ const links = [
 ];
 
 const focusRing =
-  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFB020] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A2A33]';
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#DF7D23] focus-visible:ring-offset-2 focus-visible:ring-offset-[#142850]';
 
 export default function Header({ mobileMenuOpen, setMobileMenuOpen }) {
   return (
-    <header className="sticky top-0 z-50 bg-[#0A2A33]/85 backdrop-blur-xl border-b border-white/10">
+    <header className="sticky top-0 z-50 bg-[#142850]/85 backdrop-blur-xl border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between gap-6">
         <a
           href="#accueil"
@@ -22,12 +22,12 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }) {
           aria-label="Icosium Display, retour à l'accueil"
         >
           <span className="flex items-center gap-3">
-            <span className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl bg-white p-1.5 shadow-lg shadow-black/30 ring-2 ring-[#FFB020]/70">
+            <span className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl bg-white p-1.5 shadow-lg shadow-black/30 ring-2 ring-[#DF7D23]/70">
               <img src={logoSvg} alt="" width="64" height="64" className="h-full w-full object-contain" />
             </span>
             <span className="hidden sm:flex flex-col leading-none" translate="no">
               <span className="font-display text-lg font-extrabold tracking-wide text-white">ICOSIUM</span>
-              <span className="mt-1 text-[0.7rem] font-semibold tracking-[0.42em] text-[#FFB020]">DISPLAY</span>
+              <span className="mt-1 text-[0.7rem] font-semibold tracking-[0.42em] text-[#F2A03A]">DISPLAY</span>
             </span>
           </span>
         </a>
@@ -53,7 +53,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }) {
           </a>
           <a
             href="#contact"
-            className={`btn-shine inline-flex items-center gap-2 bg-[#FFB020] text-[#0A2A33] px-5 py-2.5 rounded-full font-bold text-sm transition hover:bg-[#FFC24D] hover:-translate-y-0.5 shadow-lg shadow-amber-500/20 ${focusRing}`}
+            className={`btn-shine inline-flex items-center gap-2 bg-[#DF7D23] text-[#1F2430] px-5 py-2.5 rounded-full font-bold text-sm transition hover:bg-[#F2A03A] hover:-translate-y-0.5 shadow-lg shadow-amber-500/20 ${focusRing}`}
           >
             Demander un devis
             <span aria-hidden="true">→</span>
@@ -79,14 +79,14 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }) {
       </div>
 
       {mobileMenuOpen && (
-        <div id="menu-mobile" className="lg:hidden bg-[#0A2A33] border-t border-white/10 px-6 pt-4 pb-6">
+        <div id="menu-mobile" className="lg:hidden bg-[#142850] border-t border-white/10 px-6 pt-4 pb-6">
           <nav aria-label="Navigation mobile" className="flex flex-col">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`py-3.5 text-lg font-semibold text-slate-100 border-b border-white/5 hover:text-[#FFB020] transition-colors ${focusRing}`}
+                className={`py-3.5 text-lg font-semibold text-slate-100 border-b border-white/5 hover:text-[#F2A03A] transition-colors ${focusRing}`}
               >
                 {link.label}
               </a>
@@ -102,7 +102,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }) {
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className={`mt-3 block w-full bg-[#FFB020] text-[#0A2A33] px-5 py-3.5 rounded-full font-bold text-center ${focusRing}`}
+              className={`mt-3 block w-full bg-[#DF7D23] text-[#1F2430] px-5 py-3.5 rounded-full font-bold text-center ${focusRing}`}
             >
               Demander un devis
             </a>

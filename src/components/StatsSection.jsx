@@ -74,7 +74,7 @@ export default function StatsSection() {
       id="chiffres-cles"
       ref={ref}
       aria-label="Chiffres clés"
-      className="bg-[#0A2A33] border-y border-white/10"
+      className="bg-[#142850] border-y border-white/10"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 divide-white/10 lg:divide-x [&>*:nth-child(odd)]:border-r [&>*:nth-child(odd)]:border-white/10 lg:[&>*:nth-child(odd)]:border-r-0 [&>*:nth-child(n+3)]:border-t [&>*:nth-child(n+3)]:border-white/10 lg:[&>*:nth-child(n+3)]:border-t-0">

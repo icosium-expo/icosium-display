@@ -65,13 +65,13 @@ export default function FoireDetail({ foire, onClose }) {
         onClick={(e) => e.stopPropagation()}
       >
         {/* En-tête */}
-        <div className="bg-gradient-to-r from-[#0A2A33] to-[#0F3540] text-white px-4 sm:px-8 py-4 sm:py-6 flex items-start justify-between gap-3 shrink-0 border-b-4 border-[#FFB020]">
+        <div className="bg-gradient-to-r from-[#142850] to-[#1B3567] text-white px-4 sm:px-8 py-4 sm:py-6 flex items-start justify-between gap-3 shrink-0 border-b-4 border-[#DF7D23]">
           <div className="flex-1 min-w-0">
             <h2 className="text-lg sm:text-2xl font-black tracking-tight mb-2">
               {foire.nom}
             </h2>
             <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-              <span className="bg-[#FFB020] text-[#0A2A33] text-xs font-bold px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full">
+              <span className="bg-[#DF7D23] text-[#1F2430] text-xs font-bold px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full">
                 {foire.wilaya}
               </span>
               <span className="bg-white/10 text-white text-xs font-bold px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full border border-white/20">
@@ -81,7 +81,7 @@ export default function FoireDetail({ foire, onClose }) {
           </div>
           <button
             onClick={onClose}
-            className="bg-slate-800 hover:bg-[#FFB020] hover:text-[#0A2A33] text-white w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition duration-200 hover:scale-110 shadow-lg shrink-0"
+            className="bg-slate-800 hover:bg-[#DF7D23] hover:text-[#1F2430] text-white w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition duration-200 hover:scale-110 shadow-lg shrink-0"
             aria-label="Fermer"
           >
             <IconClose />
@@ -91,7 +91,7 @@ export default function FoireDetail({ foire, onClose }) {
         {/* Contenu */}
         <div className="flex-1 overflow-y-auto p-4 sm:p-8 space-y-4 sm:space-y-6">
           <div>
-            <h3 className="text-xs sm:text-sm font-bold text-[#FFB020] uppercase tracking-wider mb-2 sm:mb-3">
+            <h3 className="text-xs sm:text-sm font-bold text-[#A94F14] uppercase tracking-wider mb-2 sm:mb-3">
               À propos de ce salon
             </h3>
             <p className="text-slate-700 leading-relaxed text-sm sm:text-base">
@@ -101,50 +101,50 @@ export default function FoireDetail({ foire, onClose }) {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             <div className="bg-slate-50 rounded-xl p-4 sm:p-5 border border-slate-200">
-              <div className="flex items-center gap-2 text-[#FFB020] mb-1.5 sm:mb-2">
+              <div className="flex items-center gap-2 text-[#A94F14] mb-1.5 sm:mb-2">
                 <IconCalendar />
                 <span className="text-xs font-bold uppercase tracking-wider">Date de début</span>
               </div>
-              <p className="text-base sm:text-lg font-black text-[#0A2A33]">{foire.date}</p>
+              <p className="text-base sm:text-lg font-black text-[#1F2430]">{foire.date}</p>
             </div>
 
             <div className="bg-slate-50 rounded-xl p-4 sm:p-5 border border-slate-200">
-              <div className="flex items-center gap-2 text-[#FFB020] mb-1.5 sm:mb-2">
+              <div className="flex items-center gap-2 text-[#A94F14] mb-1.5 sm:mb-2">
                 <IconClock />
                 <span className="text-xs font-bold uppercase tracking-wider">Durée</span>
               </div>
-              <p className="text-base sm:text-lg font-black text-[#0A2A33]">{foire.duree || 'À confirmer'}</p>
+              <p className="text-base sm:text-lg font-black text-[#1F2430]">{foire.duree || 'À confirmer'}</p>
             </div>
 
             <div className="bg-slate-50 rounded-xl p-4 sm:p-5 border border-slate-200 sm:col-span-2">
-              <div className="flex items-center gap-2 text-[#FFB020] mb-1.5 sm:mb-2">
+              <div className="flex items-center gap-2 text-[#A94F14] mb-1.5 sm:mb-2">
                 <IconMapPin />
                 <span className="text-xs font-bold uppercase tracking-wider">Lieu</span>
               </div>
-              <p className="text-base sm:text-lg font-black text-[#0A2A33]">{foire.lieu}</p>
+              <p className="text-base sm:text-lg font-black text-[#1F2430]">{foire.lieu}</p>
             </div>
 
             <div className="bg-slate-50 rounded-xl p-4 sm:p-5 border border-slate-200">
-              <div className="flex items-center gap-2 text-[#FFB020] mb-1.5 sm:mb-2">
+              <div className="flex items-center gap-2 text-[#A94F14] mb-1.5 sm:mb-2">
                 <IconRepeat />
                 <span className="text-xs font-bold uppercase tracking-wider">Périodicité</span>
               </div>
-              <p className="text-base sm:text-lg font-black text-[#0A2A33]">{foire.periodicite}</p>
+              <p className="text-base sm:text-lg font-black text-[#1F2430]">{foire.periodicite}</p>
             </div>
 
             <div className="bg-amber-50 rounded-xl p-4 sm:p-5 border border-orange-200">
-              <div className="flex items-center gap-2 text-[#FFB020] mb-1.5 sm:mb-2">
+              <div className="flex items-center gap-2 text-[#A94F14] mb-1.5 sm:mb-2">
                 <IconClock />
                 <span className="text-xs font-bold uppercase tracking-wider">Compte à rebours</span>
               </div>
-              <p className="text-base sm:text-lg font-black text-[#FFB020]">{compte.texte}</p>
+              <p className="text-base sm:text-lg font-black text-[#A94F14]">{compte.texte}</p>
             </div>
           </div>
         </div>
 
         {/* Pied */}
         <div className="bg-slate-100 px-4 sm:px-8 py-3 sm:py-4 text-xs text-slate-500 text-center border-t border-slate-200 shrink-0">
-          Source : <a href="https://www.eventseye.com/fairs/c0_salons_algerie.html" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#FFB020] font-semibold">eventseye.com</a>
+          Source : <a href="https://www.eventseye.com/fairs/c0_salons_algerie.html" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#A94F14] font-semibold">eventseye.com</a>
         </div>
       </div>
     </div>

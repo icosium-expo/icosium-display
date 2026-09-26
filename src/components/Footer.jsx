@@ -3,11 +3,11 @@ import logoSvg from '../assets/logo.svg';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0A2A33] text-slate-300 py-12 border-t border-slate-800 text-sm">
+    <footer className="bg-[#1F2430] text-slate-300 py-12 border-t border-slate-800 text-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
           <div className="flex items-center gap-3 mb-2">
-            <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white p-1 ring-2 ring-[#FFB020]/70">
+            <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white p-1 ring-2 ring-[#DF7D23]/70">
               <img src={logoSvg} alt="" width="48" height="48" className="h-full w-full object-contain" />
             </span>
             <p translate="no" className="font-display text-white font-bold text-lg">ICOSIUM DISPLAY</p>

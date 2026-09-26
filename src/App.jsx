@@ -82,8 +82,8 @@ export default function App() {
   }, [isPaused, salonsImages.length]);
 
   return (
-    <div className="bg-white text-slate-800 font-sans antialiased selection:bg-[#FFB020] selection:text-[#0A2A33] min-h-screen overflow-x-hidden">
-      <a href="#contenu" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-[#FFB020] focus:text-[#0A2A33] focus:font-bold focus:px-5 focus:py-3 focus:rounded-full">
+    <div className="bg-white text-slate-800 font-sans antialiased selection:bg-[#DF7D23] selection:text-[#1F2430] min-h-screen overflow-x-hidden">
+      <a href="#contenu" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-[#DF7D23] focus:text-[#1F2430] focus:font-bold focus:px-5 focus:py-3 focus:rounded-full">
         Aller au contenu
       </a>
       <Header mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
