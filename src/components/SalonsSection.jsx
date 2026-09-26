@@ -33,11 +33,11 @@ export default function SalonsSection() {
   ];
 
   return (
-    <section id="salons" className="py-16 sm:py-24 bg-[#0B132B] text-white">
-      <div data-reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10 sm:mb-16">
-        <span className="text-[#FF6B00] font-bold text-xs sm:text-sm uppercase tracking-wider">Présence Nationale</span>
-        <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mt-3 mb-4 text-balance">Au cœur des grands rendez-vous professionnels</h2>
-        <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto">De la FPA à DJAZAGRO et la FIA, nous accompagnons les exposants avec une rigueur absolue sur les délais.</p>
+    <section id="salons" className="py-20 sm:py-24 lg:py-32 bg-[#0B132B] text-white">
+      <div data-reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-16">
+        <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#FF8A3D]">Présence nationale</p>
+        <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight mt-4 mb-5 text-balance leading-[1.08] max-w-3xl">Au cœur des grands rendez-vous professionnels.</h2>
+        <p className="text-slate-300 text-lg max-w-2xl text-pretty">De la FPA à DJAZAGRO et la FIA, nous accompagnons les exposants avec une rigueur absolue sur les délais.</p>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">

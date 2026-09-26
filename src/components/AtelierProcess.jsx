@@ -16,16 +16,16 @@ export default function AtelierProcess() {
   ];
 
   return (
-    <section id="atelier" className="py-24 bg-white border-y border-slate-200">
+    <section id="atelier" className="py-20 sm:py-24 lg:py-32 bg-white border-y border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
+        <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
           <div data-reveal className="lg:w-1/2">
             <span className="text-[#C2410C] font-bold text-sm uppercase tracking-[0.2em]">Savoir-Faire Local</span>
             <h2 className="font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-[#0B132B] mt-4 mb-6 text-balance leading-[1.08]">Notre Atelier et Showroom à Bachdjerah, Alger</h2>
-            <p className="text-slate-600 mb-6 leading-relaxed">
+            <p className="text-lg text-slate-600 mb-8 leading-relaxed max-w-prose text-pretty">
               Contrairement aux intermédiaires, nous maîtrisons l'intégralité de la chaîne de production. De la première esquisse sur écran jusqu'à l'assemblage final en atelier et l'installation sur site.
             </p>
-            <div className="space-y-4">
+            <div className="space-y-5">
               {points.map((p, i) => (
                 <div key={i} className="flex items-start space-x-4">
                   <div className="w-8 h-8 rounded-full bg-orange-100 text-[#C2410C] flex items-center justify-center font-bold text-sm shrink-0 mt-1">✓</div>

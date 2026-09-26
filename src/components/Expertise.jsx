@@ -20,7 +20,7 @@ const items = [
 
 export default function Expertise() {
   return (
-    <section id="expertise" className="py-24 lg:py-32 bg-slate-50">
+    <section id="expertise" className="py-20 sm:py-24 lg:py-32 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-8 mb-16 items-end">
           <div data-reveal className="lg:col-span-7">

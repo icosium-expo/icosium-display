@@ -16,7 +16,7 @@ export default function GallerySection({
   onImageClick
 }) {
   return (
-    <section id="realisations" className="py-24 lg:py-32 bg-white relative">
+    <section id="realisations" className="py-20 sm:py-24 lg:py-32 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div data-reveal className="max-w-3xl mb-16">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#C2410C]">Portfolio</p>
