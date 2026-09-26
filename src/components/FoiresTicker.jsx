@@ -30,7 +30,7 @@ export default function FoiresTicker() {
             </div>
             <button
               onClick={() => setIsModalOpen(true)}
-              className="text-xs text-slate-400 hover:text-[#FF6B00] transition font-semibold whitespace-nowrap shrink-0 focus-visible:ring-2 focus-visible:ring-[#FF6B00] focus-visible:outline-none rounded"
+              className="text-xs text-slate-300 hover:text-[#FF6B00] transition font-semibold whitespace-nowrap shrink-0 focus-visible:ring-2 focus-visible:ring-[#FF6B00] focus-visible:outline-none rounded"
             >
               Voir tout ({foiresFutures.length}) →
             </button>
@@ -59,12 +59,12 @@ export default function FoiresTicker() {
                   key={i}
                   className="inline-flex items-center space-x-2 sm:space-x-3 bg-[#16223d] border border-slate-700 hover:border-[#FF6B00] rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 transition shrink-0"
                 >
-                  <span className={`${couleursBadge[compte.couleur]} text-[10px] font-black px-2 py-0.5 rounded-full whitespace-nowrap`}>
+                  <span className={`${couleursBadge[compte.couleur]} text-xs font-black px-2 py-0.5 rounded-full whitespace-nowrap`}>
                     ⏱ {compte.texteCourt}
                   </span>
                   <span className="text-[#FF6B00] text-xs font-bold whitespace-nowrap">{foire.date}</span>
                   <span className="text-white font-bold text-xs sm:text-sm whitespace-nowrap">{foire.nom}</span>
-                  <span className="text-slate-400 text-xs hidden sm:inline whitespace-nowrap">• {foire.wilaya}</span>
+                  <span className="text-slate-300 text-xs hidden sm:inline whitespace-nowrap">• {foire.wilaya}</span>
                 </div>
               );
             })}

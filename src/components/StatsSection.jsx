@@ -1,75 +1,84 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+
+const stats = [
+  { value: 100, suffix: '%', label: 'Atelier intégré à Bachdjerah' },
+  { value: '3D', label: 'Validation visuelle photoréaliste' },
+  { value: 'A → Z', label: 'Design, enseignes & showrooms' },
+  { value: 69, label: 'Salons & événements sur mesure' }
+];
+
+function useCountUp(target, start) {
+  const [n, setN] = useState(0);
+  useEffect(() => {
+    if (!start || typeof target !== 'number') return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setN(target);
+      return;
+    }
+    let raf;
+    let t0 = null;
+    const tick = (t) => {
+      if (t0 === null) t0 = t;
+      const p = Math.min((t - t0) / 1600, 1);
+      setN(Math.round((1 - Math.pow(1 - p, 3)) * target));
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [target, start]);
+  return n;
+}
+
+function Stat({ stat, start }) {
+  const n = useCountUp(stat.value, start);
+  const display = typeof stat.value === 'number' ? `${n}${stat.suffix || ''}` : stat.value;
+  return (
+    <div className="px-6 py-8 sm:py-10 text-center lg:text-left">
+      <div className="font-display text-5xl lg:text-6xl font-extrabold text-white tracking-tight tabular-nums">
+        {display}
+      </div>
+      <p className="mt-3 text-sm sm:text-base text-slate-300 font-medium max-w-[16rem] mx-auto lg:mx-0 text-pretty">
+        {stat.label}
+      </p>
+    </div>
+  );
+}
 
 export default function StatsSection() {
-  const [count1, setCount1] = useState(0);
-  const [count69, setCount69] = useState(0);
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    let startTime = null;
-    const duration = 2000;
-
-    const animateCounters = (currentTime) => {
-      if (!startTime) startTime = currentTime;
-      const progress = Math.min((currentTime - startTime) / duration, 1);
-
-      setCount1(Math.floor(progress * 100));
-      setCount69(Math.floor(progress * 69));
-
-      if (progress < 1) {
-        requestAnimationFrame(animateCounters);
-      }
-    };
-
-    const animationFrame = requestAnimationFrame(animateCounters);
-    return () => cancelAnimationFrame(animationFrame);
+    const el = ref.current;
+    if (!el || !('IntersectionObserver' in window)) {
+      setVisible(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
   }, []);
 
   return (
-    <section id="chiffres-cles" className="py-16 bg-[#0B132B] relative z-10 border-b border-slate-800/80">
+    <section
+      id="chiffres-cles"
+      ref={ref}
+      aria-label="Chiffres clés"
+      className="bg-[#0B132B] border-y border-white/10"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* 4 colonnes au lieu de 5 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-
-          {/* STAT 1 : 100% */}
-          <div className="bg-[#090E1A] p-6 rounded-2xl shadow-2xl border border-slate-800 hover:border-[#FF6B00]/50 transition duration-300 group flex flex-col items-center">
-            <div className="text-4xl md:text-5xl font-extrabold text-white mb-2 drop-shadow-md">
-              {count1}%
-            </div>
-            <p className="text-slate-300 text-xs font-semibold group-hover:text-[#FF6B00] transition duration-300">
-              Atelier Intégré (Bachdjerah)
-            </p>
-          </div>
-
-          {/* STAT 2 : 3D */}
-          <div className="bg-[#090E1A] p-6 rounded-2xl shadow-2xl border border-slate-800 hover:border-[#FF6B00]/50 transition duration-300 group flex flex-col items-center">
-            <div className="text-4xl md:text-5xl font-extrabold text-white mb-2 animate-pulse drop-shadow-md">
-              3D
-            </div>
-            <p className="text-slate-300 text-xs font-semibold group-hover:text-[#FF6B00] transition duration-300">
-              Validation Visuelle Photoréaliste
-            </p>
-          </div>
-
-          {/* STAT 3 : A → Z */}
-          <div className="bg-[#090E1A] p-6 rounded-2xl shadow-2xl border border-slate-800 hover:border-[#FF6B00]/50 transition duration-300 group flex flex-col items-center">
-            <div className="text-4xl md:text-5xl font-extrabold text-white mb-2 tracking-tight drop-shadow-md">
-              A → Z
-            </div>
-            <p className="text-slate-300 text-xs font-semibold group-hover:text-[#FF6B00] transition duration-300">
-              Design, Enseignes & Showrooms
-            </p>
-          </div>
-
-          {/* STAT 4 : 69 Salons */}
-          <div className="bg-[#090E1A] p-6 rounded-2xl shadow-2xl border border-slate-800 hover:border-[#FF6B00]/50 transition duration-300 group flex flex-col items-center">
-            <div className="text-4xl md:text-5xl font-extrabold text-white mb-2 drop-shadow-md">
-              {count69}
-            </div>
-            <p className="text-slate-300 text-xs font-semibold group-hover:text-[#FF6B00] transition duration-300">
-              Salons & Événements sur Mesure
-            </p>
-          </div>
-
+        <div className="grid grid-cols-2 lg:grid-cols-4 divide-white/10 lg:divide-x [&>*:nth-child(odd)]:border-r [&>*:nth-child(odd)]:border-white/10 lg:[&>*:nth-child(odd)]:border-r-0 [&>*:nth-child(n+3)]:border-t [&>*:nth-child(n+3)]:border-white/10 lg:[&>*:nth-child(n+3)]:border-t-0">
+          {stats.map((s) => (
+            <Stat key={s.label} stat={s} start={visible} />
+          ))}
         </div>
       </div>
     </section>

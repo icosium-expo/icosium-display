@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        display: ['Sora', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+      },
       colors: {
         brandDark: '#0B132B',
         brandCard: '#1C2541',

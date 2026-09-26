@@ -54,13 +54,13 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-white border-t border-slate-200">
+    <section id="contact" className="py-20 sm:py-24 lg:py-32 bg-slate-50 border-t border-slate-200">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <span className="text-[#FF6B00] font-bold text-sm uppercase tracking-wider">Parlons de votre projet</span>
-          <h2 className="text-3xl font-extrabold text-[#0B132B] mt-2 mb-3">Obtenez votre devis sous 24&nbsp;h</h2>
-          <p className="text-slate-600">Remplissez ce formulaire ou contactez-nous directement.</p>
-          <div className="mt-4 flex flex-wrap justify-center gap-6 text-sm font-semibold text-slate-700">
+        <div data-reveal className="text-center mb-12">
+          <span className="text-[#C2410C] font-bold text-sm uppercase tracking-[0.2em]">Parlons de votre projet</span>
+          <h2 className="font-display text-4xl font-extrabold tracking-tight text-[#0B132B] mt-3 mb-3 text-balance">Obtenez votre devis sous 24&nbsp;h</h2>
+          <p className="text-lg text-slate-600 text-pretty">Remplissez ce formulaire ou contactez-nous directement.</p>
+          <div className="mt-6 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm font-semibold text-slate-700">
             <a href="tel:+213550886640"><span aria-hidden="true">📞</span> +213 (0) 550 88 66 40</a>
             <a href="tel:+213552940009"><span aria-hidden="true">📞</span> +213 (0) 552 94 00 09</a>
             <a href="mailto:contact@icosium-expo.com"><span aria-hidden="true">✉️</span> contact@icosium-expo.com</a>
@@ -76,7 +76,7 @@ export default function ContactSection() {
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-6 bg-slate-50 p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-xl">
+          <form onSubmit={handleSubmit} className="space-y-6 bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-xl shadow-slate-900/5">
             {error && <div role="alert" className="bg-red-50 text-red-700 p-4 rounded-xl text-sm">{error}</div>}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
@@ -104,7 +104,7 @@ export default function ContactSection() {
               <label htmlFor="description" className="block text-sm font-semibold text-slate-700 mb-2">Description de votre besoin</label>
               <textarea id="description" name="description" autoComplete="off" rows="4" value={formData.description} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B00] focus-visible:border-[#FF6B00]" placeholder="Détails du projet…"></textarea>
             </div>
-            <button type="submit" disabled={submitting} className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#FF6B00] w-full bg-[#FF6B00] hover:bg-orange-600 disabled:bg-orange-300 text-white font-bold py-4 rounded-xl transition cursor-pointer">
+            <button type="submit" disabled={submitting} className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#FF6B00] w-full bg-[#FF6B00] hover:bg-[#ff8533] disabled:bg-orange-300 text-[#0B132B] font-bold py-4 rounded-xl transition cursor-pointer">
               {submitting ? "Envoi en cours…" : "Envoyer ma demande"}
             </button>
           </form>

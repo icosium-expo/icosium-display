@@ -18,6 +18,7 @@ import ImageModal from './components/ImageModal';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import useSmoothScroll from './hooks/useSmoothScroll';
+import useReveal from './hooks/useReveal';
 
 export default function App() {
   
@@ -29,18 +30,20 @@ export default function App() {
   const [salonSlide, setSalonSlide] = useState(0);
   const [modalImage, setModalImage] = useState(null);
   const [isPaused, setIsPaused] = useState(false);
+  const [heroPaused, setHeroPaused] = useState(false);
 
   useSmoothScroll();
+  useReveal();
 
   // ========== AUTO-SLIDE HERO (6 images, toutes les 4 secondes) ==========
   useEffect(() => {
-    if (!heroImages.length) return;
+    if (heroPaused || !heroImages.length) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroImages.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [heroPaused]);
 
   // ========== AUTO-SLIDE STANDS (93 images, toutes les 5 secondes) ==========
   useEffect(() => {
@@ -79,9 +82,13 @@ export default function App() {
   }, [isPaused, salonsImages.length]);
 
   return (
-    <div className="bg-slate-50 text-slate-800 font-['Plus_Jakarta_Sans',sans-serif] antialiased selection:bg-[#FF6B00] selection:text-white min-h-screen overflow-x-hidden">
+    <div className="bg-white text-slate-800 font-sans antialiased selection:bg-[#FF6B00] selection:text-[#0B132B] min-h-screen overflow-x-hidden">
+      <a href="#contenu" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-[#FF6B00] focus:text-[#0B132B] focus:font-bold focus:px-5 focus:py-3 focus:rounded-full">
+        Aller au contenu
+      </a>
       <Header mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
-      <Hero currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} />
+      <main id="contenu">
+      <Hero currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} heroPaused={heroPaused} setHeroPaused={setHeroPaused} />
       <StatsSection />
       <Expertise />
       <AtelierProcess />
@@ -97,6 +104,7 @@ export default function App() {
       />
       <ImageModal modalImage={modalImage} setModalImage={setModalImage} />
       <ContactSection />
+      </main>
       <Footer />
     </div>
   );

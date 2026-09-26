@@ -1,44 +1,57 @@
 import React from 'react';
 
-export default function Expertise() {
-  const items = [
-    {
-      num: '01',
-      color: 'bg-orange-50 text-[#FF6B00] border-orange-100',
-      title: 'Salons et Foires Professionnelles',
-      desc: 'Déploiement et installation de stands à travers les 69 wilayas. Logistique intégrée, montage rapide et respect absolu des délais pour tous vos événements professionnels.'
-    },
-    {
-      num: '02',
-      color: 'bg-blue-50 text-[#3A86FF] border-blue-100',
-      title: 'Enseignes Lumineuses & Signalétique',
-      desc: 'Fabrication de caissons lumineux, lettres en relief (LED), totems et signalétique extérieure pour une visibilité optimale de jour comme de nuit.'
-    },
-    {
-      num: '03',
-      color: 'bg-slate-100 text-[#0B132B] border-slate-200',
-      title: 'Modélisation 3D & Découpe CNC',
-      desc: 'Visualisation 3D photoréaliste avant fabrication. Usinage de précision sur bois, PVC, aluminium et panneaux pour des finitions irréprochables.'
-    }
-  ];
+const items = [
+  {
+    num: '01',
+    title: 'Salons et foires professionnelles',
+    desc: 'Déploiement et installation de stands à travers les 69 wilayas. Logistique intégrée, montage rapide et respect absolu des délais pour tous vos événements professionnels.'
+  },
+  {
+    num: '02',
+    title: 'Enseignes lumineuses & signalétique',
+    desc: 'Fabrication de caissons lumineux, lettres en relief (LED), totems et signalétique extérieure pour une visibilité optimale de jour comme de nuit.'
+  },
+  {
+    num: '03',
+    title: 'Modélisation 3D & découpe CNC',
+    desc: 'Visualisation 3D photoréaliste avant fabrication. Usinage de précision sur bois, PVC, aluminium et panneaux pour des finitions irréprochables.'
+  }
+];
 
+export default function Expertise() {
   return (
-    <section id="expertise" className="py-24 bg-slate-50">
+    <section id="expertise" className="py-20 sm:py-24 lg:py-32 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-[#FF6B00] font-bold text-sm uppercase tracking-wider">Solutions Sur Mesure</span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B132B] mt-2 mb-4">L'Excellence de la Conception à l'Installation</h2>
-          <p className="text-slate-600">Des Espaces et des Enseignes Pensés Pour Maximiser Votre Visibilité et Refléter Votre Identité Visuelle.</p>
+        <div className="grid lg:grid-cols-12 gap-8 mb-16 items-end">
+          <div data-reveal className="lg:col-span-7">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#C2410C]">Solutions sur mesure</p>
+            <h2 className="font-display mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight text-[#0B132B] text-balance leading-[1.08]">
+              L’excellence, de la conception à l’installation.
+            </h2>
+          </div>
+          <p data-reveal style={{ '--d': '120ms' }} className="lg:col-span-5 text-lg text-slate-600 leading-relaxed text-pretty">
+            Des espaces et des enseignes pensés pour maximiser votre visibilité et refléter votre identité visuelle.
+          </p>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
-          {items.map((item) => (
-            <div key={item.num} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-xl hover:-translate-y-1 transition duration-300">
-              <div className={`w-14 h-14 ${item.color} rounded-2xl flex items-center justify-center font-black text-xl mb-6 border`}>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {items.map((item, i) => (
+            <article
+              key={item.num}
+              data-reveal
+              style={{ '--d': `${i * 100}ms` }}
+              className="group relative bg-white rounded-3xl p-8 lg:p-10 border border-slate-200 overflow-hidden transition duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-slate-900/10 hover:border-transparent"
+            >
+              <span
+                aria-hidden="true"
+                className="absolute inset-x-0 top-0 h-1 bg-[#FF6B00] origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100"
+              />
+              <span className="font-display text-6xl font-extrabold text-slate-200 transition-colors duration-500 group-hover:text-[#FF6B00] tabular-nums">
                 {item.num}
-              </div>
-              <h3 className="text-xl font-bold text-[#0B132B] mb-3">{item.title}</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
-            </div>
+              </span>
+              <h3 className="font-display mt-8 text-2xl font-bold text-[#0B132B] leading-snug text-balance">{item.title}</h3>
+              <p className="mt-4 text-slate-600 leading-relaxed text-pretty">{item.desc}</p>
+            </article>
           ))}
         </div>
       </div>

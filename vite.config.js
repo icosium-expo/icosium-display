@@ -7,5 +7,6 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
-  base: '/icosium-display/',  // ← ⚠️ VÉRIFIE QUE CETTE LIGNE EST LÀ
+  // GitHub Pages : /icosium-display/ (défaut). Vercel / Netlify : définir VITE_BASE=/
+  base: process.env.VITE_BASE ?? '/icosium-display/',
 })

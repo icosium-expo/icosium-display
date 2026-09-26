@@ -71,7 +71,7 @@ export default function FoireDetail({ foire, onClose }) {
               {foire.nom}
             </h2>
             <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-              <span className="bg-[#FF6B00] text-white text-xs font-bold px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full">
+              <span className="bg-[#FF6B00] text-[#0B132B] text-xs font-bold px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full">
                 {foire.wilaya}
               </span>
               <span className="bg-white/10 text-white text-xs font-bold px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full border border-white/20">
@@ -81,7 +81,7 @@ export default function FoireDetail({ foire, onClose }) {
           </div>
           <button
             onClick={onClose}
-            className="bg-slate-800 hover:bg-[#FF6B00] text-white w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition duration-200 hover:scale-110 shadow-lg shrink-0"
+            className="bg-slate-800 hover:bg-[#FF6B00] hover:text-[#0B132B] text-white w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition duration-200 hover:scale-110 shadow-lg shrink-0"
             aria-label="Fermer"
           >
             <IconClose />
