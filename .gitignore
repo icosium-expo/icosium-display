@@ -39,3 +39,8 @@ build
 .cache/
 # Dossier images brutes
 image stand/
+
+# Skills Claude Code (installés localement)
+.agents/
+.claude/
+skills-lock.json
