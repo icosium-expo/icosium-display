@@ -52,21 +52,21 @@ function ImageDialog({ modalImage, setModalImage }) {
 
         <button
           onClick={goPrev}
-          className={`absolute left-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 hover:bg-[#DF7D23] hover:text-[#1F2430] text-white rounded-full flex items-center justify-center text-2xl transition-colors ${focusRing}`}
+          className={`absolute left-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 hover:bg-[#DF7D23] hover:text-black text-white rounded-full flex items-center justify-center text-2xl transition-colors ${focusRing}`}
           aria-label="Image précédente"
         >
           <span aria-hidden="true">‹</span>
         </button>
         <button
           onClick={goNext}
-          className={`absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 hover:bg-[#DF7D23] hover:text-[#1F2430] text-white rounded-full flex items-center justify-center text-2xl transition-colors ${focusRing}`}
+          className={`absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 hover:bg-[#DF7D23] hover:text-black text-white rounded-full flex items-center justify-center text-2xl transition-colors ${focusRing}`}
           aria-label="Image suivante"
         >
           <span aria-hidden="true">›</span>
         </button>
         <button
           onClick={() => setModalImage(null)}
-          className={`absolute top-2 right-2 text-white bg-black/60 hover:bg-[#DF7D23] hover:text-[#1F2430] w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl transition-colors ${focusRing}`}
+          className={`absolute top-2 right-2 text-white bg-black/60 hover:bg-[#DF7D23] hover:text-black w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl transition-colors ${focusRing}`}
           aria-label="Fermer"
         >
           <span aria-hidden="true">✕</span>

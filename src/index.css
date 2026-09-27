@@ -127,12 +127,20 @@ html, body {
   -webkit-text-fill-color: transparent;
 }
 
+.text-gradient-orange {
+  background-image: linear-gradient(100deg, #A94F14 0%, #C4611A 45%, #DF7D23 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
 /* Aurores lumineuses derrière le hero (opacity/transform uniquement) */
 .aurora {
   position: absolute;
   border-radius: 9999px;
   filter: blur(90px);
-  opacity: 0.45;
+  opacity: 0.22;
   pointer-events: none;
   will-change: transform;
 }
@@ -163,6 +171,7 @@ html, body {
   pointer-events: none;
 }
 .btn-shine:hover::after { transform: translateX(120%); }
+.btn-shine:hover { color: #000; }
 
 /* Accessibilité : respecte la préférence "réduire les animations" */
 @media (prefers-reduced-motion: reduce) {

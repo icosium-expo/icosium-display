@@ -2,13 +2,13 @@ import React from 'react';
 import { heroImages } from '../galerie/imagesConfig';
 
 const focusRing =
-  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#142850]';
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A94F14] focus-visible:ring-offset-2 focus-visible:ring-offset-white';
 
 export default function Hero({ currentSlide, setCurrentSlide, heroPaused, setHeroPaused }) {
   return (
     <section
       id="accueil"
-      className="relative isolate overflow-hidden bg-[#142850] text-white min-h-[min(calc(100svh-6rem),52rem)] flex items-center"
+      className="relative isolate overflow-hidden bg-white text-[#1F2430] min-h-[min(calc(100svh-6rem),52rem)] flex items-center"
     >
       {/* Diaporama plein cadre */}
       <div className="absolute inset-0 -z-10" aria-hidden="true">
@@ -26,8 +26,9 @@ export default function Hero({ currentSlide, setCurrentSlide, heroPaused, setHer
             }`}
           />
         ))}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#142850] via-[#142850]/85 to-[#142850]/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#142850] via-transparent to-[#142850]/40" />
+        <div className="absolute inset-0 bg-white/85 lg:bg-transparent" />
+        <div className="absolute inset-0 hidden lg:block bg-gradient-to-r from-white via-white/92 to-white/10" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white to-transparent" />
         <div className="aurora aurora-a" />
         <div className="aurora aurora-b" />
       </div>
@@ -36,9 +37,9 @@ export default function Hero({ currentSlide, setCurrentSlide, heroPaused, setHer
         <div className="max-w-3xl">
           <p
             data-reveal
-            className="inline-flex items-center gap-3 text-sm font-semibold tracking-[0.2em] uppercase text-[#F2A03A] mb-8"
+            className="inline-flex items-center gap-3 text-sm font-semibold tracking-[0.2em] uppercase text-[#A94F14] mb-8"
           >
-            <span className="h-px w-10 bg-[#F2A03A]" aria-hidden="true" />
+            <span className="h-px w-10 bg-[#A94F14]" aria-hidden="true" />
             Stands · Showrooms · Enseignes lumineuses
           </p>
 
@@ -47,13 +48,13 @@ export default function Hero({ currentSlide, setCurrentSlide, heroPaused, setHer
             style={{ '--d': '100ms' }}
             className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.02] text-balance"
           >
-            Donnez une envergure <span className="text-gradient-gold">exceptionnelle</span> à votre marque.
+            Donnez une envergure <span className="text-gradient-orange">exceptionnelle</span> à votre marque.
           </h1>
 
           <p
             data-reveal
             style={{ '--d': '200ms' }}
-            className="mt-8 text-lg sm:text-xl text-slate-200 leading-relaxed max-w-2xl text-pretty"
+            className="mt-8 text-lg sm:text-xl text-slate-700 leading-relaxed max-w-2xl text-pretty"
           >
             De la conception 3D à la fabrication, nous réalisons vos stands, showrooms et enseignes
             lumineuses dans notre atelier d’Alger.
@@ -62,14 +63,14 @@ export default function Hero({ currentSlide, setCurrentSlide, heroPaused, setHer
           <div data-reveal style={{ '--d': '300ms' }} className="mt-10 flex flex-col sm:flex-row gap-4">
             <a
               href="#contact"
-              className={`btn-shine group inline-flex items-center justify-center gap-3 bg-[#DF7D23] text-[#1F2430] font-bold px-8 py-4 rounded-full transition hover:bg-[#F2A03A] hover:-translate-y-0.5 shadow-xl shadow-amber-500/25 ${focusRing}`}
+              className={`btn-shine group inline-flex items-center justify-center gap-3 bg-[#DF7D23] text-[#1F2430] font-bold px-8 py-4 rounded-full transition hover:bg-[#F2A03A] hover:text-black hover:-translate-y-0.5 shadow-xl shadow-amber-500/25 ${focusRing}`}
             >
               Lancer votre projet 3D
               <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
             </a>
             <a
               href="#realisations"
-              className={`inline-flex items-center justify-center gap-2 border border-white/30 bg-white/5 backdrop-blur text-white font-semibold px-8 py-4 rounded-full transition hover:bg-white/15 ${focusRing}`}
+              className={`inline-flex items-center justify-center gap-2 border border-slate-300 bg-white text-[#1F2430] font-semibold px-8 py-4 rounded-full transition hover:bg-slate-100 hover:border-slate-400 ${focusRing}`}
             >
               Voir nos réalisations
             </a>
@@ -83,7 +84,7 @@ export default function Hero({ currentSlide, setCurrentSlide, heroPaused, setHer
           <button
             onClick={() => setHeroPaused(!heroPaused)}
             aria-label={heroPaused ? 'Reprendre le diaporama' : 'Mettre le diaporama en pause'}
-            className={`w-11 h-11 rounded-full border border-white/30 bg-black/30 backdrop-blur flex items-center justify-center hover:bg-white/20 transition-colors ${focusRing}`}
+            className={`w-11 h-11 rounded-full border border-slate-300 bg-white/90 text-[#1F2430] flex items-center justify-center hover:bg-slate-100 transition-colors ${focusRing}`}
           >
             <span aria-hidden="true" className="text-sm leading-none">{heroPaused ? '▶' : '❚❚'}</span>
           </button>
@@ -98,13 +99,13 @@ export default function Hero({ currentSlide, setCurrentSlide, heroPaused, setHer
               >
                 <span
                   className={`block h-1.5 rounded-full transition-all duration-500 ${
-                    index === currentSlide ? 'w-10 bg-[#DF7D23]' : 'w-5 bg-white/40 group-hover:bg-white/80'
+                    index === currentSlide ? 'w-10 bg-[#DF7D23]' : 'w-5 bg-slate-300 group-hover:bg-slate-500'
                   }`}
                 />
               </button>
             ))}
           </div>
-          <span className="ml-auto text-sm font-semibold text-slate-200 tabular-nums" aria-hidden="true">
+          <span className="ml-auto text-sm font-semibold text-slate-600 tabular-nums" aria-hidden="true">
             {String(currentSlide + 1).padStart(2, '0')} / {String(heroImages.length).padStart(2, '0')}
           </span>
         </div>

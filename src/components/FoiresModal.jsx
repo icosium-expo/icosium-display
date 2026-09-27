@@ -128,7 +128,7 @@ export default function FoiresModal({ onClose }) {
           </div>
           <button
             onClick={onClose}
-            className="bg-slate-800 hover:bg-[#DF7D23] hover:text-[#1F2430] text-white w-8 h-8 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition duration-200 hover:scale-110 shadow-lg shrink-0"
+            className="bg-slate-800 hover:bg-[#DF7D23] hover:text-black text-white w-8 h-8 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition duration-200 hover:scale-110 shadow-lg shrink-0"
             aria-label="Fermer"
           >
             <IconClose />

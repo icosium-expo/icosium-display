@@ -104,7 +104,7 @@ export default function ContactSection() {
               <label htmlFor="description" className="block text-sm font-semibold text-slate-700 mb-2">Description de votre besoin</label>
               <textarea id="description" name="description" autoComplete="off" rows="4" value={formData.description} onChange={handleChange} className="w-full px-4 py-3.5 rounded-xl border border-slate-300 bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#DF7D23] focus-visible:border-[#DF7D23]" placeholder="Détails du projet…"></textarea>
             </div>
-            <button type="submit" disabled={submitting} className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#DF7D23] w-full bg-[#DF7D23] hover:bg-[#F2A03A] disabled:bg-amber-200 text-[#1F2430] font-bold py-4 rounded-xl transition cursor-pointer">
+            <button type="submit" disabled={submitting} className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#DF7D23] w-full bg-[#DF7D23] hover:bg-[#F2A03A] hover:text-black disabled:bg-amber-200 text-[#1F2430] font-bold py-4 rounded-xl transition cursor-pointer">
               {submitting ? "Envoi en cours…" : "Envoyer ma demande"}
             </button>
           </form>

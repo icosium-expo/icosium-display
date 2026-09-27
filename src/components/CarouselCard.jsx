@@ -74,14 +74,14 @@ export default function CarouselCard({
           <button
             onClick={goPrev}
             aria-label="Image précédente"
-            className={`w-11 h-11 bg-black/60 backdrop-blur hover:bg-[#DF7D23] hover:text-[#1F2430] text-white rounded-full flex items-center justify-center text-xl transition-colors ${ring}`}
+            className={`w-11 h-11 bg-black/60 backdrop-blur hover:bg-[#DF7D23] hover:text-black text-white rounded-full flex items-center justify-center text-xl transition-colors ${ring}`}
           >
             <span aria-hidden="true">‹</span>
           </button>
           <button
             onClick={goNext}
             aria-label="Image suivante"
-            className={`w-11 h-11 bg-black/60 backdrop-blur hover:bg-[#DF7D23] hover:text-[#1F2430] text-white rounded-full flex items-center justify-center text-xl transition-colors ${ring}`}
+            className={`w-11 h-11 bg-black/60 backdrop-blur hover:bg-[#DF7D23] hover:text-black text-white rounded-full flex items-center justify-center text-xl transition-colors ${ring}`}
           >
             <span aria-hidden="true">›</span>
           </button>
