@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import logoSvg from '../assets/logo.svg';
 
 const links = [
@@ -35,7 +35,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }) {
             <a
               key={link.href}
               href={link.href}
-              className={`px-4 py-2 text-sm font-semibold text-slate-700 rounded-lg transition-colors hover:text-[#1F2430] hover:bg-slate-100 ${focusRing}`}
+              className={`px-4 py-2 text-sm font-semibold text-slate-700 rounded-lg transition-colors duration-200 hover:bg-[#142850] hover:text-white focus-visible:bg-[#142850] focus-visible:text-white ${focusRing}`}
             >
               {link.label}
             </a>
@@ -84,7 +84,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }) {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`py-3.5 text-lg font-semibold text-[#1F2430] border-b border-slate-100 hover:text-[#A94F14] transition-colors ${focusRing}`}
+                className={`px-3 py-3.5 text-lg font-semibold text-[#1F2430] rounded-lg transition-colors duration-200 hover:bg-[#142850] hover:text-white active:bg-[#142850] active:text-white ${focusRing}`}
               >
                 {link.label}
               </a>
