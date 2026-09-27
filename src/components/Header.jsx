@@ -21,14 +21,8 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }) {
           className={`shrink-0 rounded-lg ${focusRing}`}
           aria-label="Icosium Display, retour à l'accueil"
         >
-          <span className="flex items-center gap-3">
-            <span className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl bg-white p-1.5 shadow-lg shadow-black/30 ring-2 ring-[#DF7D23]/70">
-              <img src={logoSvg} alt="" width="64" height="64" className="h-full w-full object-contain" />
-            </span>
-            <span className="hidden sm:flex flex-col leading-none" translate="no">
-              <span className="font-display text-lg font-extrabold tracking-wide text-white">ICOSIUM</span>
-              <span className="mt-1 text-[0.7rem] font-semibold tracking-[0.42em] text-[#F2A03A]">DISPLAY</span>
-            </span>
+          <span className="flex h-16 w-16 sm:h-[4.75rem] sm:w-[4.75rem] items-center justify-center rounded-2xl bg-white p-1.5 sm:p-2 shadow-lg shadow-black/30 ring-2 ring-[#DF7D23]/70 transition-transform duration-300 hover:scale-105">
+            <img src={logoSvg} alt="Icosium Display" width="76" height="76" className="h-full w-full object-contain" />
           </span>
         </a>
 
